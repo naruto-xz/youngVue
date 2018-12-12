@@ -1,0 +1,226 @@
+<template>
+	<element-select class="xui-select xui-select-style" ref="select" @visible-change="blur" :style="safeOptions.style" v-model="widgetValue" :placeholder="cplaceholder" :clearable="cclearable" :multiple="cmultiple" :disabled="cdisabled" :filterable="filterable" :filter-method="filterMethod" :size="csize" @change="changeSelect" :class="{'multiple-select': isMore, 'selectMultiple': !iswrap}">
+		<template v-if="inited&&groupable">
+			<element-option-group v-for="(group,index) in items" :key="index" :label="group.group">
+				<element-option v-for="item in group.items" :key="item.value" :value="item.value" :label="item.text" :disabled="disabledOptions(item)"></element-option>
+			</element-option-group>
+		</template>
+		<template v-if="inited&&!groupable">
+			<element-option v-for="item in items" :key="item.value" :value="item.value" :label="item.text"></element-option>
+		</template>
+	</element-select>
+</template>
+<script>
+import { Select, Option, OptionGroup } from "element-ui";
+import Sunset from "../../../common/sunset";
+import Utils from "../../Helper.js";
+
+export default {
+	components: {
+		elementSelect: Select,
+		elementOption: Option,
+		elementOptionGroup: OptionGroup
+	},
+	model: {
+		prop: "value",
+		event: "input"
+	},
+	props: {
+		options: {
+			type: Object
+		},
+		value: {},
+		disabled: {},
+		multiple: {},
+		placeholder: {}
+	},
+	data() {
+		return {
+			groupable: false,
+			originItems: [],
+			items: [],
+			lock: false,
+			isMore: false,
+			inited: false
+		};
+	},
+	computed: {
+		safeOptions() {
+			return this.options || {};
+		},
+		cdisabled() {
+			return this.disabled === true || this.safeOptions.disabled === true;
+		},
+		cplaceholder() {
+			return this.placeholder || this.safeOptions.placeholder || "请选择";
+		},
+		cclearable() {
+			return this.safeOptions.clearable !== false;
+		},
+		cmultiple() {
+			return this.multiple || this.safeOptions.multiple;
+		},
+		csize() {
+			return this.size || this.safeOptions.size;
+		},
+		spliter() {
+			return this.safeOptions.spliter || ",";
+		},
+		filterable() {
+			return this.safeOptions.filter;
+		},
+		iswrap() {
+			var value = this.safeOptions.iswrap === undefined ? false : this.safeOptions.iswrap;
+			return value;
+		},
+		filterMethod() {
+			return v => {
+				if (v == "" || v == void 0) {
+					this.items = this.originItems;
+					return;
+				}
+				var filterMethod = Sunset.isFunction(this.options && this.options.filter)
+					? this.options.filter
+					: function(item, v) {
+							return (
+								item.text.indexOf(v) >= 0 ||
+								item.value.indexOf(v) >= 0 ||
+								(item.keywords && item.keywords.indexOf(v) >= 0)
+							);
+					  };
+				var filterItems = this.originItems.filter(item => {
+					return filterMethod(item, v);
+				});
+				this.items = filterItems;
+			};
+		},
+		widgetValue: {
+			set(v) {
+				var value;
+				if (Sunset.isArray(v)) {
+					if (this.options.max) {
+						if (v.length > this.options.max) {
+							Sunset.tip(`最多选择${this.options.max}个`);
+							v.pop();
+						}
+					}
+					value = v.length ? v.join(this.spliter) : "";
+				} else {
+					value = v;
+				}
+				this.$emit("input", value);
+				if (value != this.value) {
+					this.$emit("change", value);
+				}
+			},
+			get() {
+				var value = this.value;
+				var widgetValue = null;
+				if (this.cmultiple) {
+					if (Sunset.isArray(value)) {
+						widgetValue = value;
+					} else {
+						widgetValue = !!value ? (value + "").split(this.spliter) : [];
+					}
+				} else {
+					widgetValue = value;
+				}
+				return widgetValue;
+			}
+		}
+	},
+	methods: {
+		init() {
+			this.inited = true;
+			Utils.generateItems(this.options).then(items => {
+				var groups = {},
+					others = [],
+					groupable = false;
+				items &&
+					items.forEach(item => {
+						if (item.group) {
+							groupable = true;
+							(groups[item.group] || (groups[item.group] = [])).push(item);
+						} else {
+							others.push(item);
+						}
+					});
+				if ((this.groupable = groupable)) {
+					var groupItems = [];
+					for (var g in groups) {
+						if (groups.hasOwnProperty(g)) {
+							groupItems.push({
+								group: g,
+								items: groups[g]
+							});
+						}
+					}
+					others.length &&
+						groupItems.push({
+							group: "其他",
+							items: others
+						});
+					this.items = groupItems;
+				} else {
+					this.items = items;
+				}
+				this.originItems = this.items;
+			});
+		},
+		disabledOptions(item) {
+			return Sunset.isFunction(this.options.disabledOptions) ? this.options.disabledOptions(item) : true;
+		},
+		blur(flag) {
+			this.inited = true;
+			if (flag) {
+				this.items = this.originItems;
+			}
+		},
+		changeSelect() {
+			if (!this.cmultiple || this.iswrap) {
+				return;
+			}
+			this.$nextTick(() => {
+				let [$span, tags, Len] = [this.$refs.select.$refs.tags.children[0].childNodes, [], 0];
+				for (let i = 0, len = $span.length; i < len; i++) {
+					if ($span[i].className.indexOf("leave") > -1) {
+						tags.slice(i, 1);
+					} else {
+						tags.push($span[i]);
+					}
+				}
+				for (let i = 0, len = tags.length; i < len; i++) {
+					Len += tags[i].offsetWidth;
+				}
+				this.isMore = Len > 130 ? true : false;
+			});
+		}
+	},
+	mounted() {
+		this.init();
+		this.$watch("options.data", function() {
+			this.init();
+		});
+		this.$watch("options.enum", function() {
+			this.init();
+		});
+	}
+};
+</script>
+<style lang="less">
+.xui-select.xui-select-style.multiple-select.selectMultiple {
+	&:after {
+		content: "...";
+		position: absolute;
+		right: 27px;
+		bottom: 0px;
+		color: #ccc;
+		font-size: 12px;
+	}
+	.el-select__tags {
+		max-width: 150px !important;
+		overflow: hidden;
+		white-space: nowrap;
+	}
+}
+</style>

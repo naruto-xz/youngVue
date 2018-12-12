@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>structure</title>
+</head>
+<body>
+  <div>wxty structure</div>
+
+</body>
+</html>
+<script src="../../wxty/js/structure.js"></script>
+<script>
+  // 1.定义一个入口的app
+  // <div id="app" style="height:100%;"></div>
+
+  // 2.main.js 总入口
+  //  2.1 import Vue from "vue";  引入vue的包，挂载app
+  // $dictionary
+  //   .init()
+  //   .then(res => {
+  //     new Vue({ el: "#app", router, render: h => h(App) });
+  //     //开启扩展屏
+  //     $business.openExtend("/exhtml.html", "extendWindow");
+  //
+  //   })
+  //   .catch(res => {
+  //     new Vue({ el: "#app", router, render: h => h(App) });
+  //     $router.push("/login");
+  //   });
+
+  //  2.2 import App from "./App.vue";  路由程序入口
+  // <template>
+  //   <router-view></router-view>
+  // </template>
+
+  // 2.3 import Router from "vue-router";  Vue.use(Router);  //引入路由包，配置路由
+  // var router = new Router({
+  //   routes: [{
+  //     path: "/",
+  //     component: Modules
+  //   },
+  //     {
+  //       path: "/login",
+  //       component: Login
+  //     }
+  //   ]
+  // });
+  // window.$router = router;
+
+  // 2.4 import "./services/index";   //引入公共服务,挂载在window上，以便随处调用
+  // //请求服务 - $http
+  // import "./http/index";
+  // //配置服务 - $config
+  // import "./config/index";
+  // //通知tip/notify服务 - $tip $confirm $notify
+  // import "./notify/index";
+  // //业务工具服务 - $business
+  // import "./business/index";
+  // //字典服务 - $dictionary
+  // import "./dictionary/index";
+  // //工具服务 - $tools
+  // import "./tools/index";
+  // //mq消息服务
+  // import "./message/index";
+
+  // 2.5  //引入公共样式 在全局生效
+  // import "./style/index.less";
+  // import "./style/lottery.css";
+
+  //2.6 //其它依赖引入
+  // echarts引入
+  // window.$echarts = require("src/libs/echarts.min");
+  //ix、toolkits工具类
+  // import "src/libs/ix.js";
+  // import "src/vendor/toolkit.js";
+  //引入组件库
+  // import NetPosaXUI from "./netposa_xui";
+  // Vue.use(NetPosaXUI);
+
+  // 3.import Login from "modules/login/index.vue";
+  // 增加登录页面 发送登录请求给后端验证，验证通过后跳转到（import Modules from "./Modules.vue";）module.vue页面，并打开扩展屏幕
+  // <div class="login-form">
+  //   <div class="text input">
+  //      <label>用户名</label>
+  //      <xui-input v-model="userName" :options="userOptions" @input="userNameHandle" class="userInput"></xui-input>
+  //   </div>
+  //   <div class="text input">
+  //      <label class="pwd">密码</label>
+  //      <xui-input v-model="pwd" :options="pwdOptions" @input="pwdHandle"></xui-input>
+  //   </div>
+  //   <div class="text">
+  //      <div class="submit" @click="loginHandle">登录</div>
+  //   </div>
+  // </div>
+  // $http({
+  //   url: "gateway/login",
+  //   type: "POST",
+  //   data: {
+  //     visitHost: "",
+  //     cip: "",
+  //     cmac: "",
+  //     username: this.userName,
+  //     password: MD5(this.pwd)
+  //   },
+  //   formdata: true
+  // }).then(userInfo => {
+  //   console.log(userInfo);
+  //   if (userInfo) {
+  //     $business.setCurrentUser(userInfo);
+  //     $router.push("/");
+  //     //开启扩展屏
+  //     $business.openExtend("/exhtml.html");
+  //   }
+  // });
+
+  // module.exports = window.$business = {} 通用业务方法封装起来在$business对象里，挂在window上，导出给外部使用
+
+  // 3.1 把拿到的用户信息储存在localstorage里面,方便后面使用
+  // setCurrentUser(user) {
+  //   currentUser = user;
+  //   localStorage.setItem("session_user", JSON.stringify(user));
+  //   while (waitUser.length) {
+  //     waitUser.shift()(user);
+  //   }
+  // },
+  // 对应获取用户信息方法
+  // getCurrentUser() {
+  //   if (!currentUser) {
+  //     var cacheuser = localStorage.getItem("session_user");
+  //     if (cacheuser) {
+  //       currentUser = JSON.parse(cacheuser);
+  //     }
+  //   }
+  //   return currentUser;
+  // },
+
+  // 3.2 $business.openExtend()  打开扩展屏
+  // openExtend(src, model) {
+  //   //主页面打开子页面
+  //   setTimeout(() => {
+  //     if (!window[model]) {
+  //       openWindow(src, model);
+  //     }
+  //   }, 3000);
+  // },
+  // function openWindow(url, model) {
+  //   var codeurl = encodeURI(encodeURI(url));
+  //   if (window[model] && !window[model].closed) {
+  //     window[model].location = codeurl;
+  //   } else {
+  //     window[model] = window.open(codeurl, "", `height=1080,width=1920,top=0,left=0,toolbar=no`);
+  //   }
+  // }
+
+  // 4.$router.push("/"); 登录成功后切换到modules.vue页面开始真正的页面业务，modules.vue 里面集成了所有的子业务模块
+  // 4.1 在vue创建阶段先初始化一下，定义好各种模块切换的逻辑思想方法
+  //<!-- 资源检索模块 -->
+  // <module-resource ref="resource" v-show="activeModule=='resource'" />
+  //<!--一人一档模块-->
+  // <module-persondetail ref="persondetail" v-if="activeModule=='persondetail'" />
+  //<!--一车一档模块-->
+  // <module-vehicledetail ref="vehicledetail" v-if="activeModule=='vehicledetail'" />
+  // data(){
+  //   activeModule: "resource", //统一定义一个变量来控制渲染哪一个模块，默认先渲染了resource模块
+  // }
+  // created() {
+  //   this.init();
+  // },
+  // init() {
+  //   window.$app = {
+  //     trace: [],
+  //     currentTool: false,
+  //     // go: (moduleName, cb) => {   //每个模块定义自己跳转模块名称,点击时go到自己的模块下面，并把当前模块名存在历史中
+  //     //   if (this.activeModule != moduleName) {
+  //     //     $app.trace.push(this.activeModule);
+  //     //     this.activeModule = moduleName;
+  //     //   }
+  //     //   $app.run(moduleName, cb);   //然后调用模块实例里面自己的方法
+  //     // },
+  //     // replace: (moduleName, cb) => {    //从3直接调回1，而不是调回2，就用replace;跨级之间的切换；
+  //     //   if ($app.trace[$app.trace.length - 1] == moduleName) {
+  //     //     $app.trace.pop();
+  //     //   }
+  //     //   if (this.activeModule != moduleName) {
+  //     //     this.activeModule = moduleName;
+  //     //   }
+  //     //   $app.run(moduleName, cb);
+  //     // },
+  //     tool: (moduleName, cb) => {
+  //       if (!moduleName || this.activeTool == moduleName) {
+  //         this.activeTool = false;
+  //       } else {
+  //         this.activeTool = moduleName;
+  //       }
+  //       $app.run(moduleName, cb);
+  //     },
+  //     // run: (moduleName, cb) => {    //this.$refs[moduleName]，拿到模块实例，然后调用模块实例里面自己的方法
+  //     //   if (Sunset.isFunction(cb)) {
+  //     //     this.$nextTick(() => {
+  //     // $nextTick 异步更新队列，当上面的go程序执行完后，div仍然还是没有被创建出来，直到下一个Vue 事件循环时，才开始创建。
+  //     // $nextTick 就是用来知道什么时候DOM更新完成的。更新完成后才能拿到里面的东西，再做其它事情。
+  //     //       this.$refs[moduleName] && this.$refs[moduleName] && cb(this.$refs[moduleName]);
+  //     //     });
+  //     //   }
+  //     // },
+  //     <!--
+  //     例如：查看人脸搜索的详情，拿到自己的实例，调用自己实例里面的方法。
+  //     		showDetail(item) {
+  //           $app.run("recorddetail", $recorddetail => {
+  //               $recorddetail.open(item.recordId, "FACE");
+  //           });
+	// 	      }
+  //     -->
+  //
+  //     // back: () => {   //回退时，根据上一次记录的历史，回退回去
+  //     //   var m = $app.trace.pop();
+  //     //   if (m) {
+  //     //     this.activeModule = m;
+  //     //   }
+  //     // }
+  //   };
+  // }
+  // 4.2
+  // mounted() {
+  //   this.getDufaultRes();
+  //   this.initMqMessage();
+  // },
+
+
+  // 5.默认先对应加载了resource模块
+  // <!-- 资源检索模块 -->
+  // <module-resource ref="resource" v-show="activeModule=='resource'" />
+
+  // 5.1 resource模块里面定义了搜索的页签的所有模块切换，默认先加载的是person模块,
+  // 主要思路：
+  // 1.用is动态加载渲染组件;
+  // 2.用keep-alive缓存状态
+  // 3.列出所有标签页，用v-for循环出所有页签名称及样式，绑定在方法上动态来实现切换
+  //   data(){
+  //     currentTab: "person",
+  //     tabs: [
+  //       {
+  //         title: "人员</br>档案",
+  //         component: "person"
+  //       },
+  //       {
+  //         title: "人体</br>档案",
+  //         component: "body"
+  //       },
+  //       {
+  //         title: "车辆</br>档案",
+  //         component: "vehicle"
+  //       },
+  //       {
+  //         title: "非机动车</br>档案",
+  //         component: "motorbike"
+  //       },
+  //       {
+  //         title: "设备</br>档案",
+  //         component: "device"
+  //       },
+  //       {
+  //         title: "事件</br>报警",
+  //         component: "alarm"
+  //       }
+  //     ],
+  //   }
+  // methods{
+  //   selectTab(tab) {   //切换页签
+  //     this.currentTab = tab.component;
+  //   },
+  //   searchByText(ev) {   // 调用搜索方法，统一在每个组件里定义一个searchByText方法，调用组件里面的搜索方法
+  //     ev.preventDefault();
+  //     this.$refs.result.searchByText && this.$refs.result.searchByText(this.keyword);
+  //   },
+  // }
+
+  // <i class="search-trigger" @click="searchByText">搜索</i>
+  // <ul class="sidebar">
+  //   <li :class="['sidebar-item bg-light-light-dark',currentTab==tab.component?'active':'']" v-for="(tab,index) in tabs" :key="index" @click="selectTab(tab)" v-html="tab.title"> </li>
+  // </ul>
+  // <div class="content bg-light">
+  //   <keep-alive>
+  //     <component ref="result" :is="'resouce-'+currentTab" keep-ali></component>
+  //   </keep-alive>
+  // </div>
+  // <!--
+  //   知识点： is
+  //   1. 动态组件
+  //   在我们平时使用vue中的模板的时候，许多时候都是直接定义成一个固定的模板，但是，vue中提供了一个动态模板，可以在任意模板中切换，就是用vue中<component>用:is来挂载不同的组件。
+  //   2.限制元素
+  //   其实简单的来说，因为vue模板就是dom模板，使用的是浏览器原生的解析器进行解析，所以dom模板的限制也就成为vue模板的限制了，要求vue模板是有效的HTML代码片段。
+  //   但是由于dom的一些html元素对放入它里面的元素有限制，所以导致有些组件没办法放在一些标签中，比如<ul></ul>  <select></select><a></a> <table></table>等等这些标签中，
+  //   所以需要增加is特性来扩展，从而达到可以在这些受限制的html元素中使用。例如：在限定的标签内使用封装的组件元素，但封装的组件也应该符合html的规则
+  //   <ul>
+  //     <li is="my-component"></li>
+  //   </ul>
+ //    知识点：keep-alive
+//     <keep-alive> 包裹动态组件时，会缓存不活动的组件实例，而不是销毁它们。
+//     正如之前所说的，如果不使用keep-alive，每次切换到一个路由下的组件时，如果有请求，就会发起ajax请求，即在离开这个组件时就已经销毁了这个组件。
+//     和 <transition> 相似，<keep-alive> 是一个抽象组件：它自身不会渲染一个 DOM 元素，也不会出现在父组件链中。　
+// 　　  当组件在 <keep-alive> 内被切换，它的 activated 和 deactivated 这两个生命周期钩子函数将会被对应执行。主要用于保留组件状态或避免重新渲染。
+//     include --- 字符串或正则表达式。只有匹配的组件会被缓存。
+//     exclude --- 字符串或正则表达式。任何匹配的组件都不会被缓存。
+  // -->
+
+  // 6.具体各个模块的逻辑，如resoucePerson,resouceBody,resouceVehicle,resouceMotorbike,resouceDevice,resouceAlarm
+  //6.1 perosn.vue
+  // <xui-filter class="resource-filter" ref="filter" v-show="isShow" :options="faceOptions" @filter="searchData"></xui-filter>
+  // 1.结合xui的组件库来实现，以options的配置来写，fields为配置项，format为数据请求前出去的格式化，model为所有数据来源，对应后端的字段
+  // 2.@filter监听查询方法，点击查询后可以在@filter绑定的方法里调用filter封装好的search方法。
+  // faceOptions: {
+  //   cols: 1,
+  //     fields: personFilter,
+  //     format(model) {
+  //     if (model.deviceIds) {
+  //       model.deviceIds = model.deviceIds.map(o => o.id).join(",");
+  //     }
+  //     model.startTime = model.create_time[0];
+  //     model.endTime = model.create_time[1];
+  //     if (model.ageRange) {
+  //       var r = model.ageRange.split(",");
+  //       model.minAge = r[0];
+  //       model.maxAge = r[1];
+  //     }
+  //     delete model.ageRange;
+  //     delete model.create_time;
+  //     delete model.otherFeature;
+  //   },
+  //   toolbar: [
+  //     {
+  //       label: "查询",
+  //       color: "primary",
+  //       signal: "SEARCH"
+  //     },
+  //     {
+  //       label: "一键重置",
+  //       color: "primary",
+  //       signal: "RESET"
+  //     }
+  //   ]
+  // },
+
+  // methods:{
+  //   searchData: function(filter) {
+  //     this.$refs.waterfall.search(filter);  //点击查询调用瀑布流组建里的查询
+  //   },
+  //
+  //   searchByDevice(devices) {
+  //     this.$refs.filter.merge({ //合并其它条件进去
+  //       deviceIds: devices
+  //     });
+  //   }
+  // }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
