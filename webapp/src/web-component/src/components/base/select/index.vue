@@ -21,6 +21,21 @@
 	<!--</div>-->
 
   <div>
+    <!--<input v-if="filterable"  class="xui-select-search" @keydown.stop="keydown"  @input="filterMethod" >-->
+    <input ref="search" type="text" :placeholder=cplaceholder v-model="searchKeyword" @click.stop="toggleDropdown(true)"/>
+
+
+    <!--<select-picker ref="picker" :fixed="true" :class="['xui-select-picker',cmultiple?'multiple':'',cdisabled?'disabled':'',notEmpty?'not-empty':'',cclearable?'cclearable':'']" @visible="pickerVisible">-->
+      <!--<ul ref="dropdown" class="xui-select-dropdown" :style="'min-width:'+pickerWidth+'px'">-->
+      <!--<li ref="options" :class="['xui-select-option',notEmpty&&(item.value===widgetValue||widgetValue.indexOf(item.value)>=0)?'active':'',disabledOptions(item)?'disabled':'',hoverSelectItem==item?'hover':'']" v-for="(item,index) in filterItems||items" :key="index" v-html="item.text" @click.stop="selectItem(item.value,item)"></li>-->
+      <!--</ul>-->
+    <!--</select-picker>-->
+
+    <select-picker ref="picker" :fixed="true">
+
+    </select-picker>
+
+
 
   </div>
 
@@ -28,49 +43,48 @@
 <script>
 // import Sunset from "../../../common/sunset";
 // import Utils from "../../Helper.js";
-// import selectPicker from "../picker";
+import selectPicker from "../picker/index.vue";
 
 export default {
 	components: {
-		// selectPicker
+		selectPicker
 	},
 	model: {
 		prop: "value",
 		event: "input"
 	},
 	props: {
-		// options: {
-		// 	type: Object
-		// },
+		options: {
+			type: Object
+		},
 		value: {},
 		// disabled: {},
 		// multiple: {},
-		// placeholder: {}
+		placeholder: {}
 	},
 	data() {
 		return {
-			// searching: false,
 			// groupable: false,
 			// showDropdown: false,
 			// originItems: [],
 			// items: [],
 			// filterItems: null,
 			// lock: false,
-			// searchKeyword: "",
+			searchKeyword: "",
 			// hoverSelectItem: null,
 			// pickerWidth: 200
 		};
 	},
 	computed: {
-		// safeOptions() {
-		// 	return this.options || {};
-		// },
+		safeOptions() {
+			return this.options || {};
+		},
 		// cdisabled() {
 		// 	return this.disabled === true || this.safeOptions.disabled === true;
 		// },
-		// cplaceholder() {
-		// 	return this.placeholder || this.safeOptions.placeholder || "请选择";
-		// },
+		cplaceholder() {
+			return this.placeholder || this.safeOptions.placeholder || "请选择";
+		},
 		// cclearable() {
 		// 	return this.safeOptions.clearable !== false;
 		// },
@@ -175,30 +189,30 @@ export default {
 		// refreshPickerWidth() {
 		// 	this.pickerWidth = this.$el.clientWidth;
 		// },
-		// toggleDropdown() {
-		// 	if (this.cdisabled) {
-		// 		return;
-		// 	}
-		// 	this.refreshPickerWidth();
-		// 	var visible = this.$refs.picker.toggle();
-		// 	if (visible) {
-		// 		if (this.filterable) {
-		// 			this.searching = true;
-		// 		}
-		// 		if (!this.cmultiple) {
-		// 			this.hoverSelectItem = this.getItemByValue(this.widgetValue);
-		// 			this.$nextTick(() => {
-		// 				this.activeSearchResultItem();
-		// 			});
-		// 		}
-		// 		this.getItemByValue(this.value);
-		// 	} else {
-		// 		this.searching = false;
-		// 		this.searchKeyword = "";
-		// 		this.hoverSelectItem = null;
-		// 		this.filterMethod();
-		// 	}
-		// },
+		toggleDropdown() {
+			if (this.cdisabled) {
+				return;
+			}
+			// this.refreshPickerWidth();
+			// var visible = this.$refs.picker.toggle();
+			// if (visible) {
+			// 	if (this.filterable) {
+			// 		this.searching = true;
+			// 	}
+			// 	if (!this.cmultiple) {
+			// 		this.hoverSelectItem = this.getItemByValue(this.widgetValue);
+			// 		this.$nextTick(() => {
+			// 			this.activeSearchResultItem();
+			// 		});
+			// 	}
+			// 	this.getItemByValue(this.value);
+			// } else {
+			// 	this.searching = false;
+			// 	this.searchKeyword = "";
+			// 	this.hoverSelectItem = null;
+			// 	this.filterMethod();
+			// }
+		},
 		// text(value) {
 		// 	var currentItem = this.getItemByValue(value);
 		// 	if (currentItem !== null) {

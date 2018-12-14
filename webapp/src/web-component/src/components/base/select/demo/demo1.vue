@@ -9,7 +9,7 @@
 
     <!--</div>-->
 
-    <np-select v-model="v"></np-select>
+    <np-select v-model="v" :options="options"></np-select>
     <!--测试-->
     <!--测试一-->
 
@@ -31,7 +31,7 @@
           // clearable: true,
           // disabled: false,
           // filter: true,
-          // placeholder: "请选择一个性别",
+          placeholder: "请选择一个城市",
           // disabledOptions(item) {
           //   return item.value == "3";
           // },
