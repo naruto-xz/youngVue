@@ -1,17 +1,17 @@
 <template>
-	<!--<div v-show="visible" :class="['xui-picker xui-picker-style']" @click.stop="emptyClick">-->
+	<!--<div>-->
 		<!--<picker-scroll ref="scroll">-->
 			<!--<slot></slot>-->
 		<!--</picker-scroll>-->
 	<!--</div>-->
 
-  <div v-if="inited">
-
+  <div v-show="visible" :class="['xui-picker xui-picker-style']">
+    <slot></slot>
   </div>
 
 </template>
 <script>
-// import Popper from "./popper.js";
+import Popper from "./popper.js";
 // import pickerScroll from "../scroll";
 // import offset from "src/tools/offset";
 
@@ -20,34 +20,27 @@ export default {
 	// 	pickerScroll
 	// },
 	props: {
-		// placement: {
-		// 	type: String,
-		// 	default: "bottom-start"
-		// },
-		fixed: {}
+		placement: {
+			type: String,
+			default: "bottom-start"
+		},
 	},
 	data() {
 		return {
-			inited: false,
 			visible: false,
 			popper: null
 		};
 	},
 	methods: {
 		init() {
-			if (!this.$parent.$refs.reference) {
+			if (!this.$parent.$refs.reference) {  //挂载必须有参考父节点
 				console.error(`未找到picker挂载目标，请在父组件中指定：ref="reference"`);
 			}
-			// this.$el.style.width = this.$el.parentNode.clientWidth + "px";
 			if (this.popper) {
-				this.$nextTick(() => {
-					this.popper.update();
-					this.popperStatus = true;
-				});
+			  return;
 			} else {
-				this.$nextTick(() => {
 					this.popper = new Popper(this.$parent.$refs.reference, this.$el, {
-						placement: this.placement,
+						placement: this.placement,  //默认在下方
 						modifiers: {
 							computeStyle: {
 								gpuAcceleration: false
@@ -57,87 +50,33 @@ export default {
 							}
 						},
 						onCreate: () => {
-							this.resetTransformOrigin();
-							this.$nextTick(() => {
-								this.popper.update();
-							});
+						  // console.log("start"); //创建的时候走
+              // this.popper.update();  //可以调用更新
 						},
 						onUpdate: () => {
-							this.resetTransformOrigin();
+              // console.log("update"); //更新的时候走
 						}
 					});
-					this.$nextTick(() => {
-						this.visible = true;
-					});
-				});
+          this.visible = true;
 			}
 		},
 		update() {
-			this.popper && this.popper.update();
-		},
-		resetTransformOrigin() {
-			if (this.popper && this.popper.popper) {
-				let x_placement = this.popper.popper.getAttribute("x-placement");
-				console.log(x_placement);
-				// let placementStart = x_placement.split("-")[0];
-				// let placementEnd = x_placement.split("-")[1];
-				// const leftOrRight = x_placement === "left" || x_placement === "right";
-				// if (!leftOrRight) {
-				// 	this.popper.popper.style.transformOrigin =
-				// 		placementStart === "bottom" || (placementStart !== "top" && placementEnd === "start")
-				// 			? "center top"
-				// 			: "center bottom";
-				// }
-				// var el = this.$parent.$refs.reference;
-				// var of = offset(el);
-				// var scrollTop = document.body.scrollTop||document.documentElement.scrollTop;
-				// var windowTop = $(el).offset().top;
-				// console.log(`${windowTop} --- ${el.clientHeight} --- ${window.innerHeight}`)
-				// if(windowTop+el.clientHeight>=window.innerHeight){
-				// 	el.style.bottom = "0"
-				// 	el.style.top = "auto"
-				// }else{
-				// 	el.style.bottom = "auto"
-				// 	el.style.top = "0px"
-				// }
-			}
-			// this.popper.popper.style.top = "0px";
+			this.popper && this.popper.update();  //提供一个对外更新当前popper的操作
 		},
 		toggle() {
-			if ((this.inited = !this.inited)) {
-				this.$nextTick(() => {
-					this.init();
-					document.addEventListener("click", this.closeDropdown);
-				});
-				return true;
-			} else {
-				document.removeEventListener("click", this.closeDropdown);
-				this.popper = null;
-				this.visible = false;
-				return false;
-			}
+      this.init();
+      document.addEventListener("click", this.closeDropdown); //提供一个全局的点击事件，用来关闭下拉框
 		},
-		closeDropdown() {
-			this.inited = false;
+		closeDropdown() {   //隐藏，销毁操作
 			this.visible = false;
 			document.removeEventListener("click", this.closeDropdown);
-			this.popper = null;
+			this.popper = null; //销毁下拉框
 		},
-		emptyClick() {}
 	},
 	mounted() {
-		if (this.fixed) {
-		  debugger;
+		  //this.$el是一个新的当前vue实例
+		  //把这个新的实例添加到body元素节点中成为其子节点，但是放在body的现有子节点的最后
 			document.body.appendChild(this.$el);
-		}
-	},
-	beforeDestroy() {
-		var el = this.$el;
-		if(el){
-			if(el.remove){
-				el.remove();
-			}
-		}
 	},
 	// watch: {
 	// 	visible(v) {
@@ -147,8 +86,6 @@ export default {
 };
 </script>
 <style lang="scss">
-/*@import "~style/variable.scss";*/
-
 .xui-picker {
 	min-width: inherit;
 	overflow: auto;
@@ -158,7 +95,6 @@ export default {
 	box-sizing: border-box;
 	border-radius: 4px;
 	box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
-	position: absolute;
 	z-index: 1000;
 }
 </style>

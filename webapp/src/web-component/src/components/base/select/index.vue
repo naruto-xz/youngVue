@@ -20,19 +20,24 @@
 		<!--</select-picker>-->
 	<!--</div>-->
 
-  <div>
-    <!--<input v-if="filterable"  class="xui-select-search" @keydown.stop="keydown"  @input="filterMethod" >-->
-    <input ref="search" type="text" :placeholder=cplaceholder v-model="searchKeyword" @click.stop="toggleDropdown(true)"/>
+  <div ref="reference" :class="['xui-select']">
+    <!--<input v-if="filterable"   @keydown.stop="keydown"  @input="filterMethod" >-->
+    <input ref="search" class="xui-select-search" :style="'min-width:'+pickerWidth+'px'" type="text" :placeholder=cplaceholder v-model="searchKeyword" @click.stop="toggleDropdown(true)"/>
 
 
-    <!--<select-picker ref="picker" :fixed="true" :class="['xui-select-picker',cmultiple?'multiple':'',cdisabled?'disabled':'',notEmpty?'not-empty':'',cclearable?'cclearable':'']" @visible="pickerVisible">-->
+    <!--<select-picker ref="picker" :class="['xui-select-picker',cmultiple?'multiple':'',cdisabled?'disabled':'',notEmpty?'not-empty':'',cclearable?'cclearable':'']" @visible="pickerVisible">-->
       <!--<ul ref="dropdown" class="xui-select-dropdown" :style="'min-width:'+pickerWidth+'px'">-->
       <!--<li ref="options" :class="['xui-select-option',notEmpty&&(item.value===widgetValue||widgetValue.indexOf(item.value)>=0)?'active':'',disabledOptions(item)?'disabled':'',hoverSelectItem==item?'hover':'']" v-for="(item,index) in filterItems||items" :key="index" v-html="item.text" @click.stop="selectItem(item.value,item)"></li>-->
       <!--</ul>-->
     <!--</select-picker>-->
 
-    <select-picker ref="picker" :fixed="true">
-
+    <select-picker ref="picker" :class="['xui-select-picker']">
+      <ul ref="dropdown" class="xui-select-dropdown" :style="'min-width:'+pickerWidth+'px'">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <!--<li ref="options" :class="['xui-select-option',notEmpty&&(item.value===widgetValue||widgetValue.indexOf(item.value)>=0)?'active':'',disabledOptions(item)?'disabled':'',hoverSelectItem==item?'hover':'']" v-for="(item,index) in filterItems||items" :key="index" v-html="item.text" @click.stop="selectItem(item.value,item)"></li>-->
+      </ul>
     </select-picker>
 
 
@@ -72,7 +77,7 @@ export default {
 			// lock: false,
 			searchKeyword: "",
 			// hoverSelectItem: null,
-			// pickerWidth: 200
+			pickerWidth: 200
 		};
 	},
 	computed: {
@@ -186,15 +191,15 @@ export default {
 			});
 			// this.refreshPickerWidth();
 		},
-		// refreshPickerWidth() {
-		// 	this.pickerWidth = this.$el.clientWidth;
-		// },
+		refreshPickerWidth() {
+			this.pickerWidth = this.$el.clientWidth;
+		},
 		toggleDropdown() {
-			if (this.cdisabled) {
-				return;
-			}
+			// if (this.cdisabled) {
+			// 	return;
+			// }
 			// this.refreshPickerWidth();
-			// var visible = this.$refs.picker.toggle();
+			var visible = this.$refs.picker.toggle();
 			// if (visible) {
 			// 	if (this.filterable) {
 			// 		this.searching = true;
@@ -364,8 +369,7 @@ export default {
 
 <style lang="scss">
 /*@import "~style/variable.scss";*/
-
-/*$select-height: 28px;
+@import "../../../style/variable.sass";
 
 .xui-select {
 	display: inline-block;
@@ -415,13 +419,13 @@ export default {
 	}
 	.xui-select-search {
 		height: $select-height;
-		border: none;
-		outline: none;
+		/*border: none;*/
+		/*outline: none;*/
 		font-size: 14px;
 		font-family: 微软雅黑;
 		flex: 10;
-		padding: 0px 0px 0px 5px;
-		margin: 0px;
+		padding: 0 0 0 5px;
+		margin: 0;
 		line-height: $select-height;
 	}
 	.select-trigger-icon {
@@ -478,7 +482,6 @@ export default {
 .xui-select-picker {
 	max-height: 200px;
 	display: flex;
-	background: #fff;
 	font-size: 12px;
 	& > * {
 		width: 100%;
@@ -528,5 +531,5 @@ export default {
 			}
 		}
 	}
-}*/
+}
 </style>
