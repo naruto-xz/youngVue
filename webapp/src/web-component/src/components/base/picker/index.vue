@@ -6,14 +6,15 @@
 	<!--</div>-->
 
   <div v-show="visible" :class="['xui-picker xui-picker-style']">
-    <slot></slot>
+    <!--<picker-scroll ref="scroll">-->
+        <slot></slot>
+    <!--</picker-scroll>-->
   </div>
 
 </template>
 <script>
 import Popper from "./popper.js";
 // import pickerScroll from "../scroll";
-// import offset from "src/tools/offset";
 
 export default {
 	// components: {

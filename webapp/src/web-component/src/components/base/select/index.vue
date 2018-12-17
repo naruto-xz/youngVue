@@ -22,7 +22,7 @@
 
   <div ref="reference" :class="['xui-select']">
     <!--<input v-if="filterable"   @keydown.stop="keydown"  @input="filterMethod" >-->
-    <input ref="search" class="xui-select-search" :style="'min-width:'+pickerWidth+'px'" type="text" :placeholder=cplaceholder v-model="searchKeyword" @click.stop="toggleDropdown(true)"/>
+    <input ref="search" class="xui-select-search" :style="'min-width:'+cpickerWidth+'px'" type="text" :placeholder=cplaceholder v-model="searchKeyword" @click.stop="toggleDropdown(true)"/>
 
 
     <!--<select-picker ref="picker" :class="['xui-select-picker',cmultiple?'multiple':'',cdisabled?'disabled':'',notEmpty?'not-empty':'',cclearable?'cclearable':'']" @visible="pickerVisible">-->
@@ -32,11 +32,11 @@
     <!--</select-picker>-->
 
     <select-picker ref="picker" :class="['xui-select-picker']">
-      <ul ref="dropdown" class="xui-select-dropdown" :style="'min-width:'+pickerWidth+'px'">
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
-        <!--<li ref="options" :class="['xui-select-option',notEmpty&&(item.value===widgetValue||widgetValue.indexOf(item.value)>=0)?'active':'',disabledOptions(item)?'disabled':'',hoverSelectItem==item?'hover':'']" v-for="(item,index) in filterItems||items" :key="index" v-html="item.text" @click.stop="selectItem(item.value,item)"></li>-->
+      <ul ref="dropdown" class="xui-select-dropdown" :style="'min-width:'+cpickerWidth+'px'">
+        <li v-for="(item,index) in filterItems||items" :key="index" v-html="item.text" @click.stop="selectItem(item.value,item)"
+            :class="['xui-select-option',widgetValue.indexOf(item.value)>=0]" ></li>
+        <!--<li ref="options" :class="['xui-select-option',notEmpty&&(item.value===widgetValue||widgetValue.indexOf(item.value)>=0)?'active':'',disabledOptions(item)?'disabled':'',hoverSelectItem==item?'hover':'']"
+          ></li>-->
       </ul>
     </select-picker>
 
@@ -72,8 +72,8 @@ export default {
 			// groupable: false,
 			// showDropdown: false,
 			// originItems: [],
-			// items: [],
-			// filterItems: null,
+			items: [],
+			filterItems: null,
 			// lock: false,
 			searchKeyword: "",
 			// hoverSelectItem: null,
@@ -96,6 +96,9 @@ export default {
 		// cmultiple() {
 		// 	return this.multiple || this.safeOptions.multiple;
 		// },
+    cpickerWidth(){
+      return this.safeOptions.width || this.pickerWidth
+    }
 		// csize() {
 		// 	return this.size || this.safeOptions.size;
 		// },
@@ -152,6 +155,10 @@ export default {
 	},
 	methods: {
 		init() {
+
+      this.items = this.options.data;
+
+
 			this.$nextTick(() => {
 				// Utils.generateItems(this.options).then(items => {
 				// 	var groups = {},
@@ -189,17 +196,18 @@ export default {
 				// 	this.elWidth = this.$el.clientWidth;
 				// });
 			});
-			// this.refreshPickerWidth();
-		},
-		refreshPickerWidth() {
-			this.pickerWidth = this.$el.clientWidth;
 		},
 		toggleDropdown() {
 			// if (this.cdisabled) {
 			// 	return;
 			// }
-			// this.refreshPickerWidth();
-			var visible = this.$refs.picker.toggle();
+
+			// var visible = this.$refs.picker.toggle();
+
+      this.$refs.picker.toggle();
+
+
+
 			// if (visible) {
 			// 	if (this.filterable) {
 			// 		this.searching = true;
@@ -232,30 +240,35 @@ export default {
 		// 	var items = this.items.filter(item => item.value === v);
 		// 	return items.length ? items[0] : null;
 		// },
-		// selectItem(value, item, fromRemove) {
-		// 	if (this.cdisabled) {
-		// 		return;
-		// 	}
-		// 	if (!item) {
-		// 		item = this.getItemByValue(value);
-		// 	}
-		// 	var isDisabled = this.disabledOptions(item);
-		// 	if (isDisabled && !fromRemove) {
-		// 		return;
-		// 	}
-		// 	if (!this.cmultiple) {
-		// 		this.widgetValue = value;
-		// 		this.toggleDropdown();
-		// 	} else {
-		// 		var index;
-		// 		if ((index = this.widgetValue.indexOf(value)) >= 0) {
-		// 			this.widgetValue.splice(index, 1);
-		// 		} else {
-		// 			this.widgetValue.push(value);
-		// 		}
-		// 		this.widgetValue = this.widgetValue.slice(0);
-		// 	}
-		// },
+		selectItem(value, item, fromRemove) {
+			// if (this.cdisabled) {
+			// 	return;
+			// }
+			// if (!item) {
+			// 	item = this.getItemByValue(value);
+			// }
+			// var isDisabled = this.disabledOptions(item);
+			// if (isDisabled && !fromRemove) {
+			// 	return;
+			// }
+
+
+      	// this.widgetValue = value;
+      this.$refs.picker.closeDropdown();  //关闭下拉框
+
+			// if (!this.cmultiple) {
+			// 	this.widgetValue = value;
+			// 	this.toggleDropdown();
+			// } else {
+			// 	var index;
+			// 	if ((index = this.widgetValue.indexOf(value)) >= 0) {
+			// 		this.widgetValue.splice(index, 1);
+			// 	} else {
+			// 		this.widgetValue.push(value);
+			// 	}
+			// 	this.widgetValue = this.widgetValue.slice(0);
+			// }
+		},
 		// clear() {
 		// 	this.widgetValue = void 0;
 		// },
@@ -419,8 +432,8 @@ export default {
 	}
 	.xui-select-search {
 		height: $select-height;
-		/*border: none;*/
-		/*outline: none;*/
+		border: none;
+		outline: none;
 		font-size: 14px;
 		font-family: 微软雅黑;
 		flex: 10;
@@ -488,7 +501,7 @@ export default {
 	}
 	.xui-select-dropdown {
 		list-style-type: none;
-		padding: 0px;
+		padding: 0 0 0 5px;
 		margin: 0px;
 	}
 	.xui-select-option {
