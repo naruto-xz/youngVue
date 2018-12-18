@@ -28,7 +28,7 @@
         // v2: "",
         options: {
           // width: 400, //可配置输入框和下拉框的宽度
-          // multiple: false,
+          multiple: false,
           // clearable: true,
           // disabled: false,
           // filter: true,

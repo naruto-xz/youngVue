@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
   // contentBase: 'dist',
-  port: 8080,
+  port: 8082,
   host: '0.0.0.0', //host建议配置成0.0.0.0这样localhost和内网ip都能访问，方便调试
   overlay: {
     error: true   //编译过程中有什么错误，就呈现出来在网页端

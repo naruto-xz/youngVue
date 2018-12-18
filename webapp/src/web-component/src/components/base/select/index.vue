@@ -34,7 +34,7 @@
     <select-picker ref="picker" :class="['xui-select-picker']">
       <ul ref="dropdown" class="xui-select-dropdown" :style="'min-width:'+cpickerWidth+'px'">
         <li v-for="(item,index) in filterItems||items" :key="index" v-html="item.text" @click.stop="selectItem(item.value,item)"
-            :class="['xui-select-option',widgetValue.indexOf(item.value)>=0]" ></li>
+            :class="['xui-select-option',widgetValue.indexOf(item.value)>-1?'active':'']" ></li>
         <!--<li ref="options" :class="['xui-select-option',notEmpty&&(item.value===widgetValue||widgetValue.indexOf(item.value)>=0)?'active':'',disabledOptions(item)?'disabled':'',hoverSelectItem==item?'hover':'']"
           ></li>-->
       </ul>
@@ -64,13 +64,14 @@ export default {
 		},
 		value: {},
 		// disabled: {},
-		// multiple: {},
+		multiple: {},
 		placeholder: {}
 	},
 	data() {
 		return {
 			// groupable: false,
 			// showDropdown: false,
+      widgetValue: [],
 			// originItems: [],
 			items: [],
 			filterItems: null,
@@ -93,12 +94,12 @@ export default {
 		// cclearable() {
 		// 	return this.safeOptions.clearable !== false;
 		// },
-		// cmultiple() {
-		// 	return this.multiple || this.safeOptions.multiple;
-		// },
+		cmultiple() {
+			return this.multiple || this.safeOptions.multiple;
+		},
     cpickerWidth(){
-      return this.safeOptions.width || this.pickerWidth
-    }
+      return this.safeOptions.width || this.pickerWidth;
+    },
 		// csize() {
 		// 	return this.size || this.safeOptions.size;
 		// },
@@ -253,8 +254,12 @@ export default {
 			// }
 
 
-      	// this.widgetValue = value;
-      this.$refs.picker.closeDropdown();  //关闭下拉框
+      if(!this.cmultiple){  //不是多选
+        this.widgetValue = value;
+        this.$refs.picker.closeDropdown();  //关闭下拉框
+      }
+
+
 
 			// if (!this.cmultiple) {
 			// 	this.widgetValue = value;
