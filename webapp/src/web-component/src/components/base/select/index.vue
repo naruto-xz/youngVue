@@ -20,9 +20,26 @@
 		<!--</select-picker>-->
 	<!--</div>-->
 
-  <div ref="reference" :class="['xui-select']">
-    <!--<input v-if="filterable"   @keydown.stop="keydown"  @input="filterMethod" >-->
-    <input ref="search" class="xui-select-search" :style="'min-width:'+cpickerWidth+'px'" type="text" :placeholder=cplaceholder v-model="searchKeyword" @click.stop="toggleDropdown(true)"/>
+  <div ref="reference" :class="['xui-select']" :style="'min-width:'+cpickerWidth+'px'">
+
+    <!--<div class="xui-select-inputwrap" tabindex="0" @keydown.stop.prevent="keydown" @click="toggleDropdown">-->
+      <!--<div class="xui-single-text" v-if="!cmultiple" v-show="notEmpty&&!searching" v-html="text(widgetValue)"></div>-->
+      <!--<div class="xui-select-placeholder" v-show="!notEmpty&&!searching">{{cplaceholder}}</div>-->
+      <!--<i v-if="cclearable&&notEmpty" class="select-clear-icon xui-icon xui-icon-delete_fill" @click.stop="clear"></i>-->
+      <!--<i :class="['select-trigger-icon xui-icon xui-icon-unfold',showDropdown?'active':'']"></i>-->
+    <!--</div>-->
+
+
+    <div class="xui-select-inputwrap" @click.stop="toggleDropdown">
+      <div v-show="notEmpty" v-html="text(widgetValue)"></div>
+      <div class="xui-select-placeholder" v-show="!notEmpty">{{cplaceholder}}</div>
+      <!--<i v-if="cclearable&&notEmpty" class="select-clear-icon xui-icon xui-icon-delete_fill" @click.stop="clear"></i>-->
+      <!--<i :class="['select-trigger-icon xui-icon xui-icon-unfold',showDropdown?'active':'']"></i>-->
+    </div>
+
+
+    <!--<input    @keydown.stop="keydown"  @input="filterMethod" >-->
+    <!--<input v-if="filterable" ref="search" class="xui-select-search" :style="'min-width:'+cpickerWidth+'px'" type="text" :placeholder=cplaceholder v-model="searchKeyword" @click.stop="toggleDropdown(true)"/>-->
 
 
     <!--<select-picker ref="picker" :class="['xui-select-picker',cmultiple?'multiple':'',cdisabled?'disabled':'',notEmpty?'not-empty':'',cclearable?'cclearable':'']" @visible="pickerVisible">-->
@@ -34,8 +51,9 @@
     <select-picker ref="picker" :class="['xui-select-picker']">
       <ul ref="dropdown" class="xui-select-dropdown" :style="'min-width:'+cpickerWidth+'px'">
         <li v-for="(item,index) in filterItems||items" :key="index" v-html="item.text" @click.stop="selectItem(item.value,item)"
-            :class="['xui-select-option',widgetValue.indexOf(item.value)>-1?'active':'']" ></li>
-        <!--<li ref="options" :class="['xui-select-option',notEmpty&&(item.value===widgetValue||widgetValue.indexOf(item.value)>=0)?'active':'',disabledOptions(item)?'disabled':'',hoverSelectItem==item?'hover':'']"
+            :class="['xui-select-option',widgetValue==item.value?'active':'',cdisabled?'disabled':'']">
+        </li>
+        <!--<li ref="options" :class="['xui-select-option',notEmpty&&(item.value===widgetValue||widgetValue.indexOf(item.value)>=0)?'active':'',hoverSelectItem==item?'hover':'']"
           ></li>-->
       </ul>
     </select-picker>
@@ -63,7 +81,7 @@ export default {
 			type: Object
 		},
 		value: {},
-		// disabled: {},
+		disabled: {},
 		multiple: {},
 		placeholder: {}
 	},
@@ -71,7 +89,7 @@ export default {
 		return {
 			// groupable: false,
 			// showDropdown: false,
-      widgetValue: [],
+      widgetValue: undefined,
 			// originItems: [],
 			items: [],
 			filterItems: null,
@@ -85,9 +103,9 @@ export default {
 		safeOptions() {
 			return this.options || {};
 		},
-		// cdisabled() {
-		// 	return this.disabled === true || this.safeOptions.disabled === true;
-		// },
+		cdisabled() {
+			return this.disabled === true || this.safeOptions.disabled === true;
+		},
 		cplaceholder() {
 			return this.placeholder || this.safeOptions.placeholder || "请选择";
 		},
@@ -109,13 +127,13 @@ export default {
 		// filterable() {
 		// 	return this.safeOptions.filter;
 		// },
-		// notEmpty() {
-		// 	var widgetValue = this.widgetValue;
-		// 	if (widgetValue === void 0 || widgetValue === null) {
-		// 		return false;
-		// 	}
-		// 	return this.widgetValue.length > 0;
-		// },
+		notEmpty() {
+			var widgetValue = this.widgetValue;
+			if (widgetValue === undefined || widgetValue === null) {
+				return false;
+			}
+			return true;
+		},
 		// widgetValue: {
 		// 	set(v) {
 		// 		var value;
@@ -199,9 +217,6 @@ export default {
 			});
 		},
 		toggleDropdown() {
-			// if (this.cdisabled) {
-			// 	return;
-			// }
 
 			// var visible = this.$refs.picker.toggle();
 
@@ -213,12 +228,12 @@ export default {
 			// 	if (this.filterable) {
 			// 		this.searching = true;
 			// 	}
-			// 	if (!this.cmultiple) {
-			// 		this.hoverSelectItem = this.getItemByValue(this.widgetValue);
-			// 		this.$nextTick(() => {
-			// 			this.activeSearchResultItem();
-			// 		});
-			// 	}
+      // if (!this.cmultiple) {
+      //   this.hoverSelectItem = this.getItemByValue(this.widgetValue);
+      //   this.$nextTick(() => {
+      //     this.activeSearchResultItem();
+      //   });
+      // }
 			// 	this.getItemByValue(this.value);
 			// } else {
 			// 	this.searching = false;
@@ -227,24 +242,22 @@ export default {
 			// 	this.filterMethod();
 			// }
 		},
-		// text(value) {
-		// 	var currentItem = this.getItemByValue(value);
-		// 	if (currentItem !== null) {
-		// 		return Sunset.isFunction(this.safeOptions.format)
-		// 			? this.safeOptions.format(currentItem)
-		// 			: currentItem.text;
-		// 	} else {
-		// 		return "";
-		// 	}
-		// },
-		// getItemByValue(v) {
-		// 	var items = this.items.filter(item => item.value === v);
-		// 	return items.length ? items[0] : null;
-		// },
+		text(value) {
+			var currentItem = this.getItemByValue(value);
+			if (currentItem !== null) {
+				return currentItem.text;
+			} else {
+				return "";
+			}
+		},
+		getItemByValue(v) {
+			var items = this.items.filter(item => item.value === v);
+			return items.length ? items[0] : null;
+		},
 		selectItem(value, item, fromRemove) {
-			// if (this.cdisabled) {
-			// 	return;
-			// }
+			if (this.cdisabled) {
+				return;
+			}
 			// if (!item) {
 			// 	item = this.getItemByValue(value);
 			// }
@@ -277,9 +290,9 @@ export default {
 		// clear() {
 		// 	this.widgetValue = void 0;
 		// },
-		// disabledOptions(item) {
-		// 	return Sunset.isFunction(this.options.disabledOptions) ? this.options.disabledOptions(item) : false;
-		// },
+		disabledOptions(item) {
+			return Sunset.isFunction(this.options.disabledOptions) ? this.options.disabledOptions(item) : false;
+		},
 		// pickerVisible(v){
 		// 	this.showDropdown = v;
 		// },
@@ -400,7 +413,8 @@ export default {
 		position: relative;
 		min-height: $select-height;
 		line-height: $select-height;
-		padding: 0px 25px 0px 5px;
+    padding-left: 10px;
+		padding-right: 25px;
 		border: 1px solid $color-border;
 		border-radius: 2px;
 		cursor: pointer;
@@ -506,12 +520,12 @@ export default {
 	}
 	.xui-select-dropdown {
 		list-style-type: none;
-		padding: 0 0 0 5px;
-		margin: 0px;
+		padding: 0;
+		margin: 0;
 	}
 	.xui-select-option {
 		list-style-type: none;
-		padding: 8px;
+		padding: 8px 10px;
 		margin: 0px;
 		cursor: pointer;
 		&:hover,

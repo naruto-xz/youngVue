@@ -28,9 +28,9 @@
         // v2: "",
         options: {
           // width: 400, //可配置输入框和下拉框的宽度
-          multiple: false,
+          // multiple: false,
           // clearable: true,
-          // disabled: false,
+          disabled: false,
           // filter: true,
           placeholder: "请选择一个城市",
           // disabledOptions(item) {
@@ -42,20 +42,20 @@
           // enum : 'SEX'
           data: [
             {
-              text: "全部",
-              value: ""
-            },
-            {
-              text: "有效套牌",
+              text: "北京",
               value: 1
             },
             {
-              text: "无效套牌",
-              value: 0
+              text: "上海",
+              value: 2
             },
             {
-              text: "未处理",
-              value: 2
+              text: "广州",
+              value: 3
+            },
+            {
+              text: "深圳",
+              value: 4
             }
           ]
         },
