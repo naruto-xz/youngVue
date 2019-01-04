@@ -29,11 +29,11 @@
     <!--<load></load>-->
     <router-view></router-view>
     <footer-tab></footer-tab>
-    <button-demo></button-demo>
-    <input-demo></input-demo>
-    <radio-demo></radio-demo>
-    <checkbox-demo></checkbox-demo>
-    <select-demo></select-demo>
+    <!--<button-demo></button-demo>-->
+    <!--<input-demo></input-demo>-->
+    <!--<radio-demo></radio-demo>-->
+    <!--<checkbox-demo></checkbox-demo>-->
+    <!--<select-demo></select-demo>-->
 
   </div>
 </template>

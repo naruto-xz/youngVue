@@ -57,8 +57,25 @@ import App from './app.vue'
 // Vue.use(loading);
 // window.aaa =  loading;
 
-var router = new Router({
+import animate from "./module/animate/index.vue"
+import css3 from "./module/css3/index.vue"
+import components from "./components/index.vue"
 
+var router = new Router({
+  routes: [
+    {
+      path: "/animate",
+      component: animate
+    },
+    {
+      path: "/css3",
+      component: css3
+    },
+    {
+      path: "/components",
+      component: components
+    }
+  ]
 });
 
 

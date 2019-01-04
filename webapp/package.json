@@ -10,11 +10,12 @@
     "build": "cross-env NODE_ENV=production webpack --config webpack.config.js"
   },
   "dependencies": {
-    "vue": "^2.5.2",
-    "vue-router": "^3.0.1",
+    "countup.js": "^1.9.3",
     "loader-utils": "^1.1.0",
     "popper.js": "^1.14.3",
     "promise-polyfill": "^7.1.2",
+    "vue": "^2.5.2",
+    "vue-router": "^3.0.1",
     "vue-upload-component": "^2.8.6"
   },
   "devDependencies": {
