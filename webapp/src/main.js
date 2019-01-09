@@ -57,25 +57,51 @@ import App from './app.vue'
 // Vue.use(loading);
 // window.aaa =  loading;
 
+
+import route from "./module/route/index.vue"
+import ecmaScript from "./module/ecmaScript/index.vue"
 import animate from "./module/animate/index.vue"
 import css3 from "./module/css3/index.vue"
 import components from "./components/index.vue"
 
+
+var routes = [
+  {
+    name: "route",
+    // path: "/route/:id",
+    path: "/route",
+    component: route
+    // children: [
+    //   {
+    //     path: "/route/apple",
+    //     // component: modules.apple
+    //   }
+    //   // {
+    //   //   path: "/route/orange",
+    //   //   component: modules.orange
+    //   // }
+    // ]
+  },
+  {
+    path: "/ecmaScript",
+    component: ecmaScript
+  },
+  {
+    path: "/animate",
+    component: animate
+  },
+  {
+    path: "/css3",
+    component: css3
+  },
+  {
+    path: "/components",
+    component: components
+  }
+];
+
 var router = new Router({
-  routes: [
-    {
-      path: "/animate",
-      component: animate
-    },
-    {
-      path: "/css3",
-      component: css3
-    },
-    {
-      path: "/components",
-      component: components
-    }
-  ]
+  routes: routes
 });
 
 
