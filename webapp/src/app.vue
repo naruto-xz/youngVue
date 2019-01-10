@@ -27,7 +27,7 @@
   <div>
     <header-tab></header-tab>
     <!--<load></load>-->
-    <router-view></router-view>
+      <router-view></router-view>
     <footer-tab></footer-tab>
     <!--<button-demo></button-demo>-->
     <!--<input-demo></input-demo>-->

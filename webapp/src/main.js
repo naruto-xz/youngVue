@@ -59,6 +59,7 @@ import App from './app.vue'
 
 
 import route from "./module/route/index.vue"
+import module from "./module/router/router.js"
 import ecmaScript from "./module/ecmaScript/index.vue"
 import animate from "./module/animate/index.vue"
 import css3 from "./module/css3/index.vue"
@@ -70,17 +71,17 @@ var routes = [
     name: "route",
     // path: "/route/:id",
     path: "/route",
-    component: route
-    // children: [
-    //   {
-    //     path: "/route/apple",
-    //     // component: modules.apple
-    //   }
-    //   // {
-    //   //   path: "/route/orange",
-    //   //   component: modules.orange
-    //   // }
-    // ]
+    component: route,
+    children: [
+      {
+        path: "apple",
+        component: module.apple
+      },
+      {
+        path: "orange",
+        component: module.orange
+      }
+    ]
   },
   {
     path: "/ecmaScript",

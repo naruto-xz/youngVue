@@ -8,8 +8,6 @@
 </template>
 
 <script>
-  import modulesw from "../router/router.js"
-  console.log(modulesw);
     export default {
       data(){
         return {
@@ -17,18 +15,18 @@
           data: [
             {
               text: "苹果",
-              value: "apple"
+              value: "/route/apple"
             },
             {
               text: "橘子",
-              value: "orange"
+              value: "/route/orange"
             }
           ]
         }
       },
       methods: {
         change(value){
-          this.$route.push(value)
+          this.$router.push(value)
         }
       },
       computed:{
