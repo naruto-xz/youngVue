@@ -3,6 +3,7 @@
   <div>
     <div>{{title}}</div>
     <button v-for="item in data" @click="change(item.value)">{{item.text}}</button>
+    <button @click="goBack">返回上一级页面</button>
     <router-view></router-view>
   </div>
 </template>
@@ -27,6 +28,9 @@
       methods: {
         change(value){
           this.$router.push(value)
+        },
+        goBack(){
+         this.$router.go(-1);
         }
       },
       computed:{

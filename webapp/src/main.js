@@ -84,6 +84,10 @@ var routes = [
     ]
   },
   {
+    path: "/",
+    redirect: "/route"
+  },
+  {
     path: "/ecmaScript",
     component: ecmaScript
   },
