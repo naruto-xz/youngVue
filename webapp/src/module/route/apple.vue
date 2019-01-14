@@ -19,7 +19,7 @@
       beforeRouteUpdate(to,from,next){
         console.log("再走组件更新路由守卫");
       },
-      
+
 
     }
 </script>
