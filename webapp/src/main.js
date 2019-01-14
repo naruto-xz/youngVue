@@ -59,7 +59,8 @@ import App from './app.vue'
 
 
 import route from "./module/route/index.vue"
-import module from "./module/router/router.js"
+import module from "./module/router/module.js"
+import es6 from "./module/es6/index.vue"
 import ecmaScript from "./module/ecmaScript/index.vue"
 import animate from "./module/animate/index.vue"
 import css3 from "./module/css3/index.vue"
@@ -74,18 +75,40 @@ var routes = [
     component: route,
     children: [
       {
+        name: "apple",
         path: "apple",
-        component: module.apple
+        component: module.apple,
+        beforeEnter(to,from,next){  //进入该路由之前，先进路由独享守卫
+          console.log("2.再走局部路由独享守卫");
+          next();
+        }
       },
       {
+        name: "orange",
         path: "orange",
+        alias: "o",
         component: module.orange
+      },
+      {
+        name: "banana",
+        path: "banana/:id",
+        component: module.banana
+      },
+      {
+        name: 'pass',
+        path: 'pass/:id',
+        component: module.pass,
+        props: true
       }
     ]
   },
   {
     path: "/",
     redirect: "/route"
+  },
+  {
+    path: "/es6",
+    component: es6
   },
   {
     path: "/ecmaScript",
@@ -108,6 +131,17 @@ var routes = [
 var router = new Router({
   routes: routes
 });
+//只要路由跳转变化就会先进这个路由守卫里面
+router.beforeEach((to,from,next)=>{
+  console.log("1.先走全局路由守卫");
+  next();
+});
+
+// router.beforeResolve((to,from,next)=>{
+//   if(to.path == '/route'){
+//     next();
+//   }
+// });
 
 
 new Vue({

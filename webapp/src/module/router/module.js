@@ -1,5 +1,7 @@
 import apple from "../route/apple.vue"
 import orange from "../route/orange.vue"
+import banana from "../route/banana.vue"
+import pass from "../route/pass.vue"
 
 // module.exports = {
 //   apple: apple,
@@ -8,5 +10,7 @@ import orange from "../route/orange.vue"
 
 export default{
   apple: apple,
-  orange:orange
+  orange:orange,
+  banana:banana,
+  pass:pass
 }

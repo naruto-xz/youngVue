@@ -1,14 +1,17 @@
 <template>
     <div>
-      <date></date>
+      <!--<date></date>-->
+      <add-method></add-method>
     </div>
 </template>
 
 <script>
-  import date from "./date.vue"
+  // import date from "./date.vue"
+  import addMethod from "./addMethod.vue"
   export default {
      components:{
-       date
+       // date,
+       addMethod
      }
   }
 </script>
