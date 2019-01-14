@@ -2,6 +2,7 @@
   <!--<div>{{getId}}</div>-->
   <div>
     <div>{{title}}</div>
+    <div>{{getId}}</div>
     <button v-for="item in data" @click="change(item)">{{item.text}}</button>
     <button @click="goBack">返回上一级页面</button>
     <router-view></router-view>
@@ -60,6 +61,9 @@
       },
       computed:{
         getId(){
+          //路由可以配置meta元对象，然后再路由中直接访问到。
+          //一个路由匹配到的所有路由记录会暴露在$route.matched 数组中,也可以在$route.matched中访问到。
+          console.log(this.$route.meta.record); //元信息
           return this.$route.params.id
         }
       }
