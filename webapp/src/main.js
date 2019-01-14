@@ -92,7 +92,8 @@ var routes = [
       {
         name: "banana",
         path: "banana/:id",
-        component: module.banana
+        component: module.banana,
+        meta: {record:"元信息"} //元信息
       },
       {
         name: 'pass',
@@ -137,10 +138,14 @@ router.beforeEach((to,from,next)=>{
   next();
 });
 
+router.afterEach((to, from) => {
+  //你也可以注册全局后置钩子，然而和守卫不同的是，这些钩子不会接受 next 函数也不会改变导航本身
+  console.log("最最后走全局后置路由守卫")
+});
+
 // router.beforeResolve((to,from,next)=>{
-//   if(to.path == '/route'){
-//     next();
-//   }
+//   console.log("1.先走全局路由守卫");
+//   next();
 // });
 
 
