@@ -1,37 +1,10 @@
-// The Vue build version to load with the `import` command
-// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
-// import Vue from 'vue'
-// import router from './router/appRouter'
-// import app from '../src/app.vue'
-
-
-// Vue.config.productionTip = false;
-
-/* eslint-disable no-new */
-// new Vue({
-  // components: { App },
-  // template: '<App/>'
-
-  // router,
-  // compoments:{app}
-  // template:"<app/>"
-
-
-// }).$mount('body');
-
-
-//慕课webpack
-
 //导入jquery
 import $ from 'jquery'
 window.$ = $;
 
 //导入公共工具包
-import toolkit from "./web-component/src/commom/toolkit.js"
+import toolkit from "./commom/toolkit.js"
 window.$toolkit = toolkit;
-//导入公共辅助函数包
-import helper from "./web-component/src/commom/helper.js";
-window.$help = helper;
 
 import Vue from 'vue'
 import Router from 'vue-router'
@@ -48,86 +21,11 @@ Vue.use(ElementUI);
 
 import App from './app.vue'
 
-
-// import '../src/css/test.css'
-// import '../src/image/1.png'
-//
-
 // import loading from "../src/test/loading.js"
 // Vue.use(loading);
 // window.aaa =  loading;
 
-
-import route from "./module/route/index.vue"
-import module from "./module/router/module.js"
-import es6 from "./module/es6/index.vue"
-import ecmaScript from "./module/ecmaScript/index.vue"
-import animate from "./module/animate/index.vue"
-import css3 from "./module/css3/index.vue"
-import components from "./components/index.vue"
-
-
-var routes = [
-  {
-    name: "route",
-    // path: "/route/:id",
-    path: "/route",
-    component: route,
-    children: [
-      {
-        name: "apple",
-        path: "apple",
-        component: module.apple,
-        beforeEnter(to,from,next){  //进入该路由之前，先进路由独享守卫
-          console.log("2.再走局部路由独享守卫");
-          next();
-        }
-      },
-      {
-        name: "orange",
-        path: "orange",
-        alias: "o",
-        component: module.orange
-      },
-      {
-        name: "banana",
-        path: "banana/:id",
-        component: module.banana,
-        meta: {record:"元信息"} //元信息
-      },
-      {
-        name: 'pass',
-        path: 'pass/:id',
-        component: module.pass,
-        props: true
-      }
-    ]
-  },
-  {
-    path: "/",
-    redirect: "/route"
-  },
-  {
-    path: "/es6",
-    component: es6
-  },
-  {
-    path: "/ecmaScript",
-    component: ecmaScript
-  },
-  {
-    path: "/animate",
-    component: animate
-  },
-  {
-    path: "/css3",
-    component: css3
-  },
-  {
-    path: "/components",
-    component: components
-  }
-];
+import routes from "./router/routeConfig.js"
 
 var router = new Router({
   routes: routes
