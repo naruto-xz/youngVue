@@ -45,7 +45,7 @@ var routes = [
   },
   {
     path: "/",
-    redirect: "/route"
+    redirect: "/vue"
   },
   {
     path: "/vue",
