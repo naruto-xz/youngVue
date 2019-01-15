@@ -1,5 +1,6 @@
 import route from "../module/route/index.vue" //带子路由
 import module from "../module/module.js" //子路由下的模块配置
+import vue from "../module/vue/index.vue"
 import es6 from "../module/es6/index.vue"
 import ecmaScript from "../module/ecmaScript/index.vue"
 import animate from "../module/animate/index.vue"
@@ -45,6 +46,10 @@ var routes = [
   {
     path: "/",
     redirect: "/route"
+  },
+  {
+    path: "/vue",
+    component: vue
   },
   {
     path: "/es6",
