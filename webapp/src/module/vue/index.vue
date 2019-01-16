@@ -2,7 +2,7 @@
     <div>
       <h4>{{title}}</h4>
       <!--生命周期-->
-      <life-cycle></life-cycle>
+      <!--<life-cycle></life-cycle>-->
       <!--基础语法-->
       <base-grammer></base-grammer>
     </div>

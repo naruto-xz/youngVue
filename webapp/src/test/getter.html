@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>getter setter</title>
+</head>
+<body>
+  <div>测试getter,setter</div>
+</body>
+</html>
+<script>
+  // var person = {
+  //   name: '',
+  //   get: function() {
+  //     return this.name
+  //   },
+  //   set: function(n){
+  //     this.name = n
+  //   }
+  // };
+  // console.log(person.name); //''
+  // person.name = 'zhangsan';
+  // console.log(person.name); //Zhangsan
+
+
+  var person = function() {
+    var _name = ' ';
+    var obj = {};
+    Object.defineProperty(obj, 'name', {
+      configurable: true,
+      enumerable: true,
+      get: function() {
+        console.log(222);
+        return _name;
+      },
+      set: function(n) {
+        console.log(111);
+        _name = n;
+      }
+    });
+    return obj;
+  }();
+  // console.log(person.name); //''
+  person.name = 'zhangsan';
+  console.log(person.name); //Zhangsan
+</script>
