@@ -2,7 +2,7 @@ import route from "../module/route/index.vue" //带子路由
 import module from "../module/module.js" //子路由下的模块配置
 import vue from "../module/vue/index.vue"
 import es6 from "../module/es6/index.vue"
-import ecmaScript from "../module/ecmaScript/index.vue"
+import es5 from "../module/es5/index.vue"
 import animate from "../module/animate/index.vue"
 import css3 from "../module/css3/index.vue"
 import components from "../components/index.vue"
@@ -56,8 +56,8 @@ var routes = [
     component: es6
   },
   {
-    path: "/ecmaScript",
-    component: ecmaScript
+    path: "/es5",
+    component: es5
   },
   {
     path: "/animate",
