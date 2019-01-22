@@ -10,7 +10,10 @@
       <!--高级语法 v-model-->
       <!--<model></model>-->
       <!--高级语法 表单应用-->
-      <vue-form></vue-form>
+      <!--<vue-form></vue-form>-->
+      <!--组件-->
+      <vue-component></vue-component>
+
     </div>
 </template>
 
@@ -20,13 +23,15 @@
     import baseGrammerTwo from "./baseGrammerTwo.vue"
     import model from "./model.vue"
     import vueForm from "./vueForm.vue"
+    import vueComponent from "./component/vueComponent.vue"
     export default {
       components:{
         lifeCycle,
         baseGrammerOne,
         baseGrammerTwo,
         model,
-        vueForm
+        vueForm,
+        vueComponent
       },
       data(){
         return {

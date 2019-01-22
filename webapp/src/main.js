@@ -21,6 +21,10 @@ Vue.use(ElementUI);
 
 import App from './app.vue'
 
+//注册一个全局组件
+import globalComponent from "./module/vue/component/globalComponent.vue"
+Vue.component("globalComponent",globalComponent);
+
 // import loading from "../src/test/loading.js"
 // Vue.use(loading);
 // window.aaa =  loading;
