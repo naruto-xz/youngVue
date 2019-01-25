@@ -32,6 +32,9 @@
           title: "props传递数据",
           message1: this.msg1,
         }
+      },
+      mounted() {
+
       }
     }
 </script>
