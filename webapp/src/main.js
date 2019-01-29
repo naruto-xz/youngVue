@@ -25,13 +25,6 @@ import App from './app.vue'
 import globalComponent from "./module/vue/component/globalComponent.vue"
 Vue.component("globalComponent",globalComponent);
 
-Vue.component("test",{
-  render(createElement, hack) {
-    return createElement('h1','test');
-  }
-});
-
-
 //注册一个全局过滤器
 Vue.filter("formateDate",(value)=>{
   var date = new Date(value);
@@ -82,7 +75,7 @@ const app=new Vue({
     el:'#app',
     router,
     compoments:{app},
-    template:"<app/>"
+    template:"<app/>"   //不可以用，因为这个要独立构建才可用
 });
 */
 

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>template属性</title>
+
+</head>
+<body>
+  <div id="app">
+    <p>我今年{{age}}岁了</p>
+  </div>
+</body>
+</html>
+<script src="https://cdn.bootcss.com/vue/2.5.17-beta.0/vue.js"></script>
+<script>
+
+  // 1.只有el，就显示outHtml的内容
+  // <div id="app">
+  //   <p>我今年23岁了</p>
+  // </div>
+  // 2.只有template是不行的，因为vue对象不知道把template放在何处；
+  // 3.只有render（渲染）函数,也是不行的，因为vue对象不知道把render后的结果放在何处；
+  // 4.既有el又有template，就会用template里的内容替换el的outHTML。
+  // <p>我是template出来的，今年{{age}}</p> 发现id为app的div没有了
+  // 5.既有el又有template，又有render函数。就会使用render函数的内容，因为它的优先级高。
+  // <p>我是render出来的，今年23</p>
+  //   但是此时(双大括号)没法使用，
+  //   因为，vue只是把render函数的返回值放在HTML里，而不进行再次的绑定。
+  //   render函数就是让你发挥 JavaScript 最大的编程能力。
+
+  new Vue({
+    el:'#app',
+    template:'<p>我是template出来的，今年{{age}}</p>',
+    data:{
+      age: 23
+    },
+    render(createElement){
+      return createElement('p','我是render出来的，今年'+this.age)
+    }
+  })
+</script>
