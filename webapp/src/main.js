@@ -25,6 +25,19 @@ import App from './app.vue'
 import globalComponent from "./module/vue/component/globalComponent.vue"
 Vue.component("globalComponent",globalComponent);
 
+Vue.component("test",{
+  render(createElement, hack) {
+    return createElement('h1','test');
+  }
+});
+
+
+//注册一个全局过滤器
+Vue.filter("formateDate",(value)=>{
+  var date = new Date(value);
+  return `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()} ${date.getHours()}:${date.getMinutes()}:${date.getMinutes()}`;
+});
+
 // import loading from "../src/test/loading.js"
 // Vue.use(loading);
 // window.aaa =  loading;

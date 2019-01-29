@@ -31,23 +31,34 @@
         <!--<button @click="chain">调用子组件</button>-->
         <!--<father-sun-chain ref="chain"></father-sun-chain>-->
       <!--</div>-->
-      <div>
-        <p>组件插槽</p>
+      <!--<div>-->
+        <!--<p>组件插槽</p>-->
         <!--<slot-component>-->
-          <!--<tempalte slot-scope="props">-->
+          <!--<div slot-scope="props">-->
             <!--<p>分发的内容</p>-->
             <!--<p>更多分发的内容</p>-->
-            <!--&lt;!&ndash;<p slot="header">分发到对应的头部插槽去</p>&ndash;&gt;-->
-            <!--&lt;!&ndash;<p slot="footer">分发到对应尾部的插槽去</p>&ndash;&gt;-->
+            <!--<p slot="header">分发到对应的头部插槽去</p>-->
+            <!--<p slot="footer">分发到对应尾部的插槽去</p>-->
             <!--<p>{{props.age}}</p>-->
-          <!--</tempalte>-->
+          <!--</div>-->
         <!--</slot-component>-->
-          <tempalte>
-            <div>1111</div>
-          </tempalte>
-
-
+      <!--</div>-->
+      <!--<div>-->
+        <!--<p>动态组件</p>-->
+        <!--<button v-for="item in arr" @click="change(item)">{{item}}组件</button>-->
+        <!--<keep-alive>-->
+          <!--<component :is="currentView"></component>-->
+        <!--</keep-alive>-->
+      <!--</div>-->
+      <div>
+        <p>异步组件</p>
+        <asyn-component></asyn-component>
       </div>
+      <!--<div>-->
+        <!--<button @click="show">$nextTick</button>-->
+        <!--<div id="next" v-if="isShow">{{next}}</div>-->
+      <!--</div>-->
+
     </div>
 </template>
 
@@ -59,6 +70,9 @@
     import girlComponent from "./girlComponent.vue"
     import fatherSunChain from "./fatherSunChain.vue"
     import slotComponent from "./slotComponent.vue"
+    import componentA from "./componentA.vue"
+    import componentB from "./componentB.vue"
+    import asynComponent from "./asynComponent.vue"
     export default {
       components:{
         partComponent,
@@ -67,7 +81,10 @@
         boyComponent,
         girlComponent,
         fatherSunChain,
-        slotComponent
+        slotComponent,
+        componentA,
+        componentB,
+        asynComponent
       },
       data(){
         return{
@@ -83,6 +100,11 @@
             checked: true
           },
           total:1,
+          arr: ["componentA","componentB"],
+          currentView: "componentA",
+          age:22,
+          isShow: false,
+          next: "1"
         }
       },
       methods:{
@@ -91,7 +113,23 @@
         },
         chain(){
           this.$refs.chain.add();
+        },
+        change(value){
+          this.currentView =  value;
+        },
+        show(){
+          this.isShow = true;
+          // var result = document.getElementById("next");
+          // console.log(result); //null
+          this.$nextTick(()=>{
+            var result = document.getElementById("next");
+            console.log(result);  //<div id="next">1</div>
+          });
+
         }
+      },
+      mounted() {
+
       }
     }
 </script>

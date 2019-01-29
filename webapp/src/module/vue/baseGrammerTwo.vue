@@ -24,6 +24,11 @@
       <div :class="['default-color',color=='green'?'green-color':'']">test class 样式</div>
       <button :class="classes">利用计算属性绑定复杂样式处理</button>
     </div>
+    <div>
+      <p>过滤器</p>
+      <div>{{date | formateDate}}</div>
+      <div>{{date | partFormateDate}}</div>
+    </div>
   </div>
 </template>
 
@@ -47,6 +52,7 @@
           color: "",
           size: 'large',
           disabled: true,
+          date: "",
         }
       },
       computed:{
@@ -62,6 +68,14 @@
       },
       mounted() {
         this.color = "green";
+        this.date = Date.now();
+      },
+      filters:{
+        //注册一个局部过滤器
+        partFormateDate(value){
+          var date = new Date(value);
+          return `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`;
+        }
       }
     }
 </script>

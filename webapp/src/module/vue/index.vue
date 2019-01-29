@@ -12,8 +12,13 @@
       <!--高级语法 表单应用-->
       <!--<vue-form></vue-form>-->
       <!--组件-->
-      <vue-component></vue-component>
-
+      <!--<vue-component></vue-component>-->
+      <!--混入-->
+      <!--<mixins></mixins>-->
+      <!--自定义指令-->
+      <!--<directive></directive>-->
+      <!--render函数-->
+      <render></render>
     </div>
 </template>
 
@@ -24,6 +29,9 @@
     import model from "./model.vue"
     import vueForm from "./vueForm.vue"
     import vueComponent from "./component/vueComponent.vue"
+    import mixins from "./mixins/mixins.vue"
+    import directive from "./directive/directive.vue"
+    import render from "./render/render.vue"
     export default {
       components:{
         lifeCycle,
@@ -31,7 +39,10 @@
         baseGrammerTwo,
         model,
         vueForm,
-        vueComponent
+        vueComponent,
+        mixins,
+        directive,
+        render
       },
       data(){
         return {

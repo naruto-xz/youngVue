@@ -71,6 +71,87 @@
           // fill的抹去填充功能和splice有相同作用之处
           // arr.splice(2,1,7);
           // console.log(arr); //[1,2,7,4,5]
+
+          // Array.of() 将一组数值转化为数组
+          // Array.of(3); //[3]
+          // Array.of(1,2,3);  //[1,2,3]
+
+          // Array.from() 将两对象转换为真正的数组(1.类数组对象；2.可遍历对象iterable) 还可以将字符串转换为数组
+          // var obj = {
+          //   0: "a", //key值必须为数字,顺序必须对
+          //   1: "b",
+          //   2: "c",
+          //   length: 3 //必须有length
+          // };
+          // Array.from(obj);
+          // Array.from("hello") //["h", "e", "l", "l", "o"]
+
+
+          //扩展运算符
+          // var arr = [1,2,3];
+          // console.log(...arr);  //1,2,3
+          // console.log(5,...arr,4);  //5,1,2,3,4
+          //
+          // //1.主要用于函数调用
+          // function add(x,y) {
+          //   return x+y
+          // }
+          // var result = add(...[1,2]);
+          // console.log(result);  //3
+          //
+          // 2.替代数组的apply方法
+          // 2.1事例一
+          // var arr = [1,2,3];
+          // es5写法
+          // function sum(x,y,z) {
+          //   return x+y+z;
+          // }
+          // var result = sum.apply(this,arr);
+          // console.log(result);  //6
+          // //es6写法
+          // var result = sum(...arr);
+          // console.log(result);  //6
+          //
+          // 2.2事例二
+          // var arr = [1,2,3];
+          // es5写法
+          // var result =Math.max(1,2,3); //3
+          // var result =Math.max.apply(Math,arr); //3
+          // console.log(result);
+          // es6写法
+          // var result =Math.max(...arr);
+          // console.log(result);  //3
+          //
+          // 2.3事例三
+          // var arr1 = [1,2];
+          // var arr2 = [3,4];
+          // es5写法
+          // arr1.push.apply(arr1,arr2);
+          // console.log(arr1);  //[1,2,3,4]
+          // es6写法
+          // arr1.push(...arr2);
+          // console.log(arr1);  //[1,2,3,4]
+          //
+          // 3.合并数组
+          // es5
+          // var arr1 = [1,2];
+          // var arr2 = [3,4];
+          // var result = arr1.concat(arr2);
+          // console.log(result);  //[1,2,3,4]
+          // es6
+          // var result = [...arr1,...arr2];
+          // console.log(result);  //[1,2,3,4]
+          //
+          // 4.将字符串转变成真正的数组
+          // es5
+          // var str = "hello";
+          // var arr = str.split("");
+          // console.log(arr); //["h", "e", "l", "l", "o"]
+          // e56
+          // var arr = [...str];
+          // console.log(arr); //["h", "e", "l", "l", "o"]
+
+
         }
       },
       mounted() {
