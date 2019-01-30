@@ -18,7 +18,9 @@
       <!--自定义指令-->
       <!--<directive></directive>-->
       <!--render函数-->
-      <render></render>
+      <!--<render></render>-->
+      <!--JSX-->
+      <!--<jsx></jsx>-->
     </div>
 </template>
 
@@ -32,6 +34,7 @@
     import mixins from "./mixins/mixins.vue"
     import directive from "./directive/directive.vue"
     import render from "./render/render.vue"
+    import jsx from "./jsx/jsx.vue"
     export default {
       components:{
         lifeCycle,
@@ -42,7 +45,8 @@
         vueComponent,
         mixins,
         directive,
-        render
+        render,
+        jsx
       },
       data(){
         return {

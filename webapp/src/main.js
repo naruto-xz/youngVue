@@ -69,6 +69,9 @@ render: (h) => h(app)
 render: function (h) {
   return h(app);
 }
+
+将 h 作为 createElement 的别名是 Vue 生态系统中的一个通用惯例，实际上也是 JSX 所要求的，如果在作用域中 h 失去作用，在应用中会触发报错。
+
 而Vue在调用render方法时，会传入一个 createElement函数作为参数，也就是这里的 h 的实参是 createElement 函数
 和下面这个是一个意思：目的是渲染这个app实例。
 const app=new Vue({
