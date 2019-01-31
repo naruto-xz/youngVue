@@ -84,6 +84,8 @@
         // PI = 3.15; //ReferenceError
 
         // 块级作用域
+
+        //es5
         // var temp = new Date();
         // function f() {
         //   console.log(temp);  //undefined   //变量提升了
@@ -92,6 +94,27 @@
         //   }
         // }
         // f();
+
+        // for(let i = 0; i<3; i++){
+        //   console.log(i);
+        // }
+        // console.log(i); //3
+
+
+        {
+          function a() {
+            console.log(1);
+          }
+          a();  //1
+          {
+            function a() {
+              console.log(2);
+            }
+            a();  //2
+          }
+        }
+
+
 
 
 

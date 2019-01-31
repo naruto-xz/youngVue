@@ -6,8 +6,9 @@
       <!--数组扩展-->
       <!--<array-extend></array-extend>-->
       <!--对象扩展-->
-      <obj-extend></obj-extend>
-
+      <!--<obj-extend></obj-extend>-->
+      <!--字符串扩展-->
+      <string-extend></string-extend>
     </div>
 </template>
 
@@ -15,11 +16,13 @@
     import baseGrammerOne from "./baseGrammerOne.vue"
     import arrayExtend from "./arrayExtend.vue"
     import objExtend from "./objExtend.vue"
+    import stringExtend from "./stringExtend.vue"
     export default {
       components:{
         baseGrammerOne,
         arrayExtend,
-        objExtend
+        objExtend,
+        stringExtend
       },
       data(){
         return {
