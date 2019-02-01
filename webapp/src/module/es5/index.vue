@@ -6,7 +6,9 @@
       <!--数组迭代方法-->
       <!--<iteration-method></iteration-method>-->
       <!--对象-->
-      <base-object></base-object>
+      <!--<base-object></base-object>-->
+      <!--字符串-->
+      <string></string>
     </div>
 </template>
 
@@ -15,12 +17,14 @@
   import array from "./array.vue"
   import iterationMethod from "./iterationMethod.vue"
   import baseObject from "./object.vue"
+  import string from "./string.vue"
 
   export default {
      components:{
        array,
        iterationMethod,
-       baseObject
+       baseObject,
+       string
      }
   }
 </script>

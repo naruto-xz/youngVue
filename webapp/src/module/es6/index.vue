@@ -8,7 +8,12 @@
       <!--对象扩展-->
       <!--<obj-extend></obj-extend>-->
       <!--字符串扩展-->
-      <string-extend></string-extend>
+      <!--<string-extend></string-extend>-->
+      <!--数值扩展-->
+      <!--<number-extend></number-extend>-->
+
+      <!--模块化-->
+      <module></module>
     </div>
 </template>
 
@@ -17,12 +22,16 @@
     import arrayExtend from "./arrayExtend.vue"
     import objExtend from "./objExtend.vue"
     import stringExtend from "./stringExtend.vue"
+    import numberExtend from "./numberExtend.vue"
+    import module from "./module/module.vue"
     export default {
       components:{
         baseGrammerOne,
         arrayExtend,
         objExtend,
-        stringExtend
+        stringExtend,
+        numberExtend,
+        module
       },
       data(){
         return {
