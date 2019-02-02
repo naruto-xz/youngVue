@@ -4,7 +4,6 @@ import vue from "../module/vue/index.vue"
 import webpack from "../module/webpack/index.vue"
 import es6 from "../module/es6/index.vue"
 import es5 from "../module/es5/index.vue"
-import animate from "../module/animate/index.vue"
 import css3 from "../module/css3/index.vue"
 import components from "../components/index.vue"
 
@@ -63,10 +62,6 @@ var routes = [
   {
     path: "/es5",
     component: es5
-  },
-  {
-    path: "/animate",
-    component: animate
   },
   {
     path: "/css3",

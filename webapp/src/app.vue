@@ -7,7 +7,6 @@
 
   </div>
 </template>
-
 <script>
   import headerTab from './components/headerTab.vue'
   import footerTab from './components/footerTab.vue'

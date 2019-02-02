@@ -13,6 +13,8 @@
       <!--<vue-form></vue-form>-->
       <!--组件-->
       <!--<vue-component></vue-component>-->
+      <!--过渡-->
+      <transition></transition>
       <!--混入-->
       <!--<mixins></mixins>-->
       <!--自定义指令-->
@@ -31,6 +33,7 @@
     import model from "./model.vue"
     import vueForm from "./vueForm.vue"
     import vueComponent from "./component/vueComponent.vue"
+    import transition from "./transition/transition.vue"
     import mixins from "./mixins/mixins.vue"
     import directive from "./directive/directive.vue"
     import render from "./render/render.vue"
@@ -43,6 +46,7 @@
         model,
         vueForm,
         vueComponent,
+        transition,
         mixins,
         directive,
         render,
