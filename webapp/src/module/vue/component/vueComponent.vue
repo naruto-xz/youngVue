@@ -1,10 +1,10 @@
 <template>
     <div>
       <h5>{{title}}</h5>
-      <!--<div>-->
-        <!--<p>使用一个全局组件</p>-->
-        <!--<global-component></global-component>-->
-      <!--</div>-->
+      <div>
+        <p>使用一个全局组件</p>
+        <global-component></global-component>
+      </div>
       <!--<div>-->
         <!--<p>使用一个局部组件</p>-->
         <!--<part-component></part-component>-->

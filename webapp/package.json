@@ -5,9 +5,9 @@
   "author": "chaixiaozhi",
   "private": true,
   "scripts": {
-    "dev": "webpack-dev-server --progress --colors --config buildConfig/webpack/webpack.dev.config.js",
+    "dev": "webpack-dev-server --progress --colors --config buildConfig/webpack.dev.config.js",
     "start": "npm run dev",
-    "build": "cross-env NODE_ENV=production webpack --config webpack.config.js"
+    "build": "webpack --config buildConfig/webpack.build.config.js"
   },
   "dependencies": {
     "countup.js": "^1.9.3",

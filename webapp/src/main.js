@@ -22,7 +22,8 @@ Vue.use(ElementUI);
 import App from './app.vue'
 
 //注册一个全局组件
-import globalComponent from "./module/vue/component/globalComponent.vue"
+import globalComponent from "component/globalComponent.vue" //引用别名
+// import globalComponent from "./module/vue/component/globalComponent.vue"
 Vue.component("globalComponent",globalComponent);
 
 //注册一个全局过滤器

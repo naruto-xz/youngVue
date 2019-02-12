@@ -36,9 +36,6 @@
         var date4 = new Date("2020/1/1");
         console.log(date4); //Wed Jan 01 2020 00:00:00 GMT+0800
 
-
-
-
       }
     }
 </script>

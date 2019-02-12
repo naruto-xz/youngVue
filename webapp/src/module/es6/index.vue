@@ -2,7 +2,7 @@
     <div>
       <h4>{{title}}</h4>
       <!--<div>常用方法</div>-->
-      <!--<base-grammer-one></base-grammer-one>-->
+      <!--<let-and-const></let-and-const>-->
       <!--数组扩展-->
       <!--<array-extend></array-extend>-->
       <!--对象扩展-->
@@ -11,26 +11,30 @@
       <!--<string-extend></string-extend>-->
       <!--数值扩展-->
       <!--<number-extend></number-extend>-->
+      <!--变量解构赋值-->
+      <deconstruction></deconstruction>
 
       <!--模块化-->
-      <module></module>
+      <!--<module></module>-->
     </div>
 </template>
 
 <script>
-    import baseGrammerOne from "./baseGrammerOne.vue"
+    import letAndConst from "./letAndConst.vue"
     import arrayExtend from "./arrayExtend.vue"
     import objExtend from "./objExtend.vue"
     import stringExtend from "./stringExtend.vue"
     import numberExtend from "./numberExtend.vue"
+    import deconstruction from "./deconstruction.vue"
     import module from "./module/module.vue"
     export default {
       components:{
-        baseGrammerOne,
+        letAndConst,
         arrayExtend,
         objExtend,
         stringExtend,
         numberExtend,
+        deconstruction,
         module
       },
       data(){

@@ -1,6 +1,6 @@
 <template>
     <div>
-      <h4>{{title}}</h4>
+      <h4 class="title">{{title}}</h4>
       <!--生命周期-->
       <!--<life-cycle></life-cycle>-->
       <!--基础语法一 实例对象配置-->
@@ -12,9 +12,9 @@
       <!--高级语法 表单应用-->
       <!--<vue-form></vue-form>-->
       <!--组件-->
-      <!--<vue-component></vue-component>-->
+      <vue-component></vue-component>
       <!--过渡-->
-      <transition></transition>
+      <!--<transition></transition>-->
       <!--混入-->
       <!--<mixins></mixins>-->
       <!--自定义指令-->
@@ -54,12 +54,14 @@
       },
       data(){
         return {
-          title: "vue知识库",
+          title: "vue知识库6",
         }
       },
     }
 </script>
 
 <style scoped>
-
+  .title{
+    color: red;
+  }
 </style>
