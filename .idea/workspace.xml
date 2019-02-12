@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4d702e71-8ff1-4e1d-a2c0-ea9d7b15895a" name="默认的" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="4d702e71-8ff1-4e1d-a2c0-ea9d7b15895a" name="默认的" comment="" />
     <ignored path="youngVue.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -212,19 +210,19 @@
     <property name="settings.editor.selected.configurable" value="preferences.general" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\E盘\mywork\youngVue\webapp\src\module\vue\transition" />
-      <recent name="C:\E盘\mywork\youngVue\webapp\src\module\es6\module" />
-      <recent name="C:\E盘\mywork\youngVue\webapp\src\module\vue\mixins" />
-      <recent name="C:\E盘\mywork\youngVue\webapp\src\module\vue\component" />
-      <recent name="C:\E盘\mywork\youngVue\webapp\src\module\vue" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\E盘\mywork\youngVue\webapp\buildConfig" />
       <recent name="C:\E盘\mywork\youngVue\webapp\src\module\vue" />
       <recent name="C:\E盘\mywork\youngVue\webapp\src\module\vue\mixins" />
       <recent name="D:\workspace\youngVue\webapp\src\web-component\src\style" />
       <recent name="C:\E盘\前端软件工程师\workspace\youngVue\webapp\src" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\E盘\mywork\youngVue\webapp\src\module\vue\transition" />
+      <recent name="C:\E盘\mywork\youngVue\webapp\src\module\es6\module" />
+      <recent name="C:\E盘\mywork\youngVue\webapp\src\module\vue\mixins" />
+      <recent name="C:\E盘\mywork\youngVue\webapp\src\module\vue\component" />
+      <recent name="C:\E盘\mywork\youngVue\webapp\src\module\vue" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -407,12 +405,12 @@
       <workItem from="1549526092068" duration="3365000" />
       <workItem from="1549612759788" duration="9075000" />
       <workItem from="1549848251808" duration="27160000" />
-      <workItem from="1549968552172" duration="1521000" />
+      <workItem from="1549968552172" duration="1709000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="537318000" />
+    <option name="totallyTimeSpent" value="537506000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
