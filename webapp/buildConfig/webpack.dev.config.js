@@ -5,19 +5,45 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const { VueLoaderPlugin } = require("vue-loader");
 const config = {
-  // 提供 mode 配置选项，告知 webpack 使用相应模式的内置优化
-  //会将 process.env.NODE_ENV 的值设为 development。启用 NamedChunksPlugin 和 NamedModulesPlugin。
+  /**
+   * 模式 提供 mode 配置选项，告知 webpack 使用相应模式的内置优化
+   *
+   * 1.会将 process.env.NODE_ENV 的值设为 development。启用 NamedChunksPlugin 和 NamedModulesPlugin。
+   * 2.会将 process.env.NODE_ENV 的值设为 production。启用 FlagDependencyUsagePlugin, FlagIncludedChunksPlugin, ModuleConcatenationPlugin, NoEmitOnErrorsPlugin,
+        OccurrenceOrderPlugin, SideEffectsFlagPlugin 和 UglifyJsPlugin.
+   * 3.none 不选用任何默认优化选项
+   */
 	mode: "development",
-	//入口: 告诉webpack从哪里开始寻找依赖，并且编译
+
+  /**
+   * 入口: 告诉webpack从哪里开始寻找依赖，并且编译
+   */
+  // 下面是简写， main是之后打包生成的js名称
+  // entry: {
+  //   main: path.resolve(__dirname, "../src/main.js")
+  // }
+  //配置多页面应用
+  // module.exports = {
+  //   entry: {
+  //     pageOne: './src/pageOne/index.js',
+  //     pageTwo: './src/pageTwo/index.js',
+  //     pageThree: './src/pageThree/index.js'
+  //   }
+  // };
 	entry: path.resolve(__dirname, "../src/main.js"),
-	//出口：用来配置编译后的文件储存位置和文件名
+
+  /**
+   * 出口：用来配置编译后的文件储存位置和文件名
+   *
+   * 1.path.resolve()方法可以将路径或者路径片段解析成绝对路径 (相当于在shell命令下，从左到右运行一遍cd path命令，最终获取的绝对路径/文件名)
+   * 2."__dirname"是node.js中的一个全局变量，（__dirname代表的是当前文件的绝对路径）它指向当前执行脚本所在的目录(即webpack.dev.config所在目录)。
+   */
   output: {
     // filename: "bundle.js",
     filename: "[name]-[hash].js",  //优化后
-    //1.path.resolve()方法可以将路径或者路径片段解析成绝对路径 (相当于在shell命令下，从左到右运行一遍cd path命令，最终获取的绝对路径/文件名)
-    //2."__dirname"是node.js中的一个全局变量，（__dirname代表的是当前文件的绝对路径）它指向当前执行脚本所在的目录(即webpack.dev.config所在目录)。
-    path: path.resolve(__dirname + "../dist")   //打包后的文件存放的地方
+    path: path.resolve(__dirname,"../dist")   //打包后的文件存放的地方
   },
+
   //module.loader: 其中test是正则表达式，对符合的文件名使用相应的加载器/\.css$/会匹配 xx.css文件，但是并不适用于xx.sass或者xx.css.zip文件.
   // test 属性，用于标识出应该被对应的 loader 进行转换的某个或某些文件。
   // use  属性，表示进行转换时，应该使用哪个 loader。
@@ -29,15 +55,36 @@ const config = {
       },
       {
         test: /\.css$/,
-        use: ["vue-style-loader", "css-loader",]
+        use: [
+          {loader: MiniCssExtractPlugin.loader},
+          "vue-style-loader",
+          "css-loader",
+          // {
+          //   loader: "postcss-loader",
+          //   options: {
+          //     plugins: loader => [require("autoprefixer")()]
+          //   }
+          // }
+        ]
       },
       {
         test: /\.scss$/,
-        use: ["vue-style-loader", "css-loader", "postcss-loader", "sass-loader"]
+        use: [
+          "vue-style-loader",
+          "css-loader",
+          // "postcss-loader",
+          "sass-loader"
+        ]
       },
       {
         test: /\.less$/,
-        use: ["vue-style-loader", "css-loader", "postcss-loader", "less-loader"]
+        use: [
+          {loader: MiniCssExtractPlugin.loader},
+          "vue-style-loader",
+          "css-loader",
+          // "postcss-loader",
+          "less-loader"
+        ]
       },
       {
         test: /\.(gif|jpg|jpeg|png|woff|svg|eot|ttf)\??.*$/,
@@ -91,9 +138,9 @@ const config = {
      * webpack4得使用mini-css-extract-plugin这个插件来单独打包css。
      *
      */
-    // new MiniCssExtractPlugin({
-    //   filename: '[name].css'
-    // }),
+    new MiniCssExtractPlugin({
+      filename: '[name].css'
+    }),
 
     new VueLoaderPlugin()
     // new webpack.HotModuleReplacementPlugin()

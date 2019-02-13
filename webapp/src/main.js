@@ -12,9 +12,9 @@ Vue.use(Router);  //表示使用router
 // import router from './router/routers'
 
 //加载element-ui组件
-import ElementUI from "element-ui";   //这是导入element-ui所以组件
-import 'element-ui/lib/theme-chalk/index.css' //样式需要单独引入
-Vue.use(ElementUI);
+// import ElementUI from "element-ui";   //这是导入element-ui所以组件
+// import 'element-ui/lib/theme-chalk/index.css' //样式需要单独引入
+// Vue.use(ElementUI);
 //当你只需要导入element-ui中的某一个组件的时候，就用下面这种方式
 // import { Input } from "element-ui";
 // Vue.use(Input);
