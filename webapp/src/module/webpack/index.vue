@@ -1,6 +1,6 @@
 <template>
     <div>
-      <h5>{{title}}</h5>
+      <h5 class="webpack-title">{{title}}</h5>
     </div>
 </template>
 
@@ -10,7 +10,7 @@
     export default {
       data(){
         return{
-          title: 'webpack打包'
+          title: 'webpack打包1'
         }
       },
       methods:{
@@ -28,5 +28,7 @@
 </script>
 
 <style scoped>
-
+  .webpack-title{
+    color: green;
+  }
 </style>

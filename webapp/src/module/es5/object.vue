@@ -1,7 +1,6 @@
 <template>
     <div>
       <h5>{{title}}</h5>
-      <div></div>
     </div>
 </template>
 
@@ -43,5 +42,4 @@
 </script>
 
 <style scoped>
-
 </style>

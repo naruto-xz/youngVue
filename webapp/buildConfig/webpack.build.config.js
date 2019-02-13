@@ -41,7 +41,8 @@ const config = {
   output: {
     // filename: "bundle.js",
     filename: "[name]-[hash].js",  //优化后
-    path: path.resolve(__dirname,"../dist")   //打包后的文件存放的地方
+    path: path.resolve(__dirname,"../dist"),   //打包后的文件存放的地方
+    libraryTarget: 'umd'  //也就是将打包的文件，生成为umd规范，适用于各种环境
   },
 
   /**
@@ -59,24 +60,9 @@ const config = {
       {
         test: /\.css$/,
         use: [
-          MiniCssExtractPlugin.loader,
           "vue-style-loader",
-          "css-loader",
-          {
-            loader: "postcss-loader",
-            options: {
-              plugins: loader => [require("autoprefixer")()]
-            }
-          }
-        ]
-      },
-      {
-        test: /\.less$/,
-        use: [
           MiniCssExtractPlugin.loader,
-          "vue-style-loader",
           "css-loader",
-          "less-loader",
           {
             loader: "postcss-loader",
             options: {
@@ -88,10 +74,25 @@ const config = {
       {
         test: /\.scss$/,
         use: [
-          MiniCssExtractPlugin.loader,
           "vue-style-loader",
+          MiniCssExtractPlugin.loader,
           "css-loader",
           "sass-loader",
+          {
+            loader: "postcss-loader",
+            options: {
+              plugins: loader => [require("autoprefixer")()]
+            }
+          }
+        ]
+      },
+      {
+        test: /\.less$/,
+        use: [
+          "vue-style-loader",
+          MiniCssExtractPlugin.loader,
+          "css-loader",
+          "less-loader",
           {
             loader: "postcss-loader",
             options: {
@@ -144,35 +145,49 @@ const config = {
       //   collapseWhitespace:true    //删除空白符与换行符
       // }
     }),
-
     /**
      * webpack4得使用mini-css-extract-plugin这个插件来单独打包css。
-     *
      */
     new MiniCssExtractPlugin({
-      filename: "[name].css"
+      filename: "[name].[hash].css"
     }),
-
     new VueLoaderPlugin()
-    // new webpack.HotModuleReplacementPlugin()
   ],
 
-  //devServer是webpack提供的在开发中可以使用的一系列功能（有的是在js里配置，有的是在package.json里面的命令行工具cli配置)
+  /**
+   * devServer 开发中  (是webpack提供的在开发中可以使用的一系列功能（有的是在js里配置，有的是在package.json里面的命令行工具cli配置)
+   *
+   */
   devServer: require("./devServer"),
 
-  //resolve（解析）,项能设置模块如何被解析。
+  /**
+   * resolve（解析）,项能设置模块如何被解析(用于帮助找到模块的绝对路径)。
+   *
+   * 1.modules 告诉 webpack 解析模块时应该搜索的目录。默认是 modules: ['node_modules']，如果你想要添加一个目录到模块搜索目录，此目录优先于node_modules搜索：path.resolve(__dirname, "../node_modules")
+   * 2.alias 创建 import 或 require 的别名，来确保模块引入变得更简单。 （也可以在给定对象的键后的末尾添加 $，以表示精准匹配：）
+   * 3.extensions用于配置程序可以自行补全哪些文件后缀,能够使用户在引入模块时不带扩展。 (使用此选项，会覆盖默认数组，这就意味着webpack将不再尝试使用默认扩展来解析模块)
+   */
   resolve:{
-    // 告诉 webpack 解析模块时应该搜索的目录。默认是 modules: ['node_modules']，如果你想要添加一个目录到模块搜索目录，此目录优先于node_modules搜索：path.resolve(__dirname, "../node_modules")
     modules: [path.resolve(__dirname, "../node_modules")],
-    //alias 创建 import 或 require 的别名，来确保模块引入变得更简单。 （也可以在给定对象的键后的末尾添加 $，以表示精准匹配：）
     alias: {
       // vue$: "vue/dist/vue.js",  //使用完整版，默认是不含编译器的运行时版本
       jquery: "jquery/dist/jquery.min.js",
       component: path.resolve(__dirname, '../src/module/vue/component'),
       // xyz$: path.resolve(__dirname, 'path/to/file.js') //精确匹配，所以path/to/file.js 被解析和导入
     },
-    //extensions用于配置程序可以自行补全哪些文件后缀,能够使用户在引入模块时不带扩展。 (使用此选项，会覆盖默认数组，这就意味着webpack将不再尝试使用默认扩展来解析模块)
     extensions: [".js", ".vue", ".coffee", ".html", ".css", ".scss", ".less"] ,
   },
+
+  /**
+   * 性能 (将展示一条错误，通知你这是体积大的资源。)
+   *
+   * false | "error" | "warning"  打开/关闭提示。此外，当找到提示时，告诉 webpack 抛出一个错误或警告。此属性默认设置为 "warning"。给定一个创建后超过 250kb 的资源
+   *
+   * maxAssetSize 资源(asset)是从 webpack 生成的任何文件。此选项根据单个资源体积，控制 webpack 何时生成性能提示。默认值是：250000 (bytes)。
+   */
+  performance: {
+    hints: "error"
+  }
+
 };
 module.exports = config;  //这里的module.exports=config相当于export default config 。由于目前还没有安装支持ES6的编译插件，因此不能直接使用 ES6的语法，否则会报错。
