@@ -8,7 +8,7 @@ module.exports = {
   overlay: {
     error: true   //编译过程中有什么错误，就呈现出来在网页端
   },
-  hot: true,   //只局部刷新修改组件的部分，而不是整个页面进行刷新
+  // hot: true,   //只局部刷新修改组件的部分，而不是整个页面进行刷新 (不用开启)
   inline: true,
   disableHostCheck: true, //绕过热跟新检查
 
