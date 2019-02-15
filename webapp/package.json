@@ -5,7 +5,7 @@
   "author": "chaixiaozhi",
   "private": true,
   "scripts": {
-    "dev": "webpack-dev-server --progress --colors --config buildConfig/webpack.dev.config.js",
+    "dev": "webpack-dev-server --progress --colors --history-api-fallback --config buildConfig/webpack.dev.config.js",
     "start": "npm run dev",
     "build": "webpack --config buildConfig/webpack.build.config.js"
   },

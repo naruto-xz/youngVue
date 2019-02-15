@@ -6,6 +6,8 @@ import es6 from "../module/es6/index.vue"
 import es5 from "../module/es5/index.vue"
 import css3 from "../module/css3/index.vue"
 import components from "../components/index.vue"
+import index from "../module/index/index.vue"
+import vuex from "../module/vuex/vuex.vue"
 
 var routes = [
   {
@@ -44,8 +46,12 @@ var routes = [
     ]
   },
   {
-    path: "/",
-    redirect: "/vue"
+    path: "/index",
+    component: index
+  },
+  {
+    path: "*",  //当访问不存在时，跳到首页
+    redirect: "/index"
   },
   {
     path: "/vue",
@@ -70,6 +76,11 @@ var routes = [
   {
     path: "/components",
     component: components
+  },
+  {
+    path: "/vuex",
+    component: vuex
   }
 ];
+
 export default routes

@@ -9,7 +9,9 @@ window.$toolkit = toolkit;
 import Vue from 'vue'
 import Router from 'vue-router'
 Vue.use(Router);  //表示使用router
-// import router from './router/routers'
+import Vuex from 'vuex'
+Vue.use(Vuex);
+
 
 //加载element-ui组件
 // import ElementUI from "element-ui";   //这是导入element-ui所以组件
@@ -37,8 +39,10 @@ Vue.filter("formateDate",(value)=>{
 // window.aaa =  loading;
 
 import routes from "./router/routeConfig.js"
+import moduleA from "./module/es6/module/moduleA";
 
 var router = new Router({
+  mode: 'history',  //设置为mode为history会开启HTML5的history路由模式，通过"/"设置路径，不在使用"#"来设置路径,注意此时webpack也来配置下来支持history路由，在package.json中修改dev命令 --history-api-fallback
   routes: routes
 });
 //只要路由跳转变化就会先进这个路由守卫里面
@@ -58,8 +62,21 @@ router.afterEach((to, from) => {
 // });
 
 
+
+import moduleBoy from '../src/module/vuex/moduleBoy.js';
+import moduleGirl from "./module/vuex/moduleGirl.js";
+var store = new Vuex.Store({
+  //用来将store分割到不同模块，每个modules拥有自己的state,mutations,actions,不同的module管理一个部分的公共数据交换
+  modules: {
+    boy: moduleBoy,
+    girl: moduleGirl,
+  }
+});
+
+
 new Vue({
   router,
+  store,
   el: '#app',   //挂载点
   render: (h) => h(App)  //起步文件，路由切换入口
 });
