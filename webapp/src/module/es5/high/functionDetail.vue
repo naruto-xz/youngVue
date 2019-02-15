@@ -24,14 +24,20 @@
           // another(1,2)  //3
 
           // 2.作为值得函数
-          function total(someFunction,argument) {
-            return someFunction(argument);
+          // function total(someFunction,argument) {
+          //   return someFunction(argument);
+          // }
+          // function add(x) {
+          //   return x+10;
+          // }
+          // var result = total(add,10);
+          // console.log(result);  //20
+
+          // 3.函数属性和方法
+          function add(x,y) {
+            return x+y;
           }
-          function add(x) {
-            return x+10;
-          }
-          var result = total(add,10);
-          console.log(result);  //20
+          console.log(add.length);  //2
 
         }
       },
