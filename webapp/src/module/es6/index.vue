@@ -12,12 +12,13 @@
       <!--数值扩展-->
       <!--<number-extend></number-extend>-->
       <!--函数扩展-->
-      <function-extend></function-extend>
+      <!--<function-extend></function-extend>-->
       <!--变量解构赋值-->
       <!--<deconstruction></deconstruction>-->
-
       <!--模块化-->
       <!--<module></module>-->
+      <!--set和map结构-->
+      <set-and-map></set-and-map>
     </div>
 </template>
 
@@ -30,6 +31,7 @@
     import functionExtend from "./functionExtend.vue"
     import deconstruction from "./deconstruction.vue"
     import module from "./module/module.vue"
+    import setAndMap from "./setAndMap.vue"
     export default {
       components:{
         letAndConst,
@@ -39,7 +41,8 @@
         numberExtend,
         functionExtend,
         deconstruction,
-        module
+        module,
+        setAndMap,
       },
       data(){
         return {
