@@ -17,8 +17,10 @@
       <!--<deconstruction></deconstruction>-->
       <!--模块化-->
       <!--<module></module>-->
+      <!--promise对象-->
+      <promise></promise>
       <!--set和map结构-->
-      <set-and-map></set-and-map>
+      <!--<set-and-map></set-and-map>-->
     </div>
 </template>
 
@@ -31,6 +33,7 @@
     import functionExtend from "./functionExtend.vue"
     import deconstruction from "./deconstruction.vue"
     import module from "./module/module.vue"
+    import promise from "./promise.vue"
     import setAndMap from "./setAndMap.vue"
     export default {
       components:{
@@ -42,6 +45,7 @@
         functionExtend,
         deconstruction,
         module,
+        promise,
         setAndMap,
       },
       data(){
