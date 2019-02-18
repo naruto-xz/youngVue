@@ -39,7 +39,6 @@ Vue.filter("formateDate",(value)=>{
 // window.aaa =  loading;
 
 import routes from "./router/routeConfig.js"
-import moduleA from "./module/es6/module/moduleA";
 
 var router = new Router({
   mode: 'history',  //设置为mode为history会开启HTML5的history路由模式，通过"/"设置路径，不在使用"#"来设置路径,注意此时webpack也来配置下来支持history路由，在package.json中修改dev命令 --history-api-fallback

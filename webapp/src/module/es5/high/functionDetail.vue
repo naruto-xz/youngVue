@@ -34,10 +34,24 @@
           // console.log(result);  //20
 
           // 3.函数属性和方法
-          function add(x,y) {
-            return x+y;
-          }
-          console.log(add.length);  //2
+          // function add(x,y) {
+          //   return x+y;
+          // }
+          // console.log(add.length);  //2
+
+          //4,模块模式
+          // var single = function(){
+          //   var name = 'zhangsan';
+          //   var age = 23;
+          //   return {
+          //     name: name,
+          //     getAge: function () {
+          //       return age;
+          //     }
+          //   }
+          // };
+          // console.log(single().name);
+          // console.log(single().getAge());
 
         }
       },

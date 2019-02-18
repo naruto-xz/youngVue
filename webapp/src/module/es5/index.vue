@@ -16,7 +16,9 @@
       <!--正则表达式-->
       <!--<regexp></regexp>-->
       <!--函数-->
-      <function-detail></function-detail>
+      <!--<function-detail></function-detail>-->
+      <!--面向对象编程-->
+      <object-detail></object-detail>
     </div>
 </template>
 
@@ -29,6 +31,7 @@
   import date from "./date.vue"
   import regexp from "./regexp.vue"
   import functionDetail from "./high/functionDetail.vue"
+  import objectDetail from "./high/objectDetail.vue"
 
   export default {
      components:{
@@ -39,7 +42,8 @@
        math,
        date,
        regexp,
-       functionDetail
+       functionDetail,
+       objectDetail
      }
   }
 </script>

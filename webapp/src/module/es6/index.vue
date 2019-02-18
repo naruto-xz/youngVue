@@ -11,8 +11,10 @@
       <!--<string-extend></string-extend>-->
       <!--数值扩展-->
       <!--<number-extend></number-extend>-->
+      <!--函数扩展-->
+      <function-extend></function-extend>
       <!--变量解构赋值-->
-      <deconstruction></deconstruction>
+      <!--<deconstruction></deconstruction>-->
 
       <!--模块化-->
       <!--<module></module>-->
@@ -25,6 +27,7 @@
     import objExtend from "./objExtend.vue"
     import stringExtend from "./stringExtend.vue"
     import numberExtend from "./numberExtend.vue"
+    import functionExtend from "./functionExtend.vue"
     import deconstruction from "./deconstruction.vue"
     import module from "./module/module.vue"
     export default {
@@ -34,6 +37,7 @@
         objExtend,
         stringExtend,
         numberExtend,
+        functionExtend,
         deconstruction,
         module
       },
