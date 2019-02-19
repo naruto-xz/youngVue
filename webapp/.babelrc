@@ -4,11 +4,12 @@
     "stage-0"
   ],
   "plugins": [
-    [
-      {
-        "libraryName": "element-ui",
-        "styleLibraryName": "theme-chalk"
-      }
-    ]
+    "transform-runtime"
+//    [
+//      {
+//        "libraryName": "element-ui",
+//        "styleLibraryName": "theme-chalk"
+//      }
+//    ]
   ]
 }

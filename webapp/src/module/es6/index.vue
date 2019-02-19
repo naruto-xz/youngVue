@@ -18,9 +18,11 @@
       <!--模块化-->
       <!--<module></module>-->
       <!--promise对象-->
-      <promise></promise>
+      <!--<promise></promise>-->
       <!--set和map结构-->
       <!--<set-and-map></set-and-map>-->
+      <!--generator函数-->
+      <generator></generator>
     </div>
 </template>
 
@@ -35,6 +37,7 @@
     import module from "./module/module.vue"
     import promise from "./promise.vue"
     import setAndMap from "./setAndMap.vue"
+    import generator from "./high/generator.vue"
     export default {
       components:{
         letAndConst,
@@ -47,6 +50,7 @@
         module,
         promise,
         setAndMap,
+        generator
       },
       data(){
         return {

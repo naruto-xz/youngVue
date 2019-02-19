@@ -19,6 +19,11 @@ const config = {
         loader: 'vue-loader'
       },
       {
+        test: /\.js$/,
+        loader: 'babel-loader',
+        exclude: path.resolve(__dirname,"../node_modules")  //排除，不需要编译的目录，提高编译速度
+      },
+      {
         test: /\.css$/,
         use: [
           "vue-style-loader",
