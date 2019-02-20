@@ -22,7 +22,9 @@
       <!--set和map结构-->
       <!--<set-and-map></set-and-map>-->
       <!--generator函数-->
-      <generator></generator>
+      <!--<generator></generator>-->
+      <!--async函数-->
+      <async-function></async-function>
     </div>
 </template>
 
@@ -38,6 +40,7 @@
     import promise from "./promise.vue"
     import setAndMap from "./setAndMap.vue"
     import generator from "./high/generator.vue"
+    import asyncFunction from "./high/asyncFunction.vue"
     export default {
       components:{
         letAndConst,
@@ -50,7 +53,8 @@
         module,
         promise,
         setAndMap,
-        generator
+        generator,
+        asyncFunction
       },
       data(){
         return {
@@ -61,13 +65,6 @@
 
       },
       mounted() {
-
-
-
-
-
-
-
 
       }
     }
