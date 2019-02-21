@@ -21,10 +21,12 @@
       <!--<promise></promise>-->
       <!--set和map结构-->
       <!--<set-and-map></set-and-map>-->
+      <!--iterator和for..of-->
+      <iterator></iterator>
       <!--generator函数-->
       <!--<generator></generator>-->
       <!--async函数-->
-      <async-function></async-function>
+      <!--<async-function></async-function>-->
     </div>
 </template>
 
@@ -39,6 +41,7 @@
     import module from "./module/module.vue"
     import promise from "./promise.vue"
     import setAndMap from "./setAndMap.vue"
+    import iterator from "./iterator.vue"
     import generator from "./high/generator.vue"
     import asyncFunction from "./high/asyncFunction.vue"
     export default {
@@ -53,6 +56,7 @@
         module,
         promise,
         setAndMap,
+        iterator,
         generator,
         asyncFunction
       },
