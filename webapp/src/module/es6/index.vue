@@ -1,6 +1,6 @@
 <template>
     <div>
-      <h4>{{title}}</h4>
+      <!--<h4>{{title}}</h4>-->
       <!--<div>常用方法</div>-->
       <!--<let-and-const></let-and-const>-->
       <!--数组扩展-->
@@ -27,6 +27,8 @@
       <!--<generator></generator>-->
       <!--async函数-->
       <!--<async-function></async-function>-->
+      <!--class-->
+      <class-function></class-function>
     </div>
 </template>
 
@@ -44,6 +46,7 @@
     import iterator from "./iterator.vue"
     import generator from "./high/generator.vue"
     import asyncFunction from "./high/asyncFunction.vue"
+    import classFunction from "./high/classFunction.vue"
     export default {
       components:{
         letAndConst,
@@ -58,7 +61,8 @@
         setAndMap,
         iterator,
         generator,
-        asyncFunction
+        asyncFunction,
+        classFunction
       },
       data(){
         return {
