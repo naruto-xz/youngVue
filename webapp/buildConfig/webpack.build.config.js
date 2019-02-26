@@ -41,7 +41,7 @@ const config = {
   output: {
     // filename: "bundle.js",
     filename: "[name]-[hash].js",  //优化后
-    path: path.resolve(__dirname,"../dist"),   //打包后的文件存放的地方
+    path: path.resolve(__dirname,"../build"),   //打包后的文件存放的地方
     libraryTarget: 'umd'  //也就是将打包的文件，生成为umd规范，适用于各种环境
   },
 

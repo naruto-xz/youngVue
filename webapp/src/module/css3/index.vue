@@ -1,17 +1,20 @@
 <template>
     <div class="css3">
       <h3>{{title}}</h3>
-      <div class="select-option" v-for="item in list" @click="show(item.value)">{{item.name}}</div>
-      <transition v-if="'transition'==currentModule"></transition>
-      <transform v-if="'transform'==currentModule"></transform>
+      <basis></basis>
+      <!--<div class="select-option" v-for="item in list" @click="show(item.value)">{{item.name}}</div>-->
+      <!--<transition v-if="'transition'==currentModule"></transition>-->
+      <!--<transform v-if="'transform'==currentModule"></transform>-->
     </div>
 </template>
 
 <script>
+    import basis from './basis.vue'
     import transition from './transition.vue'
     import transform from './transform.vue'
     export default {
         components:{
+          basis,
           transition,
           transform
         },
