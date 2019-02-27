@@ -9,6 +9,7 @@ import css3 from "../module/css3/index.vue"
 import components from "../components/index.vue"
 import index from "../module/index/index.vue"
 import vuex from "../module/vuex/vuex.vue"
+import http from "../module/http/index.vue"
 
 var routes = [
   {
@@ -85,7 +86,12 @@ var routes = [
   {
     path: "/vuex",
     component: vuex
-  }
+  },
+  {
+    path: "/http",
+    component: http
+  },
+
 ];
 
 export default routes
