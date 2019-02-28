@@ -1,7 +1,8 @@
 <template>
     <div class="css3">
       <h3>{{title}}</h3>
-      <basis></basis>
+      <!--<basis></basis>-->
+      <flex></flex>
       <!--<div class="select-option" v-for="item in list" @click="show(item.value)">{{item.name}}</div>-->
       <!--<transition v-if="'transition'==currentModule"></transition>-->
       <!--<transform v-if="'transform'==currentModule"></transform>-->
@@ -10,11 +11,13 @@
 
 <script>
     import basis from './basis.vue'
+    import flex from './flex.vue'
     import transition from './transition.vue'
     import transform from './transform.vue'
     export default {
         components:{
           basis,
+          flex,
           transition,
           transform
         },

@@ -18,7 +18,9 @@
       <!--函数-->
       <!--<function-detail></function-detail>-->
       <!--面向对象编程-->
-      <object-detail></object-detail>
+      <!--<object-detail></object-detail>-->
+      <!--BOM-->
+      <bom></bom>
     </div>
 </template>
 
@@ -32,6 +34,7 @@
   import regexp from "./regexp.vue"
   import functionDetail from "./high/functionDetail.vue"
   import objectDetail from "./high/objectDetail.vue"
+  import bom from "./bom.vue"
 
   export default {
      components:{
@@ -43,7 +46,8 @@
        date,
        regexp,
        functionDetail,
-       objectDetail
+       objectDetail,
+       bom
      }
   }
 </script>
