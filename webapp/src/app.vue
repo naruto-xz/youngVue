@@ -1,9 +1,9 @@
 <template>
   <div>
-    <header-tab></header-tab>
+    <!--<header-tab></header-tab>-->
     <!--<load></load>-->
       <router-view></router-view>
-    <footer-tab></footer-tab>
+    <!--<footer-tab></footer-tab>-->
 
   </div>
 </template>

@@ -6,11 +6,19 @@ window.$ = $;
 import toolkit from "./commom/toolkit.js"
 window.$toolkit = toolkit;
 
+// 导入公共服务
+import "./service/http/index.js"
+
+
 import Vue from 'vue'
 import Router from 'vue-router'
 Vue.use(Router);  //表示使用router
+
 import Vuex from 'vuex'
 Vue.use(Vuex);
+
+import VueResource from "vue-resource";
+Vue.use(VueResource);
 
 
 //加载element-ui组件
