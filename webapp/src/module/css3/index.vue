@@ -1,8 +1,9 @@
 <template>
     <div class="css3">
-      <h3>{{title}}</h3>
+      <!--<h3>{{title}}</h3>-->
       <!--<basis></basis>-->
-      <flex></flex>
+      <!--<flex></flex>-->
+      <grid-layout></grid-layout>
       <!--<div class="select-option" v-for="item in list" @click="show(item.value)">{{item.name}}</div>-->
       <!--<transition v-if="'transition'==currentModule"></transition>-->
       <!--<transform v-if="'transform'==currentModule"></transform>-->
@@ -14,10 +15,12 @@
     import flex from './flex.vue'
     import transition from './transition.vue'
     import transform from './transform.vue'
+    import gridLayout from "./gridLayout";
     export default {
         components:{
           basis,
           flex,
+          gridLayout,
           transition,
           transform
         },
