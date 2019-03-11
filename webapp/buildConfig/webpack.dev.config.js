@@ -41,13 +41,13 @@ const config = {
         use: [
           "vue-style-loader",
           "css-loader",
-          "sass-loader",
           {
             loader: "postcss-loader",
             options: {
               plugins: loader => [require("autoprefixer")()]
             }
-          }
+          },
+          "sass-loader"
         ]
       },
       {
@@ -55,13 +55,13 @@ const config = {
         use: [
           "vue-style-loader",
           "css-loader",
-          "less-loader",
           {
             loader: "postcss-loader",
             options: {
               plugins: loader => [require("autoprefixer")()]
             }
-          }
+          },
+          "less-loader"
         ]
       },
       {
