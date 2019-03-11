@@ -68,8 +68,6 @@ router.afterEach((to, from) => {
 //   next();
 // });
 
-
-
 import moduleBoy from '../src/module/vuex/moduleBoy.js';
 import moduleGirl from "./module/vuex/moduleGirl.js";
 var store = new Vuex.Store({

@@ -20,7 +20,9 @@
       <!--面向对象编程-->
       <!--<object-detail></object-detail>-->
       <!--BOM-->
-      <bom></bom>
+      <!--<bom></bom>-->
+      <!--DOM-->
+      <dom></dom>
     </div>
 </template>
 
@@ -35,6 +37,7 @@
   import functionDetail from "./high/functionDetail.vue"
   import objectDetail from "./high/objectDetail.vue"
   import bom from "./bom.vue"
+  import dom from "./dom.vue"
 
   export default {
      components:{
@@ -47,7 +50,8 @@
        regexp,
        functionDetail,
        objectDetail,
-       bom
+       bom,
+       dom
      }
   }
 </script>

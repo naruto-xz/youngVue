@@ -29,7 +29,7 @@
            * has(value)：某参数是否为Set成员，返回一个布尔值；
            * clear()：清除所有成员，没有返回值。
            */
-          // var set = new Set();
+          var set = new Set();
           // //添加
           // set.add(1);
           // set.add(2);
@@ -129,11 +129,11 @@
           //注意：
           //1.Map可以接受一个数组作为参数，该数组的成员是一个个表示键值对的数组；
           //2.扩展运算符（...）内部使用for...of循环，所以也可以用于Map结构,转换为数组非常方便
-          var map = new Map([
-            [1,'one'],
-            [2,'two']
-          ]);
-          console.log([...map.values()]); //["one", "two"]
+          // var map = new Map([
+          //   [1,'one'],
+          //   [2,'two']
+          // ]);
+          // console.log([...map.values()]); //["one", "two"]
         }
       },
       mounted() {

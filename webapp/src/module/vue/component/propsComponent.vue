@@ -34,7 +34,6 @@
         }
       },
       mounted() {
-
       }
     }
 </script>

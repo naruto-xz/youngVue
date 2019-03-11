@@ -15,6 +15,8 @@
       <!--<function-extend></function-extend>-->
       <!--变量解构赋值-->
       <!--<deconstruction></deconstruction>-->
+      <!--symbol数据类型-->
+      <!--<symbol-type></symbol-type>-->
       <!--模块化-->
       <!--<module></module>-->
       <!--promise对象-->
@@ -22,13 +24,13 @@
       <!--set和map结构-->
       <!--<set-and-map></set-and-map>-->
       <!--iterator和for..of-->
-      <iterator></iterator>
+      <!--<iterator></iterator>-->
       <!--generator函数-->
       <!--<generator></generator>-->
       <!--async函数-->
       <!--<async-function></async-function>-->
       <!--class-->
-      <class-function></class-function>
+      <!--<class-function></class-function>-->
     </div>
 </template>
 
@@ -40,6 +42,7 @@
     import numberExtend from "./numberExtend.vue"
     import functionExtend from "./functionExtend.vue"
     import deconstruction from "./deconstruction.vue"
+    import symbolType from "./symbolType.vue"
     import module from "./module/module.vue"
     import promise from "./promise.vue"
     import setAndMap from "./setAndMap.vue"
@@ -56,6 +59,7 @@
         numberExtend,
         functionExtend,
         deconstruction,
+        symbolType,
         module,
         promise,
         setAndMap,
