@@ -9,12 +9,12 @@
         <!--<p>使用一个局部组件</p>-->
         <!--<part-component></part-component>-->
       <!--</div>-->
-      <!--<div>-->
-        <!--<p>使用props传递数据</p>-->
-        <!--<props-component :msg1="message1" :msg2="message2"></props-component>-->
-        <!--&lt;!&ndash;传递对象校验&ndash;&gt;-->
-        <!--&lt;!&ndash;<props-component :text="text" :count="count" :msg="message3"></props-component>&ndash;&gt;-->
-      <!--</div>-->
+      <div>
+        <p>使用props传递数据</p>
+        <props-component :msg1="message1" :msg2="message2"></props-component>
+        <!--传递对象校验-->
+        <!--<props-component :text="text" :count="count" :msg="message3"></props-component>-->
+      </div>
       <!--<div>-->
         <!--<p>父子组件通信</p>-->
         <!--&lt;!&ndash;<father-son-component @add="sum"></father-son-component>&ndash;&gt;-->
@@ -50,10 +50,10 @@
           <!--<component :is="currentView"></component>-->
         <!--</keep-alive>-->
       <!--</div>-->
-      <div>
-        <p>异步组件</p>
-        <asyn-component></asyn-component>
-      </div>
+      <!--<div>-->
+        <!--<p>异步组件</p>-->
+        <!--<asyn-component></asyn-component>-->
+      <!--</div>-->
       <!--<div>-->
         <!--<button @click="show">$nextTick</button>-->
         <!--<div id="next" v-if="isShow">{{next}}</div>-->

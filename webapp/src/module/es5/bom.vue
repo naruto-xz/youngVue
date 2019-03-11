@@ -22,6 +22,14 @@
         }
       },
       mounted() {
+        // function Test() {
+        //   this.a = 1;
+        //   this.eat = function () {
+        //     console.log(123);
+        //   }
+        // }
+        // var obj = new Test();
+        // console.log(Test.prototype.eat);
       }
     }
 </script>

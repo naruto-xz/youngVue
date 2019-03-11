@@ -57,17 +57,21 @@
           // console.log(p.toString());
 
           //class表达式
-          // var Test = class{
-          //   constructor(x,y){
-          //     this.x = x;
-          //     this.y = y;
-          //   }
-          //   toString(){
-          //     return '('+this.x+','+this.y+')'
-          //   }
-          // };
-          // var p = new Test(1,2);
-          // console.log(p.x);
+          var Test = class{
+            constructor(x,y){
+              this.x = x;
+              this.y = y;
+
+            }
+            toString(){
+              return '('+this.x+','+this.y+')'
+            }
+            eat() {
+              console.log(123);
+            }
+          };
+          var p = new Test(1,2);
+          console.log(p.x);
 
           //不在变量提升
          // new Test();
