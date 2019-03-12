@@ -11,6 +11,7 @@ import components from "../components/index.vue"
 import index from "../module/index/index.vue"
 import vuex from "../module/vuex/vuex.vue"
 import http from "../module/http/index.vue"
+import practice from "../module/practice/index.vue"
 
 var routes = [
   {
@@ -95,6 +96,10 @@ var routes = [
   {
     path: "/http",
     component: http
+  },
+  {
+    path: "/practice",
+    component: practice
   },
 
 ];
