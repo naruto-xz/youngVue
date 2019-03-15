@@ -4,6 +4,7 @@ const path = require("path");   //path就是node.js内置的package，用来处�
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const { VueLoaderPlugin } = require("vue-loader");
+const {BundleAnalyzerPlugin} = require("webpack-bundle-analyzer");
 const config = {
   /**
    * 模式 提供 mode 配置选项，告知 webpack 使用相应模式的内置优化
@@ -58,6 +59,11 @@ const config = {
         loader: 'vue-loader'
       },
       {
+        test: /\.js$/,
+        loader: 'babel-loader',
+        exclude: path.resolve(__dirname,"../node_modules")  //排除，不需要编译的目录，提高编译速度
+      },
+      {
         test: /\.css$/,
         use: [
           "vue-style-loader",
@@ -77,13 +83,13 @@ const config = {
           "vue-style-loader",
           MiniCssExtractPlugin.loader,
           "css-loader",
-          "sass-loader",
           {
             loader: "postcss-loader",
             options: {
               plugins: loader => [require("autoprefixer")()]
             }
-          }
+          },
+          "sass-loader"
         ]
       },
       {
@@ -92,13 +98,13 @@ const config = {
           "vue-style-loader",
           MiniCssExtractPlugin.loader,
           "css-loader",
-          "less-loader",
           {
             loader: "postcss-loader",
             options: {
               plugins: loader => [require("autoprefixer")()]
             }
-          }
+          },
+          "less-loader"
         ]
       },
       {
@@ -151,7 +157,8 @@ const config = {
     new MiniCssExtractPlugin({
       filename: "[name].[hash].css"
     }),
-    new VueLoaderPlugin()
+    new VueLoaderPlugin(),
+    new BundleAnalyzerPlugin()
   ],
 
   /**
@@ -185,9 +192,9 @@ const config = {
    *
    * maxAssetSize 资源(asset)是从 webpack 生成的任何文件。此选项根据单个资源体积，控制 webpack 何时生成性能提示。默认值是：250000 (bytes)。
    */
-  performance: {
-    hints: "error"
-  }
+  // performance: {
+  //   hints: "error"
+  // }
 
 };
 module.exports = config;  //这里的module.exports=config相当于export default config 。由于目前还没有安装支持ES6的编译插件，因此不能直接使用 ES6的语法，否则会报错。
