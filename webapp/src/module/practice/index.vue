@@ -6,7 +6,7 @@
       <!--<div class="b"></div>-->
       <!--<div class="c"></div>-->
     <!--</div>-->
-
+    <!--<button @click="go">go</button>-->
 
   </div>
 </template>
@@ -146,6 +146,57 @@
           // console.log(fn(111));
 
 
+          // 12
+          // function Animal() {
+          //
+          // }
+          // Animal.prototype.count = 0;
+          // Animal.prototype.add = function () {
+          //   return this.count++;
+          // };
+          // var test1 = new Animal();
+          // var res1 = test1.add();
+          // console.log(res1); //0
+          // var res2 = test1.add();
+          // console.log(res2); //1
+          // var test3 = new Animal();
+          // var res3 = test3.add();
+          // console.log(res3); //0
+
+          // 13.
+          // var a = 1;
+          // function f1() {
+          //   var a = 2;
+          //   c = 3;
+          //   return function () {
+          //     console.log(a++);
+          //     console.log(b++);
+          //     console.log(c++);
+          //   }
+          // }
+          // console.log(a); //1
+          // console.log(b); //undefined
+          // // console.log(c); //3
+          // var g = f1();
+          // var b = 1;
+          // g();
+          // console.log(a);
+          // console.log(b);
+          // console.log(c);
+
+          // 14.
+          // var time = new Date().getTime()+10000;
+          // function run() {
+          //   while (time>Date.now()){
+          //     console.log('跑');
+          //   }
+          //   setTimeout(run(),10000)
+          // }
+          // run();
+
+
+
+
           //1.debounce 方法
           // function debounce(fn, delay){
           //   var timer;
@@ -160,6 +211,7 @@
           //
           //   }
           // }
+
 
           // 2.实现类的继承
           // 实现 Animal 类，具备 `sleep` 方法
@@ -260,6 +312,9 @@
           // console.log(result);
 
 
+        },
+        go(){
+          console.log('输出');
         }
       },
       mounted() {
