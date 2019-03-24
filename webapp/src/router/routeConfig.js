@@ -10,6 +10,7 @@ import less from "../module/less/index.vue"
 import components from "../components/index.vue"
 import index from "../module/index/index.vue"
 import vuex from "../module/vuex/vuex.vue"
+import canvas from "../module/canvas/index.vue"
 import http from "../module/http/index.vue"
 import practice from "../module/practice/index.vue"
 import demo from "../module/practice/demo.vue"
@@ -97,6 +98,10 @@ var routes = [
   {
     path: "/http",
     component: http
+  },
+  {
+    path: "/canvas",
+    component: canvas
   },
   {
     path: "/practice",
