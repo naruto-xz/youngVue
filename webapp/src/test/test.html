@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<link href="codemirror.css" rel="stylesheet">
+<body>
+  <textarea class="form-control" id="code" name="code"></textarea>
+</body>
+</html>
+<script src="codemirror.js"></script>
+<script>
+  let myTextarea = document.getElementById('code');
+  new Promise(resolve=>{    //1.请求数据
+      if(true){
+        resolve("success");
+      }
+    }).then(res=>{
+      if(res){  //2.拿到结果
+        myTextarea.innerText = res; //3.赋值
+        var CodeMirrorEditor = CodeMirror.fromTextArea(myTextarea, { //4.渲染
+          mode:'javascript',
+          lineNumbers: true//显示行号
+        });
+      }
+    });
+
+
+
+</script>

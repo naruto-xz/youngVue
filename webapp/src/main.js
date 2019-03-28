@@ -29,6 +29,11 @@ Vue.use(VueResource);
 // import { Input } from "element-ui";
 // Vue.use(Input);
 
+// import codemirror from 'vue-codemirror'
+// import 'codemirror/lib/codemirror.css'
+// Vue.use(codemirror);
+
+
 import App from './app.vue'
 
 //注册一个全局组件

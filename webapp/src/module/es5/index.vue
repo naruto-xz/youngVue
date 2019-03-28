@@ -22,7 +22,9 @@
       <!--BOM-->
       <!--<bom></bom>-->
       <!--DOM-->
-      <dom></dom>
+      <!--<dom></dom>-->
+      <!--高级技巧-->
+      <hight-skill></hight-skill>
     </div>
 </template>
 
@@ -38,6 +40,7 @@
   import objectDetail from "./high/objectDetail.vue"
   import bom from "./bom.vue"
   import dom from "./dom.vue"
+  import highSkill from "./high/highSkill.vue"
 
   export default {
      components:{
@@ -51,7 +54,8 @@
        functionDetail,
        objectDetail,
        bom,
-       dom
+       dom,
+       highSkill
      }
   }
 </script>

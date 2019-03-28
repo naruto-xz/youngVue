@@ -4,6 +4,7 @@
       <div id="canvas">
         <canvas id="myGraph" width="400px" height="400px"></canvas>
       </div>
+      <input type="text" id="aaa">
     </div>
 </template>
 
@@ -176,7 +177,6 @@
           //   ctx.fillRect(100, 100, 100,100);
           // }
           // clip();
-
 
 
 
