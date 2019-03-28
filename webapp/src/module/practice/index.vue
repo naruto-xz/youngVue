@@ -312,6 +312,193 @@
           // console.log(result);
 
 
+          // Function.prototype.a = 'a';
+          // Object.prototype.b = 'b';
+          // function Person(){};
+          // var p = new Person();
+          // debugger;
+          // console.log('p.a: '+ p.a);  //'p.a:a'
+          // console.log('p.b: '+ p.b);  //'p.b:b'
+
+
+          // Object.prototype.age = 23;
+          // var arr = [];
+          // console.log(arr.age);
+          // var date = new Date();
+          // console.log(date.age);
+
+
+          // const person = {
+          //   namea: 'menglinghua',
+          //   say: function (){
+          //     return function (){
+          //       console.log(this.namea);  //匿名函数的执行环境具有全局性
+          //     };
+          //   }
+          // };
+          // person.say()(); //undefined
+          // const person = {
+          //   namea: 'menglinghua',
+          //   say: function (){
+          //     return () => {
+          //       console.log(this.namea);
+          //     };
+          //   }
+          // };
+          // person.say()(); //menglinghua
+
+          // setTimeout(() => console.log('a'), 0); //5 a
+          // var p = new Promise((resolve) => {
+          //   console.log('b'); //1 b
+          //   resolve();
+          // });
+          //
+          // p.then(() => console.log('c')); //3 c
+          // p.then(() => console.log('d')); //4 d
+          // console.log('e'); //2 e
+
+          //b e c d a //promise的回调>setTimeout
+
+          // async function async1() {
+          //   console.log("a"); //2 a
+          //   await  async2();
+          //   console.log("b"); //6 b
+          //
+          // }
+          // async function async2() {
+          //   console.log( 'c');  //3 c
+          // }
+          // console.log("d"); //1 d
+          // setTimeout(function () {
+          //   console.log("e"); //8 e
+          // },0);
+          // async1();
+          // new Promise(function (resolve) {
+          //   console.log("f"); //4 f
+          //   resolve();
+          // }).then(function () {
+          //   console.log("g"); //7 g
+          // });
+          // console.log('h'); //5. h
+
+
+          //d a c  f h  b g e
+
+
+          // setTimeout(function(){
+          //   console.log(a); //4. 1
+          // },0);
+          // var a = 1;
+          // console.log(b); //1. undefined
+          // var b = 2;
+          // var c = 3;
+          // var d = 4;
+          // var e = 5;
+          // function fx(c){
+          //   console.log(c); //3. 3
+          // }
+          // function fn(e,d){
+          //   console.log(d); //2. 4
+          //   setTimeout(function(){
+          //     console.log(e); //5. 5
+          //   },10);
+          // }
+          // setTimeout(function(){
+          //   console.log(b); //6 2
+          // },20);
+          // fn(e,d);
+          // fx(c);
+          // //undefined 4 3 1 5 2
+
+          // if (typeof Function.prototype.bind === "undefined"){
+          //   Function.prototype.bind = function (thisArgs){
+          //     var fn = this,
+          //     args = Array.prototype.slice.call(arguments, 1);
+          //     return function (){
+          //       return fn.apply(thisArgs, args.concat(Array.prototype.slice.call(arguments)));
+          //     }
+          //   }
+          // }
+
+          // 实现 vue 中的 on,emit,off,once，手写代码。
+          var EventEmiter = function (){
+            this._events = {};
+          };
+          EventEmiter.prototype.on = function (event,cb) {
+            (this._events[event] || (this._events[event] = [])).push(cb);
+          };
+          EventEmiter.prototype.emit = function (event){
+            let cbs = this._events[event];
+            let args = Array.prototype.slice.call(arguments, 1);
+            for(let i = 0; i<cbs.length; i++){
+              cbs[i].apply(this,args);
+            }
+          };
+          EventEmiter.prototype.off = function (event,cb) {
+            if(!arguments.length){
+              this._events = {};
+            }
+            if(!cb){
+              this._events[event] = [];
+            }
+            if(cb){
+              let cbs = this._events[event];
+              for(let i = 0; i<cbs.length; i++){
+                if(cbs[i] == cb){
+                  cbs.splice(i,1);
+                }
+              }
+            }
+          };
+          EventEmiter.prototype.once = function (event,cb) {
+            if(!this._events[event+'once']){
+              this._events[event+'once'] = cb;
+              this._events[event+'once']();
+            }
+          };
+          var event = new EventEmiter();
+          event.on('open',(data)=>{
+            console.log(data);
+          });
+          event.emit('open',123);
+          event.emit('open',456);
+          event.off('open');
+          event.emit('open',789);
+          event.once('close',()=>{
+            console.log(123);
+          });
+          event.once('close',()=>{
+            console.log(456);
+          });
+
+
+
+
+
+
+
+          // Object.prototype.operate = {};
+          // Object.prototype.on = function (type,fn) {
+          //   this.operate[type] = fn;
+          // };
+          // Object.prototype.emit = function (type,data) {
+          //   if(this.operate[type]){
+          //     this.operate[type](data)
+          //   }
+          // };
+          // Object.prototype.off = function (type) {
+          //   this.operate[type] = null;
+          // };
+          // this.on('open',function (data) {
+          //   console.log(data);
+          // });
+          // this.emit('open','123');
+          // this.off('open');
+          // this.emit('open','345');
+
+
+
+
         },
         go(){
           console.log('输出');
