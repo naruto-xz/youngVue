@@ -8,16 +8,19 @@
     <!--</div>-->
     <!--<button @click="go">go</button>-->
 
-    <demo1></demo1>
+    <!--<demo1></demo1>-->
+    <demo2></demo2>
 
   </div>
 </template>
 
 <script>
   import demo1 from './demo1'
+  import demo2 from './demo2'
     export default {
       components:{
-        demo1
+        demo1,
+        demo2
       },
       data(){
         return {
@@ -427,55 +430,55 @@
           // }
 
           // 实现 vue 中的 on,emit,off,once，手写代码。
-          var EventEmiter = function (){
-            this._events = {};
-          };
-          EventEmiter.prototype.on = function (event,cb) {
-            (this._events[event] || (this._events[event] = [])).push(cb);
-          };
-          EventEmiter.prototype.emit = function (event){
-            let cbs = this._events[event];
-            let args = Array.prototype.slice.call(arguments, 1);
-            for(let i = 0; i<cbs.length; i++){
-              cbs[i].apply(this,args);
-            }
-          };
-          EventEmiter.prototype.off = function (event,cb) {
-            if(!arguments.length){
-              this._events = {};
-            }
-            if(!cb){
-              this._events[event] = [];
-            }
-            if(cb){
-              let cbs = this._events[event];
-              for(let i = 0; i<cbs.length; i++){
-                if(cbs[i] == cb){
-                  cbs.splice(i,1);
-                }
-              }
-            }
-          };
-          EventEmiter.prototype.once = function (event,cb) {
-            if(!this._events[event+'once']){
-              this._events[event+'once'] = cb;
-              this._events[event+'once']();
-            }
-          };
-          var event = new EventEmiter();
-          event.on('open',(data)=>{
-            console.log(data);
-          });
-          event.emit('open',123);
-          event.emit('open',456);
-          event.off('open');
-          event.emit('open',789);
-          event.once('close',()=>{
-            console.log(123);
-          });
-          event.once('close',()=>{
-            console.log(456);
-          });
+          // var EventEmiter = function (){
+          //   this._events = {};
+          // };
+          // EventEmiter.prototype.on = function (event,cb) {
+          //   (this._events[event] || (this._events[event] = [])).push(cb);
+          // };
+          // EventEmiter.prototype.emit = function (event){
+          //   let cbs = this._events[event];
+          //   let args = Array.prototype.slice.call(arguments, 1);
+          //   for(let i = 0; i<cbs.length; i++){
+          //     cbs[i].apply(this,args);
+          //   }
+          // };
+          // EventEmiter.prototype.off = function (event,cb) {
+          //   if(!arguments.length){
+          //     this._events = {};
+          //   }
+          //   if(!cb){
+          //     this._events[event] = [];
+          //   }
+          //   if(cb){
+          //     let cbs = this._events[event];
+          //     for(let i = 0; i<cbs.length; i++){
+          //       if(cbs[i] == cb){
+          //         cbs.splice(i,1);
+          //       }
+          //     }
+          //   }
+          // };
+          // EventEmiter.prototype.once = function (event,cb) {
+          //   if(!this._events[event+'once']){
+          //     this._events[event+'once'] = cb;
+          //     this._events[event+'once']();
+          //   }
+          // };
+          // var event = new EventEmiter();
+          // event.on('open',(data)=>{
+          //   console.log(data);
+          // });
+          // event.emit('open',123);
+          // event.emit('open',456);
+          // event.off('open');
+          // event.emit('open',789);
+          // event.once('close',()=>{
+          //   console.log(123);
+          // });
+          // event.once('close',()=>{
+          //   console.log(456);
+          // });
 
 
 
