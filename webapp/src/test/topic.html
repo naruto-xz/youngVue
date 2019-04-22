@@ -1,0 +1,251 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+    <!--<meta charset="UTF-8">-->
+    <!--<title>Title</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<input id="one" type="text" />-->
+<!--</body>-->
+<!--</html>-->
+<!--<script>-->
+  <!--var array = [-->
+    <!--{-->
+      <!--id: 1,-->
+      <!--children:[{-->
+        <!--id:2,-->
+        <!--children:[]-->
+      <!--}]-->
+    <!--},-->
+    <!--{-->
+      <!--id:3,-->
+      <!--children:[]-->
+    <!--},-->
+    <!--{-->
+      <!--id:4,-->
+      <!--children:[-->
+        <!--{-->
+          <!--id:5,-->
+          <!--children:[-->
+            <!--{-->
+              <!--id:6,-->
+              <!--children:[]-->
+            <!--},-->
+            <!--{-->
+              <!--id:7,-->
+              <!--children:[1]-->
+            <!--}-->
+          <!--]-->
+        <!--}-->
+      <!--]-->
+    <!--}-->
+  <!--];-->
+
+  <!--var str = '';-->
+  <!--function find(arr,id) {-->
+    <!--arr.forEach(value=>{-->
+      <!--if(value.id == id){-->
+        <!--str = value;-->
+      <!--}else {-->
+        <!--find(value.children,id)-->
+      <!--}-->
+    <!--})-->
+  <!--}-->
+  <!--find(array,7);-->
+  <!--console.log(str);-->
+
+  <!--// function find(arr) {-->
+  <!--//   if(!arr.length){-->
+  <!--//     return 1;-->
+  <!--//   }else{-->
+  <!--//     arr.forEach(value=>{-->
+  <!--//       if(value.children){-->
+  <!--//         debugger;-->
+  <!--//         count=count+find(value.children)-->
+  <!--//       }-->
+  <!--//     });-->
+  <!--//   }-->
+  <!--// }-->
+  <!--// find(array);-->
+  <!--// console.log(count);-->
+
+
+  <!--var headerData = {-->
+    <!--name: '总数据',-->
+      <!--children: [-->
+      <!--{-->
+        <!--name: '数据1',-->
+        <!--children: [-->
+          <!--{-->
+            <!--name: '数据11',-->
+            <!--children: [-->
+              <!--{-->
+                <!--name: '数据111',-->
+              <!--},-->
+              <!--{-->
+                <!--name: '数据112',-->
+              <!--},-->
+            <!--]-->
+          <!--},-->
+          <!--{-->
+            <!--name: '数据12',-->
+            <!--children: [-->
+              <!--{-->
+                <!--name: '数据121',-->
+              <!--},-->
+              <!--{-->
+                <!--name: '数据122',-->
+              <!--}-->
+            <!--]-->
+          <!--},-->
+          <!--{-->
+            <!--name: '数据13',-->
+            <!--children: [-->
+              <!--{-->
+                <!--name: '数据131',-->
+              <!--},-->
+              <!--{-->
+                <!--name: '数据132',-->
+              <!--}-->
+            <!--]-->
+          <!--},-->
+          <!--{-->
+            <!--name: '数据14',-->
+          <!--},-->
+
+        <!--]-->
+      <!--}-->
+    <!--]-->
+  <!--};-->
+
+  <!--function handler(json) {-->
+    <!--if(!json.children){-->
+      <!--return 1;-->
+    <!--}else{-->
+      <!--var count = 0;-->
+      <!--for(var i = 0; i<json.children.length; i++){-->
+        <!--count = count+handler(json.children[i]);-->
+      <!--}-->
+      <!--return count;-->
+    <!--}-->
+  <!--}-->
+  <!--var res = handler(headerData);-->
+  <!--console.log(res);-->
+
+
+
+  <!--// var returnedItem;-->
+  <!--// var find = function(arr, id){-->
+  <!--//   arr.forEach((item) => {-->
+  <!--//     if(item.id==id)-->
+  <!--//     {-->
+  <!--//       returnedItem = item;-->
+  <!--//     }-->
+  <!--//     else if(item.children.length > 0) {-->
+  <!--//       find(item.children, id);-->
+  <!--//     }-->
+  <!--//   })-->
+  <!--//-->
+  <!--//   // for(var i = 0; i<arr.length; i++){-->
+  <!--//   //   if(arr[i].id == id){-->
+  <!--//   //     return arr[i];-->
+  <!--//   //   }else {-->
+  <!--//   //     finda(arr[i].children,id)-->
+  <!--//   //   }-->
+  <!--//   // }-->
+  <!--//-->
+  <!--//-->
+  <!--//   // for(var i = 0; i<arr.length; i++){-->
+  <!--//   //   if(arr[i].id == id){-->
+  <!--//   //     return arr[i];-->
+  <!--//   //   } else {-->
+  <!--//   //     find(arr[i].children,id)-->
+  <!--//   //   }-->
+  <!--//   // }-->
+  <!--//-->
+  <!--//-->
+  <!--// };-->
+  <!--// find(array, 7);-->
+  <!--// console.log(returnedItem);-->
+
+
+
+
+
+
+
+
+  <!--// 0，1，1，2，3，5，8，13，21，34，55，89，144   斐波那契数列-->
+  <!--// function f(n) {-->
+  <!--//   if (n<=1){-->
+  <!--//     return n;-->
+  <!--//   }-->
+  <!--//   return f(n-1)+f(n-2);-->
+  <!--// }-->
+  <!--// var res = f(5);-->
+  <!--// console.log(res);-->
+
+
+  <!--// function num(n) {-->
+  <!--//   if(n<=1){-->
+  <!--//     return 1;-->
+  <!--//   }-->
+  <!--//   return n*num(n-1);-->
+  <!--// }-->
+  <!--// var res = num(5);-->
+  <!--// console.log(res);-->
+
+
+
+
+
+  <!--// function debounce(fn,delay) {-->
+  <!--//   var time;-->
+  <!--//   return function(){-->
+  <!--//     var ctx = this;-->
+  <!--//     var args = arguments;-->
+  <!--//     clearTimeout(time);-->
+  <!--//     time = setTimeout(function () {-->
+  <!--//       fn.apply(ctx,args);-->
+  <!--//     },delay);-->
+  <!--//   }-->
+  <!--// }-->
+  <!--// var res = debounce(test,3000);-->
+  <!--// res(123);-->
+  <!--// function test(b) {-->
+  <!--//   console.log(b);-->
+  <!--// }-->
+
+
+
+
+
+
+  <!--// document.getElementById('one').addEventListener('click', debounce(handle,1000));-->
+  <!--// function handle(a){-->
+  <!--//   console.log(a);-->
+  <!--// }-->
+
+
+  <!--// document.getElementById('one').addEventListener('click',function(e,some){ fn(e,some); }, false);-->
+  <!--// document.getElementById('one').addEventListener('click',function(){-->
+  <!--//   handle.apply(this,arguments);-->
+  <!--// });-->
+  <!--// document.getElementById('one').addEventListener('click',handle(test,23));-->
+  <!--// function handle(fn,age){-->
+  <!--//   return function(){-->
+  <!--//     // var ctx = this;-->
+  <!--//     var args = arguments;-->
+  <!--//     debugger;-->
+  <!--//     fn.apply(this,args)-->
+  <!--//   }-->
+  <!--// }-->
+  <!--// function test(b) {-->
+  <!--//   console.log(b);-->
+  <!--// }-->
+
+
+
+
+
+<!--</script>-->

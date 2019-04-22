@@ -15,6 +15,7 @@ import http from "../module/http/index.vue"
 import practice from "../module/practice/index.vue"
 import demo from "../module/practice/demo.vue"
 import plugin from "../module/plugin/index.vue"
+import iview from "../module/iview/index.vue"
 
 var routes = [
   {
@@ -115,9 +116,11 @@ var routes = [
   {
     path: "/plugin",
     component: plugin
+  },
+  {
+    path: "/iview",
+    component: iview
   }
-
-
 ];
 
 export default routes

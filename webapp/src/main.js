@@ -22,7 +22,7 @@ Vue.use(VueResource);
 
 
 //加载element-ui组件
-// import ElementUI from "element-ui";   //这是导入element-ui所以组件
+// import ElementUI from "element-ui";   //这是导入element-ui所有组件
 // import 'element-ui/lib/theme-chalk/index.css' //样式需要单独引入
 // Vue.use(ElementUI);
 //当你只需要导入element-ui中的某一个组件的时候，就用下面这种方式
@@ -32,6 +32,17 @@ Vue.use(VueResource);
 // import codemirror from 'vue-codemirror'
 // import 'codemirror/lib/codemirror.css'
 // Vue.use(codemirror);
+
+//加载iView组件
+import iView from 'iview';    //这是导入iView所有组件
+import 'iview/dist/styles/iview.css';  //样式需要单独引入，并且会初始化界面上的样式
+Vue.use(iView);
+//当你只需要导入iView中的某一个组件的时候，就用下面这种方式
+// import { Slider } from "iview";
+// Vue.component('Slider', Slider);
+
+
+
 
 
 import App from './app.vue'
