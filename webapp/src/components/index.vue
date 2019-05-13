@@ -2,17 +2,17 @@
     <div>
       <div>{{title}}</div>
       <div>
-        <count-to :start="start" :end="end" :duration="3"></count-to>
+<!--        <count-to :start="start" :end="end" :duration="3"></count-to>-->
       </div>
     </div>
 
 </template>
 
 <script>
-    import countTo from "./count-to/index.vue"
+    // import countTo from "./count-to/index.vue"
     export default {
       components:{
-        countTo
+        // countTo
       },
       data(){
           return {
