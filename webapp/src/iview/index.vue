@@ -1,6 +1,5 @@
 <template>
     <div>
-<!--      <h2>iview组件</h2>-->
       <i-table></i-table>
     </div>
 </template>
