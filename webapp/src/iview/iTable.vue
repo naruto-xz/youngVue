@@ -1,20 +1,20 @@
 <template>
-    <div class="i-table">
-      <h3>{{title}}</h3>
-      <p>基础表格</p>
-      <Table :columns="columns1" :data="data1"></Table>
-      <p>斑马线</p>
-      <Table :columns="columns1" :data="data1" stripe></Table>
-      <p>带边框</p>
-      <Table :columns="columns1" :data="data1" border></Table>
-      <h4>特殊样式</h4>
-      <p>行样式</p>
-      <Table :columns="columns1" :data="data1" :row-class-name="rowClassName"></Table>
-      <p>列样式</p>
-      <Table :columns="columns2" :data="data2"></Table>
-      <p>单元格样式</p>
-      <Table :columns="columns3" :data="data3"></Table>
-    </div>
+  <div class="i-table">
+    <h3>{{title}}</h3>
+    <p>基础表格</p>
+    <Table :columns="columns1" :data="data1"></Table>
+    <p>斑马线</p>
+    <Table :columns="columns1" :data="data1" stripe></Table>
+    <p>带边框</p>
+    <Table :columns="columns1" :data="data1" border></Table>
+    <h4>特殊样式</h4>
+    <p>行样式</p>
+    <Table :columns="columns1" :data="data1" :row-class-name="rowClassName"></Table>
+    <p>列样式</p>
+    <Table :columns="columns2" :data="data2"></Table>
+    <p>单元格样式</p>
+    <Table :columns="columns3" :data="data3"></Table>
+  </div>
 </template>
 
 <script>
@@ -184,7 +184,5 @@
       background-color: #187;
       color: #fff;
     }
-
-
   }
 </style>
