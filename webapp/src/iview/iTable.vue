@@ -14,6 +14,10 @@
     <Table :columns="columns2" :data="data2"></Table>
     <p>单元格样式</p>
     <Table :columns="columns3" :data="data3"></Table>
+    <p>固定表头</p>
+    <Table height="200" :columns="columns4" :data="data4"></Table>
+    <p>固定列</p>
+    <Table width="500" :columns="columns5" :data="data5"></Table>
   </div>
 </template>
 
@@ -146,6 +150,159 @@
               address: 'Ottawa No. 2 Lake Park',
               date: '2016-10-04'
             }
+          ],
+          columns4: [
+            {
+              title: 'Name',
+              key: 'name'
+            },
+            {
+              title: 'Age',
+              key: 'age'
+            },
+            {
+              title: 'Address',
+              key: 'address'
+            }
+          ],
+          data4: [
+            {
+              name: 'John Brown',
+              age: 18,
+              address: 'New York No. 1 Lake Park',
+              date: '2016-10-03'
+            },
+            {
+              name: 'Jim Green',
+              age: 24,
+              address: 'London No. 1 Lake Park',
+              date: '2016-10-01'
+            },
+            {
+              name: 'Joe Black',
+              age: 30,
+              address: 'Sydney No. 1 Lake Park',
+              date: '2016-10-02'
+            },
+            {
+              name: 'Jon Snow',
+              age: 26,
+              address: 'Ottawa No. 2 Lake Park',
+              date: '2016-10-04'
+            },
+            {
+              name: 'John Brown',
+              age: 18,
+              address: 'New York No. 1 Lake Park',
+              date: '2016-10-03'
+            },
+            {
+              name: 'Jim Green',
+              age: 24,
+              address: 'London No. 1 Lake Park',
+              date: '2016-10-01'
+            },
+            {
+              name: 'Joe Black',
+              age: 30,
+              address: 'Sydney No. 1 Lake Park',
+              date: '2016-10-02'
+            },
+            {
+              name: 'Jon Snow',
+              age: 26,
+              address: 'Ottawa No. 2 Lake Park',
+              date: '2016-10-04'
+            }
+          ],
+          columns5: [
+            {
+              title: 'Name',
+              key: 'name',
+              width: 100,
+              fixed: 'left'
+            },
+            {
+              title: 'Age',
+              key: 'age',
+              width: 100
+            },
+            {
+              title: 'Province',
+              key: 'province',
+              width: 100
+            },
+            {
+              title: 'City',
+              key: 'city',
+              width: 100
+            },
+            {
+              title: 'Address',
+              key: 'address',
+              width: 200
+            },
+            {
+              title: 'Postcode',
+              key: 'zip',
+              width: 100
+            },
+            {
+              title: 'Action',
+              key: 'action',
+              fixed: 'right',
+              width: 120,
+              render: (h, params) => {
+                return h('div', [
+                  h('Button', {
+                    props: {
+                      type: 'text',
+                      size: 'small'
+                    }
+                  }, 'View'),
+                  h('Button', {
+                    props: {
+                      type: 'text',
+                      size: 'small'
+                    }
+                  }, 'Edit')
+                ]);
+              }
+            }
+          ],
+          data5: [
+            {
+              name: 'John Brown',
+              age: 18,
+              address: 'New York No. 1 Lake Park',
+              province: 'America',
+              city: 'New York',
+              zip: 100000
+            },
+            {
+              name: 'Jim Green',
+              age: 24,
+              address: 'Washington, D.C. No. 1 Lake Park',
+              province: 'America',
+              city: 'Washington, D.C.',
+              zip: 100000
+            },
+            {
+              name: 'Joe Black',
+              age: 30,
+              address: 'Sydney No. 1 Lake Park',
+              province: 'Australian',
+              city: 'Sydney',
+              zip: 100000
+            },
+            {
+              name: 'Jon Snow',
+              age: 26,
+              address: 'Ottawa No. 2 Lake Park',
+              province: 'Canada',
+              city: 'Ottawa',
+              zip: 100000
+            }
           ]
 
 
@@ -165,6 +322,7 @@
   .i-table{
     p{
       margin-top: 10px;
+      color: green;
     }
     /*为了vue页面样式模块化，不对全局造成污染，建议每个页面的style标签加上scoped，表示他的样式只属于当前的页面，父组件的样式不会泄漏到子组件中。*/
     /*但是scoped也会造成一些额外的负担，如无法覆盖原有组件的样式。 可以加 /deep/  。*/
