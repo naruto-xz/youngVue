@@ -16,6 +16,7 @@ import practice from "../module/practice/index.vue"
 import demo from "../module/practice/demo.vue"
 import plugin from "../module/plugin/index.vue"
 import iview from "../iview/index.vue"
+import jsdesign from "../module/jsdesign/index.vue"
 
 var routes = [
   {
@@ -120,6 +121,10 @@ var routes = [
   {
     path: "/iview",
     component: iview
+  },
+  {
+    path: "/jsdesign",
+    component: jsdesign
   }
 ];
 
