@@ -6,10 +6,16 @@
         <!--<div class="b">222</div>-->
       <!--</div>-->
 
-      <div class="InputAddOn">
-        <span class="InputAddOn-item">213123123</span>
-        <input class="InputAddOn-field">
-        <button class="InputAddOn-item">2313</button>
+<!--      <div class="InputAddOn">-->
+<!--        <span class="InputAddOn-item">213123123</span>-->
+<!--        <input class="InputAddOn-field">-->
+<!--        <button class="InputAddOn-item">2313</button>-->
+<!--      </div>-->
+
+<!--      项目属性-->
+      <div class="box1">
+        <div class="left">标题</div>
+        <div class="right">x</div>
       </div>
 
     </div>
@@ -32,16 +38,28 @@
 </script>
 
 <style lang="less" scoped>
-  .box{
-    width: 200px;
+  .box1{
+    width: 600px;
     height: 100px;
-    background: red;
+    background: orange;
     display: flex;
+    align-items: center;
     /*flex-direction: row;*/
     /*flex-wrap: nowrap;*/
     /*flex-flow: row wrap;*/
     /*justify-content: center;*/
     /*align-items: center;*/
+
+    .left{
+      margin-left: 20px;
+    }
+    .right{
+      flex: 1;
+      text-align: right;
+      align-self: flex-start;
+    }
+
+
     .item{
       width: 40px;
       height: 40px;

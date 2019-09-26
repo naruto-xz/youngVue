@@ -11,7 +11,7 @@
       <!--</div>-->
       <div>
         <p>使用props传递数据</p>
-        <props-component :msg1="message1" :msg2="message2"></props-component>
+        <props-component :msg1="message1" :msg2="message2" @click.native="test"></props-component>
         <!--传递对象校验-->
         <!--<props-component :text="text" :count="count" :msg="message3"></props-component>-->
       </div>
@@ -126,6 +126,9 @@
             console.log(result);  //<div id="next">1</div>
           });
 
+        },
+        test () {
+          console.log('native')
         }
       },
       mounted() {

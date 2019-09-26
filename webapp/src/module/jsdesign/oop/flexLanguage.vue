@@ -16,19 +16,21 @@
           var checkName =  function () {
 
           };
+          //上面这两种容易被覆盖。
+
           // 1.3 对象字面量收编函数
           var checkObject = {
             checkName : function () {
 
             }
           };
-          //上面这两种容易被覆盖。
-
           // 1.4 函数也是对象   //这种大家共用的是一份，无法复制.
           var checkObject1 = function () {};
           checkObject1.checkName = function () {
 
           };
+          //上面这两种使用对象形式，但大家用的是同一份对象，无法复制。
+
           // 1.5 模块模式 为单例创建私有变量和特权方法，公开一些能够访问这些私有数据的方法
           // 每次返回新的对象，每个人使用时互不影响。
           var checkObject2 = function () {
