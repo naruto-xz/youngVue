@@ -17,6 +17,7 @@ import demo from "../module/practice/demo.vue"
 import plugin from "../module/plugin/index.vue"
 import iview from "../module/iview/index.vue"
 import jsdesign from "../module/jsdesign/index.vue"
+import skill from "../module/skill/index.vue"
 
 var routes = [
   {
@@ -125,7 +126,11 @@ var routes = [
   {
     path: "/jsdesign",
     component: jsdesign
-  }
+  },
+  {
+    path: "/skill",
+    component: skill
+  },
 ];
 
 export default routes

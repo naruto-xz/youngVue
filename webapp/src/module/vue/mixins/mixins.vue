@@ -2,6 +2,7 @@
     <div>
       <p>{{title}}</p>  <!--混入-->
       <p>{{text}}</p>   <!--混入数据-->
+      <p>{{userName}}</p> <!--全局混入的数据-->
     </div>
 </template>
 
@@ -25,6 +26,7 @@
         this.drink(); //喝饮料
       },
       created(){
+        debugger;
         console.log("再调用原组件的钩子函数");
       }
     }

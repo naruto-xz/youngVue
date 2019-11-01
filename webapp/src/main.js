@@ -58,6 +58,21 @@ Vue.filter("formateDate",(value)=>{
   return `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()} ${date.getHours()}:${date.getMinutes()}:${date.getMinutes()}`;
 });
 
+// 注册一个全局混入钩子函数或数据
+Vue.mixin({
+  created () {
+    let myOption = this.$options.myOption;
+    if (myOption) {
+      console.log(myOption)
+    }
+  },
+  data () {
+    return {
+      userName: 'czx'
+    }
+  }
+});
+
 // import loading from "../src/test/loading.js"
 // Vue.use(loading);
 // window.aaa =  loading;

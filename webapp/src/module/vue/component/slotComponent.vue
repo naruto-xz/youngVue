@@ -8,7 +8,7 @@
         <slot name="footer"></slot>
       </div>
       <div>
-        <slot age="28"></slot>
+        <slot :age="28"></slot>
       </div>
     </div>
 </template>
