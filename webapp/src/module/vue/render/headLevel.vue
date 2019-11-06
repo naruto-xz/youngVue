@@ -31,12 +31,21 @@
       //render函数写法  Render 函数通过 createElement 参数来创建 Virtual Dom ，结构精简了很多。
       // 你的.vue文件不应该包含template标签，因为你已经使用了render函数，render本身就是做了template的事，有render不能有template。
       // 如果再写template,预编译器会忽略掉render。
-      render(createElement, context) {
-        return createElement(
-          'h'+this.level,
+
+      // render(createElement, context) {
+      //   return createElement(
+      //     'h'+this.level,
+      //     this.$slots.default
+      //   )
+      // }
+
+      render(h) {
+        return h(
+          'h' + this.level,
           this.$slots.default
         )
       }
+
     }
 </script>
 
