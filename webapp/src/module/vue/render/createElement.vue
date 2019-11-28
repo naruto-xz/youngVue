@@ -56,9 +56,17 @@
             class:{
               show: this.show
             },
+            // domProps: {
+            //   innerHTML: '<span style="color:blue;font-size:24px">将心比心</span>'
+            // },
             on:{
               click: this.handle
-            }
+            },
+            // 仅对于组件，用于监听原生事件
+            // 而不是组件使用vm.$emit触发的自定义事件
+            // nativeOn: {
+            //   click : this.nativeClickHandler
+            // }
           },
           'createElement用法',
           // {String | Array}
@@ -67,6 +75,11 @@
           // [
           //   createElement('h5', '一则头条'),
           //   createElement('h5', '二则头条'),
+          //   createElement(MyComponent, {
+          //     props: {
+          //       someProp: 'foo'
+          //     }
+          //   })
           // ]
         )
       },

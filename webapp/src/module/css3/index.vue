@@ -2,11 +2,13 @@
     <div class="css3">
       <!--<h3>{{title}}</h3>-->
       <!--<basis></basis>-->
-      <!--<flex></flex>-->
-      <grid-layout></grid-layout>
+      <flex></flex>
+<!--      <grid-layout></grid-layout>-->
       <!--<div class="select-option" v-for="item in list" @click="show(item.value)">{{item.name}}</div>-->
       <!--<transition v-if="'transition'==currentModule"></transition>-->
       <!--<transform v-if="'transform'==currentModule"></transform>-->
+<!--      <vision-diff></vision-diff>-->
+<!--      <other></other>-->
     </div>
 </template>
 
@@ -16,13 +18,17 @@
     import transition from './transition.vue'
     import transform from './transform.vue'
     import gridLayout from "./gridLayout";
+    import visionDiff from "./visionDiff";
+    import other from "./other";
     export default {
         components:{
           basis,
           flex,
           gridLayout,
           transition,
-          transform
+          transform,
+          visionDiff,
+          other
         },
         data(){
           return {

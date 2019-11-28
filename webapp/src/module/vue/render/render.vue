@@ -3,9 +3,9 @@
     <!--render函数-->
     <!--<head-level :level="level">hello render</head-level>-->
     <!--createElement用法-->
-    <!--<create-element></create-element>-->
+    <create-element></create-element>
     <!--使用 JavaScript 代替模板功能-->
-    <javascript-element></javascript-element>
+    <!--<javascript-element></javascript-element>-->
   </div>
 </template>
 

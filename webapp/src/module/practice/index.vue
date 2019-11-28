@@ -8,17 +8,21 @@
     <!--</div>-->
     <!--<button @click="go">go</button>-->
 
+    <vue-img></vue-img>
+
     <!--<demo1></demo1>-->
-    <demo2></demo2>
+<!--    <demo2></demo2>-->
 
   </div>
 </template>
 
 <script>
+  import vueImg from './vueImg'
   import demo1 from './demo1'
   import demo2 from './demo2'
     export default {
       components:{
+        vueImg,
         demo1,
         demo2
       },

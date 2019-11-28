@@ -2,12 +2,7 @@
     <div>
       <p>{{msg1}}</p>
       <p>{{msg2.name}}</p>
-
       <p>{{message1}}</p>
-
-      <!--<p>{{text}}</p>-->
-      <!--<p>{{count}}</p>-->
-      <!--<p>{{msg}}</p>-->
     </div>
 </template>
 
@@ -32,6 +27,9 @@
           title: "props传递数据",
           message1: this.msg1,
         }
+      },
+      methods: {
+
       },
       mounted() {
       }

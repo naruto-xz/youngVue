@@ -1,14 +1,14 @@
 <template>
     <div>
-      <i-table></i-table>
+      <config-modal></config-modal>
     </div>
 </template>
 
 <script>
-    import iTable from './iTable'
+    import configModal from './configModal';
     export default {
-      components:{
-        iTable
+      components: {
+        configModal
       }
     }
 </script>

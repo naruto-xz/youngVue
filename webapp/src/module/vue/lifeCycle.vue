@@ -36,16 +36,16 @@
         console.log(this.number)
       },
       mounted: function () {
-        console.log('mounted 钩子执行...'); //这一步才会替换el所在的div
+        console.log('mounted 钩子执行...'); //完成替换
         console.log(this.number)
       },
       beforeUpdate: function () {
         console.log('beforeUpdate 钩子执行...');
-        console.log(this.number)  //2
+        console.log(this.number);  //2
       },
       updated: function () {
         console.log('updated 钩子执行...');
-        console.log(this.number)  //2
+        console.log(this.number);  //2
       },
       beforeDestroy: function () {
         console.log('beforeDestroy 钩子执行...');

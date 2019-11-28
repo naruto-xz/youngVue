@@ -23,7 +23,7 @@
       <!--自定义指令-->
       <!--<directive></directive>-->
       <!--render函数-->
-      <!--<render></render>-->
+      <render></render>
       <!--JSX-->
       <!--<jsx></jsx>-->
     </div>

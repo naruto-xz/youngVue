@@ -1,6 +1,6 @@
 <template>
     <div>
-      <input type="text" placeholder="请输入局部组件内容">
+      <input v-model="title" type="text" placeholder="请输入局部组件内容">{{title}}
     </div>
 </template>
 

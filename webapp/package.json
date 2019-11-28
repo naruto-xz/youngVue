@@ -18,7 +18,8 @@
     "vue": "^2.5.2",
     "vue-resource": "^1.2.0",
     "vue-router": "^3.0.1",
-    "vue-upload-component": "^2.8.6"
+    "vue-upload-component": "^2.8.6",
+    "clone-deep": "^4.0.1"
   },
   "devDependencies": {
     "autoprefixer": "^8.5.0",
