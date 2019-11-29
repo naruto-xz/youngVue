@@ -10,7 +10,7 @@
       <!--字符串-->
       <!--<string></string>-->
       <!--数字-->
-      <!--<math></math>-->
+      <math></math>
       <!--日期-->
       <!--<date></date>-->
       <!--正则表达式-->
@@ -24,7 +24,7 @@
       <!--DOM-->
       <!--<dom></dom>-->
       <!--高级技巧-->
-      <hight-skill></hight-skill>
+      <!--<hight-skill></hight-skill>-->
     </div>
 </template>
 

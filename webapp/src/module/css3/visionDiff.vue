@@ -61,8 +61,8 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
-  $img: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1533565295933&di=4a1a94e76121bff62abc53348d189036&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2F8644ebf81a4c510f655550ce6a59252dd52aa555.jpg';
+<style scoped lang="less">
+  @img: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1533565295933&di=4a1a94e76121bff62abc53348d189036&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2F8644ebf81a4c510f655550ce6a59252dd52aa555.jpg';
 
   .g-container {
     width: 600px;
@@ -87,7 +87,7 @@ export default {
     border: 1px solid #000;
     overflow-x: hidden;
     overflow-y: scroll;
-    background-image: url($img);
+    background-image: url(@img);
     /*background-size: cover;*/
     background-attachment: scroll;
   }
@@ -97,7 +97,7 @@ export default {
     border: 1px solid #000;
     overflow-x: hidden;
     overflow-y: scroll;
-    background-image: url($img);
+    background-image: url(@img);
     /*background-size: 100% cover;*/
     background-attachment: local;
   }
@@ -107,7 +107,7 @@ export default {
     border: 1px solid #000;
     overflow-x: hidden;
     overflow-y: scroll;
-    background-image: url($img);
+    background-image: url(@img);
     /*background-size: 100% cover;*/
     background-attachment: fixed;
   }

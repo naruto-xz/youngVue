@@ -24,7 +24,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="less">
   .dataBaseTree{
     padding-left:20px;
     .content{

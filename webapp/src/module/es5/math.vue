@@ -35,10 +35,25 @@
           Math.min(...arr);  //求最小值 2
           Math.round(3.5415); //四舍五入为最近的整数4
           Math.random();  //0~1之前的随机数
+        },
+        operate1 () {
+          let arr = [1,2,3,4];
+          let res = Math.max.apply(this, arr);  console.log(res);
+          let res1 = Math.min.apply(this, arr); console.log(res1);
+          let str = '1';
+          let str1 = Number(str); console.log(str1);  //1
+
+          let num = 3.1465;
+          let num1 = num.toFixed(2); console.log(num1);  //string类型，并且四射五入 3.15
+          let num2 = Math.floor(num); console.log(num2);  //3
+          let num3 = Math.ceil(num); console.log(num3);  //4
+          let num4 = Math.round(num); console.log(num4);  //四舍五入取整 3
+
         }
       },
       mounted() {
-        this.operate();
+        // this.operate();
+        this.operate1();
       }
     }
 </script>

@@ -41,10 +41,39 @@
           //
           // var arr1 = [5,6];
           // var arr2 = arr.concat(arr1);  console.log(arr2);  //合并数组  //[1,2,3,4,5,6]
+        },
+        operate1(){
+          let arr = [1,2,3,4];
+          //数组本身改变
+          arr.push(5);  console.log(arr); //[1,2,3,4,5]
+          arr.pop();  console.log(arr); //[1,2,3,4]
+          arr.shift();  console.log(arr); //[2,3,4]
+          arr.unshift(5); console.log(arr); //[5,2,3,4]
+          //上面这四个方法如果赋值，返回的是数组的长度: 如 let a = arr.push(5); console.log(a)  //4
+
+          arr.splice(2, 1); console.log(arr); //[5,2,4]   // let a = arr.splice(2, 1); console.log(a); // 该方法的返回值是删除的元素形成的数组 [3]
+          arr.splice(2, 0, 3);  console.log(arr); //[5,2,3,4]
+          arr.splice(2, 1, 1);  console.log(arr); //[5,2,1,4]
+
+          arr.reverse();  console.log(arr); //[4,1,2,5]
+          arr.sort(); console.log(arr); //[1,2,4,5]
+
+
+          //需要重新赋值
+          let arr1 = [1,2,3,4];
+          let arr2 = arr1.slice(1,3);  console.log(arr2); //[2,3]
+          let a = [1,2];
+          let b = [3,4];
+          let c= a.concat(b); console.log(c); //[1,2,3,4]
+          let index = arr1.indexOf(2);  console.log(index); //1
+          let str = arr1.toString();  console.log(str); //"1,2,3,4"
+          let str1 = arr1.join(); console.log(str1);  //"1,2,3,4"
+
         }
       },
       mounted() {
-        this.operate();
+        // this.operate();
+        this.operate1();
       }
     }
 </script>
