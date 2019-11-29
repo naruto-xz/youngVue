@@ -1,6 +1,9 @@
 <template>
     <div>
       <h4 class="title">{{title}}</h4>
+      <Input v-model="person.msg"/>
+      {{person.msg}}
+      <!--<login></login>-->
       <!--生命周期-->
       <!--<life-cycle></life-cycle>-->
       <!--基础语法一 实例对象配置-->
@@ -38,6 +41,7 @@
     import directive from "./directive/directive.vue"
     import render from "./render/render.vue"
     import jsx from "./jsx/jsx.vue"
+    import login from "./login.vue"
     export default {
       components:{
         lifeCycle,
@@ -50,13 +54,27 @@
         mixins,
         directive,
         render,
-        jsx
+        jsx,
+        login
       },
       data(){
         return {
           title: "vue知识库6",
+          person: {
+            msg: '',
+            age: '23'
+          }
+
         }
       },
+      watch: {
+        person: {
+          handler(){
+            console.log(123);
+          },
+          deep: true
+        }
+      }
     }
 </script>
 

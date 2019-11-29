@@ -24,7 +24,7 @@
           var arr = [1,2,3,4];
           var arr1 = [];
           arr.forEach((value,index,arr)=>{
-            arr.push(value);
+            arr1.push(value);
           });
           console.log(arr1); //[1,2,3,4]
         },
@@ -87,6 +87,23 @@
           // },[]);
           // console.log(arr1);  //[{name:"a",age:1},{name:"b",age:3}]
         },
+
+        reduce1 () {
+          let arr = [1,2,3,4];
+          let total = arr.reduce((pre, next) => {
+            return pre + next;
+          });
+          console.log(total);
+
+          let obj = {};
+          let arr1 = [{name:"a",age:1},{name:"a",age:1},{name:"b",age:3}];
+          let arr2 = arr1.reduce((pre, next) => {
+            obj[next.name] ? '' : obj[next.name] = true && pre.push(next);
+            return pre;
+          }, []);
+          console.log(arr2);
+        }
+
       },
       mounted(){
         this.foreach();
@@ -95,6 +112,7 @@
         this.some();
         this.every();
         this.reduce();
+        this.reduce1();
       }
     }
 </script>

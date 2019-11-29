@@ -31,7 +31,8 @@
           // }
 
           //属性的遍历
-          Object.keys(obj); //[name,age]
+          console.log(Object.keys(obj)); //[name,age]
+          console.log(Object.values(obj)); //[name,age]
 
         }
       },

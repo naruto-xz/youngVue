@@ -29,7 +29,7 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
+<style scoped lang="less">
   .one{
     width: 100px;
     height: 100px;
