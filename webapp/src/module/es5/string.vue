@@ -27,10 +27,28 @@
           var age = 23;
           age.toString(); //'23'
 
+        },
+        operate1 () {
+          let str = 'a bcde b';
+          let str1 = str.slice(2,4); console.log(str1); //bc
+          let str2 = str.split(); console.log(str2);  //['a bcde b']
+
+          let str3 = str.replace('b', 'f'); console.log(str3);  //a fcde b
+          let str4 = str.replace('b', ''); console.log(str4);  //a cde b
+          let str5 = str.replace(/\s/g, ''); console.log(str5); //abcdeb
+
+          let str6 = str.charAt(3); console.log(str6);  //c
+          let str7 = str.trim(); console.log(str7);  //a bcde b
+          let index = str.indexOf('b');  console.log(index); //2
+          let str8 = str.toUpperCase(); console.log(str8);  //A BCDE B
+          let str9 = str.toLowerCase(); console.log(str9);  //a bcde b
+          let str10 = String(10); console.log(str10); //'10'
+
         }
       },
       mounted() {
-        this.operate();
+        // this.operate();
+        this.operate1();
       }
     }
 </script>

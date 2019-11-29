@@ -10,13 +10,13 @@
       <!--字符串-->
       <!--<string></string>-->
       <!--数字-->
-      <math></math>
+      <!--<math></math>-->
       <!--日期-->
       <!--<date></date>-->
       <!--正则表达式-->
-      <!--<regexp></regexp>-->
+      <regexp></regexp>
       <!--函数-->
-      <function-detail></function-detail>
+      <!--<function-detail></function-detail>-->
       <!--面向对象编程-->
       <!--<object-detail></object-detail>-->
       <!--BOM-->

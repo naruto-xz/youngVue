@@ -19,6 +19,15 @@
           console.log(str1.length); //3
 
 
+        },
+        operate1 () {
+          let str = ' abc de ';
+          let str1 = str.replace(/(^\s*)|(\s*$)/g, ''); console.log(str1);  //abc de
+          let str2 =  str.replace(/\s/g, ''); console.log(str2);  //abcde
+          let reg = /ab/g;
+          let flag = reg.test(str); console.log(flag);  //true
+          let reg1 = new RegExp('ab', 'g');
+          let flag1 = reg1.test(str); console.log(flag1); //true
         }
       },
       mounted() {
@@ -39,7 +48,8 @@
 
         // test是正则表达式的一个实例方法，用来检测是否与模式匹配
 
-        this.operate();
+        // this.operate();
+        this.operate1();
 
       }
     }
