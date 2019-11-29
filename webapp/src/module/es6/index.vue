@@ -2,7 +2,7 @@
     <div>
       <!--<h4>{{title}}</h4>-->
       <!--<div>常用方法</div>-->
-      <!--<let-and-const></let-and-const>-->
+      <let-and-const></let-and-const>
       <!--数组扩展-->
       <!--<array-extend></array-extend>-->
       <!--对象扩展-->

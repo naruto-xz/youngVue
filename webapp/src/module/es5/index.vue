@@ -16,7 +16,7 @@
       <!--正则表达式-->
       <!--<regexp></regexp>-->
       <!--函数-->
-      <!--<function-detail></function-detail>-->
+      <function-detail></function-detail>
       <!--面向对象编程-->
       <!--<object-detail></object-detail>-->
       <!--BOM-->
@@ -24,7 +24,7 @@
       <!--DOM-->
       <!--<dom></dom>-->
       <!--高级技巧-->
-      <hight-skill></hight-skill>
+      <!--<hight-skill></hight-skill>-->
     </div>
 </template>
 

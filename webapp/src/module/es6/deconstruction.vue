@@ -1,7 +1,5 @@
 <template>
-    <div>
-
-    </div>
+    <div></div>
 </template>
 
 <script>
@@ -25,7 +23,7 @@
           // let {name:name,age:age} = {name:'zhangsan',age:23};
 
           //3.函数的解构赋值 (函数的参数可用使用解构赋值)
-          // function add(x,y) {
+          // function add([x,y]) {
           //   return x+y;
           // }
           // add([1,2]); //3
@@ -65,10 +63,35 @@
           // console.log(name,age,number); //'zhangsan',23,[10,12]
           // //4. 输出模块的指定方法
           // const {moduleA,moduleB} = require("source");
+        },
+        operator1 () {
+          //1.对象的解构赋值 (注意变量必须与属性同名才能取到正确的值)
+          // let {name, age} = {name: '张三', age: 23};
+          // console.log(name);
+          // console.log(age);
+
+          // 嵌套的解构赋值
+          let {data: {name, age}} = {data: {name: '张三', age: 23}}
+          console.log(name);
+          console.log(age);
+
+          //2.数组的解构赋值
+          // let [a, b, c] = [1, 2, 3];
+          // console.log(a, b, c);
+
+
+          //3.函数的解构赋值
+          // function test([x,y]) {
+          //   console.log(x);
+          //   console.log(y);
+          // }
+          // test([1,2])
+
         }
       },
       mounted() {
-        this.operator();
+        // this.operator();
+        this.operator1();
       }
     }
 </script>

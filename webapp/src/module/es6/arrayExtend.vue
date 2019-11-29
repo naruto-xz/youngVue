@@ -152,10 +152,71 @@
           // console.log(arr); //["h", "e", "l", "l", "o"]
 
 
+        },
+        operate1 () {
+          let arr = [1,2,2,3,3,4,5,8,10];
+          console.log(Array.from(new Set(arr)));
+          console.log([...new Set(arr)]);
+
+          console.log(arr.includes(2));
+
+          let res = arr.find(item => item > 5);
+          console.log(res);
+
+          // let res1 = arr.find((item, index) => {
+          //   return item > 5;
+          // });
+          // console.log(res1);
+
+          console.log(arr.findIndex(item => item > 5));
+
+
+          let arr1 = [{name: 'zs', age: 20}, {name: 'ls', age: 21}, {name: 'wf', age: 22}];
+
+          for(let item of arr1.values()){
+            console.log(item.age);
+          }
+
+          let str = '123';
+          console.log(Array.of(str));
+          console.log(str.split());
+
+
+          let arr2 = [1,2,[3,[4]]];
+          let newArr = [];
+          arr2.forEach(val => {
+
+            if (valid(val)) {
+              newArr.push(v);
+              // val.forEach(v => {
+              //
+              // })
+            } else {
+              newArr.push(val);
+            }
+          });
+          function valid (val) {
+            return  Array.isArray(val);
+          }
+          function recursive (val) {
+            if (Array.isArray(val)) {
+
+            } else {
+              return val;
+            }
+            val.forEach(v => {
+
+            })
+          }
+          console.log(newArr);
+
+
+
         }
       },
       mounted() {
         this.operate();
+        this.operate1();
       }
     }
 </script>

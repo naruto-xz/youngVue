@@ -53,10 +53,54 @@
           // console.log(single().name);
           // console.log(single().getAge());
 
+        },
+        operator1 () {
+          console.log(typeof a);  //undefined
+          console.log(typeof b);  //boolean
+          console.log(typeof c);  //function
+          var a = function () {
+            return true;
+          };
+          window.b = function () {
+            return true;
+          };
+          console.log(a()&&b()&&c());   //true
+          function c() {
+            return true;
+          }
+          var o = {
+            a:1,
+            f:function() {
+              return this.a;
+            }
+          };
+          console.log(o.f()); //1
+          var o1 = o;
+          console.log(o1.f());  //1
+          var o2 = o.f;
+          console.log(o2);  //function(){return this.a;}
+          o['a'] = 5;
+          console.log(o1.f());  //5
+          var o3 = {a:6};
+          console.log(o.f.call(o3));  //6
+        },
+        operator2 () {
+          console.log(a);  //undefined
+          console.log(b);  //undefined
+          var a = 1;
+          let b = 2;
+          if (true) {
+            console.log(c);
+            console.log(d);
+            var c = 3;
+            const d = 4;
+          }
         }
       },
       mounted() {
-        this.operator();
+        // this.operator();
+        // this.operator1();
+        this.operator2();
       }
     }
 </script>

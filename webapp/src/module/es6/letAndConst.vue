@@ -101,18 +101,18 @@
         // console.log(i); //3
 
 
-        {
-          function a() {
-            console.log(1);
-          }
-          a();  //1
-          {
-            function a() {
-              console.log(2);
-            }
-            a();  //2
-          }
-        }
+        // {
+        //   function a() {
+        //     console.log(1);
+        //   }
+        //   a();  //1
+        //   {
+        //     function a() {
+        //       console.log(2);
+        //     }
+        //     a();  //2
+        //   }
+        // }
 
 
 

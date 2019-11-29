@@ -134,10 +134,68 @@
           //   [2,'two']
           // ]);
           // console.log([...map.values()]); //["one", "two"]
+        },
+        operate1 () {
+          // set数组去重复
+          // let arr = [1,2,2,3,3,4];
+          // let arr1 = new Set(arr);
+          // let res = Array.from(arr1);
+          // console.log(res);
+
+          //map
+
+          // let obj = {
+          //   [1, 2, 3]: 'zhangsan'  //错误的
+          // };
+
+          // let arr = [1,2,3];
+          // let obj = {};
+          // obj[arr] = 'zhangsan'; //会自动把arr转成字符串
+          // for (let key in obj) {
+          //   console.log(key);
+          // }
+          // console.log(obj);
+
+          // let map = new Map();
+          // let arr = [1,2,3];
+          // map.set(arr, 'zhangsan');
+          // console.log(map.get(arr));
+
+
+
+
+
+          let arr = [
+            {
+              name: 'a',
+              age: 1
+            },
+            {
+              name: 'b',
+              age: 2
+            },
+            {
+              name: 'c',
+              age: 3
+            },
+            {
+              name: 'd',
+              age: 4
+            }
+          ];
+          // let res = arr.map(item => item.name);
+          // console.log(res);
+
+
+
+
+
+
         }
       },
       mounted() {
-        this.operate();
+        // this.operate();
+        this.operate1();
       }
     }
 </script>
