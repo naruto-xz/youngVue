@@ -19,17 +19,26 @@
           // window.open("http://www.baidu.com","_blank")
           // window.open("http://www.baidu.com","_self")
           // window.open("http://www.baidu.com","http://www.baidu.com")
+        },
+        operate1 () {
+          console.log(window.location.origin);
+          console.log(window.location.protocol);
+          console.log(window.location.hostname);
+          console.log(window.location.port);
+          console.log(window.location.pathname);
+          console.log(window.location.href);
+        },
+        operate2 () {
+          // window.open(`http://www.baidu.com`, '_blank');
+          // window.open(`http://www.baidu.com`, '_self');
+          // window.history.go(-1);
+          // window.history.go(1);
         }
       },
       mounted() {
-        // function Test() {
-        //   this.a = 1;
-        //   this.eat = function () {
-        //     console.log(123);
-        //   }
-        // }
-        // var obj = new Test();
-        // console.log(Test.prototype.eat);
+        // this.operate();
+        this.operate1();
+        // this.operate2();
       }
     }
 </script>

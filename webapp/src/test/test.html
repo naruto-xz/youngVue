@@ -7,24 +7,61 @@
 <link href="codemirror.css" rel="stylesheet">
 <body>
   <textarea class="form-control" id="code" name="code"></textarea>
+
+  <div id="one" onclick="clickOne()">
+    <div id="two" onclick="clickTwo()">
+      <div id="three" onclick="clickThree()">点击</div>
+    </div>
+  </div>
+
+  <div onclick="add()">add</div>
+  <div id="delete">delete</div>
+  <div id="edit" onclick="edit()">edit</div>
+
 </body>
 </html>
 <script src="codemirror.js"></script>
 <script>
-  let myTextarea = document.getElementById('code');
-  new Promise(resolve=>{    //1.请求数据
-      if(true){
-        resolve("success");
-      }
-    }).then(res=>{
-      if(res){  //2.拿到结果
-        myTextarea.innerText = res; //3.赋值
-        var CodeMirrorEditor = CodeMirror.fromTextArea(myTextarea, { //4.渲染
-          mode:'javascript',
-          lineNumbers: true//显示行号
-        });
-      }
-    });
+  // let myTextarea = document.getElementById('code');
+  // new Promise(resolve=>{    //1.请求数据
+  //     if(true){
+  //       resolve("success");
+  //     }
+  //   }).then(res=>{
+  //     if(res){  //2.拿到结果
+  //       myTextarea.innerText = res; //3.赋值
+  //       var CodeMirrorEditor = CodeMirror.fromTextArea(myTextarea, { //4.渲染
+  //         mode:'javascript',
+  //         lineNumbers: true//显示行号
+  //       });
+  //     }
+  //   });
+
+  function clickOne() {
+    console.log('one');
+  }
+  function clickTwo() {
+    console.log('two');
+  }
+  function clickThree() {
+    console.log('three');
+  }
+  document.getElementById('one').addEventListener('click', function () {
+    console.log('one');
+  }, true); //不加true three two one one ; 加了true后 one three two one
+
+
+  function add() {
+    console.log('add');
+  }
+  document.getElementById('delete').onclick =  function () {
+    console.log('delete');
+  };
+  document.getElementById('edit').addEventListener('click', function () {
+    console.log('edit');
+  });
+
+
 
 
 

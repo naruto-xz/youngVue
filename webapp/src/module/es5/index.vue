@@ -14,15 +14,20 @@
       <!--日期-->
       <!--<date></date>-->
       <!--正则表达式-->
-      <regexp></regexp>
-      <!--函数-->
-      <!--<function-detail></function-detail>-->
-      <!--面向对象编程-->
-      <!--<object-detail></object-detail>-->
+      <!--<regexp></regexp>-->
+      <!--函数基础-->
+      <!--<function-base></function-base>-->
+      <!--闭包-->
+      <!--<bi-bao></bi-bao>-->
       <!--BOM-->
       <!--<bom></bom>-->
-      <!--DOM-->
-      <!--<dom></dom>-->
+      <!--面向对象编程-->
+      <!--对象属性详解-->
+      <!--<object-property></object-property>-->
+      <!--原型与继承-->
+      <object-detail></object-detail>
+
+
       <!--高级技巧-->
       <!--<hight-skill></hight-skill>-->
     </div>
@@ -36,11 +41,14 @@
   import math from "./math.vue"
   import date from "./date.vue"
   import regexp from "./regexp.vue"
-  import functionDetail from "./high/functionDetail.vue"
-  import objectDetail from "./high/objectDetail.vue"
+  import functionBase from "./functionBase.vue"
+  import biBao from "./biBao.vue"
   import bom from "./bom.vue"
-  import dom from "./dom.vue"
+  import objectProperty from "./high/objectProperty.vue"
+  import objectDetail from "./high/objectDetail.vue"
+
   import highSkill from "./high/highSkill.vue"
+
 
   export default {
      components:{
@@ -51,10 +59,11 @@
        math,
        date,
        regexp,
-       functionDetail,
-       objectDetail,
+       functionBase,
+       biBao,
        bom,
-       dom,
+       objectProperty,
+       objectDetail,
        highSkill
      }
   }

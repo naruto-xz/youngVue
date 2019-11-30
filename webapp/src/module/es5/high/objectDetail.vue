@@ -76,10 +76,26 @@
 
 
 
+        },
+        operator1 () {
+          // 原型
+          function Person(name) {
+            this.name = name;
+          }
+          Person.prototype.age = 23;
+          let person = new Person('zs');
+          console.log(person.name);
+          console.log(person.age);
+
+          console.log(Person.isPrototypeOf(Person.name));  //false
+          console.log(Person.isPrototypeOf(Person.age));   //true
+
+
         }
       },
       mounted() {
-        this.operator();
+        // this.operator();
+        this.operator1();
       }
     }
 </script>

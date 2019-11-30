@@ -4,7 +4,8 @@
     "stage-0"
   ],
   "plugins": [
-    "transform-runtime"
+    "transform-runtime",
+    "transform-remove-strict-mode"
 //    ["import", {
 //      "libraryName": "iview",
 //      "libraryDirectory": "src/components"

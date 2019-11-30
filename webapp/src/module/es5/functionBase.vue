@@ -55,6 +55,7 @@
 
         },
         operator1 () {
+          //变量提升 函数提升 this指针 作用域对象
           console.log(typeof a);  //undefined
           console.log(typeof b);  //boolean
           console.log(typeof c);  //function
@@ -85,22 +86,58 @@
           console.log(o.f.call(o3));  //6
         },
         operator2 () {
-          console.log(a);  //undefined
-          console.log(b);  //undefined
-          var a = 1;
-          let b = 2;
-          if (true) {
-            console.log(c);
-            console.log(d);
-            var c = 3;
-            const d = 4;
+          //递归  prototype(call、apply)
+          function sum(num) {
+            if (num <= 1) {
+              return num;
+            } else {
+              // return num * sum(num - 1);
+              return num * arguments.callee(num - 1);
+            }
           }
+          // let another = sum;
+          // sum = null;
+          // let res = another(5);
+          // console.log(res);
+          let res = sum(5);
+          console.log(res);
+
+
+          // function sum1 (num1, num2) {
+          //   return num1 + num2;
+          // }
+          // let res1 = sum1.apply(this,[10,20]);
+          // var result = sum.call(this,10,20);
+        },
+        operator3 () {
+          //函数的调用方式
+          function f() {
+            console.log(123);
+          }
+          f();
+          let obj = {
+            add () {
+              console.log(456);
+            }
+          };
+          obj.add();
+          function f1() {
+            console.log(789);
+          }
+          f1.call(this);
+          function F2 (age) {
+            this.age = age;
+          }
+          let f2 = new F2(23);
+          console.log(f2.age);
         }
+
       },
       mounted() {
         // this.operator();
         // this.operator1();
-        this.operator2();
+        // this.operator2();
+        this.operator3();
       }
     }
 </script>
