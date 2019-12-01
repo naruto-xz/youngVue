@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+  function test() {
+    //1.不存在变量提升
+    // console.log(a); //undefined
+    // console.log(b); //报错
+    // console.log(c); //报错
+    // var a = 1;
+    // let b = 1;
+    // const c = 2;
+
+    // 2.不可以重复定义
+    // var a = 1;
+    // var a = 2;
+    // console.log(a); //2
+    // let b = 1;
+    // let b = 2;
+    // console.log(b); //报错
+
+    //3.只在块级作用域内生效
+    // if (true) {
+    //   var a = 1;
+    //   let b = 2;
+    //   const c = 3;
+    // }
+    // console.log(a); //1
+    // console.log(b); //报错
+    // console.log(c); //报错
+
+    //4.暂时性死区(在块级作用域中，只要在let前已经声明了变量名，然后let时再声明就会报错)
+    // var a = 1;
+    // if (true) {
+    //   a = 2;
+    //   let a = 3;
+    //   console.log(a);
+    // }
+
+    // 5.块级作用域
+    // {
+    //   let a = 1;
+    //   console.log(a); //1
+    // }
+    // console.log(a); //报错
+
+  }
+  test();
+</script>

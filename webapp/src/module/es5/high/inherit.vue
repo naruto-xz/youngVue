@@ -78,17 +78,57 @@
 
         },
         operator1 () {
-          // 原型
-          function Person(name) {
-            this.name = name;
-          }
-          Person.prototype.age = 23;
-          let person = new Person('zs');
-          console.log(person.name);
-          console.log(person.age);
+          //1.原型链继承(缺点：父类一变，所有继承的子类都会被影响)
+          function Father() {}
+          Father.prototype = {
+            name: 'zs',
+            age: '66'
+          };
+          function Sun() {}
+          Sun.prototype = new Father();
+          let sun1 = new Sun();
+          console.log(sun1.name); //zs
+          console.log(sun1.age);  //66
+          Father.prototype.age = 88;
+          let sun2 = new Sun();
+          console.log(sun2.name); //zs
+          console.log(sun2.age);  //88
 
-          console.log(Person.isPrototypeOf(Person.name));  //false
-          console.log(Person.isPrototypeOf(Person.age));   //true
+
+          //2.构造继承(缺点：无法复用父类原型上的方法)
+          function Father1(name, age) {
+            this.name = name;
+            this.age = age;
+          }
+          Father1.prototype.getAge = function () {
+            return this.age;
+          };
+          function Sun1(sex) {
+            Father1.apply(this, ['ls', 68]);
+            this.sex = sex;
+          }
+          let obj1 = new Sun1('男');
+          console.log(obj1.name); //ls
+          console.log(obj1.age);  //68
+          // console.log(obj1.getAge());  //会报错
+
+          //3.构造+原型组合继承(1.解决了原型修改影响的问题，2.实现了原型方法共用的问题)
+          function Father2(name, age) {
+            this.name = name;
+            this.age = age;
+          }
+          Father2.prototype.getAge = function () {
+            return this.age;
+          };
+          function Sun2(sex) {
+            Father2.apply(this, ['wf', 70]);
+            this.sex = sex;
+          }
+          Sun2.prototype = new Father2();
+          let obj2 = new Sun2('男');
+          console.log(obj2.name); //wf
+          console.log(obj2.age);  //70
+          console.log(obj2.getAge());  //70
 
 
         }

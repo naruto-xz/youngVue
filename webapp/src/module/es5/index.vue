@@ -24,8 +24,12 @@
       <!--面向对象编程-->
       <!--对象属性详解-->
       <!--<object-property></object-property>-->
-      <!--原型与继承-->
-      <object-detail></object-detail>
+      <!--原型及原型链-->
+      <!--<prototype></prototype>-->
+      <!--创建对象的4种方式-->
+      <!--<created-object></created-object>-->
+      <!--继承-->
+      <inherit></inherit>
 
 
       <!--高级技巧-->
@@ -45,8 +49,9 @@
   import biBao from "./biBao.vue"
   import bom from "./bom.vue"
   import objectProperty from "./high/objectProperty.vue"
-  import objectDetail from "./high/objectDetail.vue"
-
+  import prototype from "./high/prototype.vue"
+  import createdObject from "./high/createdObject.vue"
+  import inherit from "./high/inherit.vue"
   import highSkill from "./high/highSkill.vue"
 
 
@@ -63,7 +68,9 @@
        biBao,
        bom,
        objectProperty,
-       objectDetail,
+       prototype,
+       createdObject,
+       inherit,
        highSkill
      }
   }

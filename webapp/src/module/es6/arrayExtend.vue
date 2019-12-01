@@ -1,16 +1,9 @@
 <template>
-    <div>
-      <h5>{{title}}</h5>
-    </div>
+
 </template>
 
 <script>
     export default {
-      data(){
-        return {
-          title: '数组扩展'
-        }
-      },
       methods: {
         operate(){
           // //下面的扩展的这些新方法都返回一个新的值
@@ -155,62 +148,60 @@
         },
         operate1 () {
           let arr = [1,2,2,3,3,4,5,8,10];
+          console.log(new Set(arr));
           console.log(Array.from(new Set(arr)));
           console.log([...new Set(arr)]);
 
-          console.log(arr.includes(2));
-
-          let res = arr.find(item => item > 5);
-          console.log(res);
-
-          // let res1 = arr.find((item, index) => {
-          //   return item > 5;
-          // });
-          // console.log(res1);
-
-          console.log(arr.findIndex(item => item > 5));
-
+          let res1 = arr.includes(2); console.log(res1);  //true
+          let res2 = arr.find(item => item > 5); console.log(res2); //8
+          let res3 = arr.findIndex(item => item > 1); console.log(res3);  //1
 
           let arr1 = [{name: 'zs', age: 20}, {name: 'ls', age: 21}, {name: 'wf', age: 22}];
-
           for(let item of arr1.values()){
-            console.log(item.age);
+            console.log(item.age);  //20, 21, 22
           }
 
           let str = '123';
-          console.log(Array.of(str));
-          console.log(str.split());
+          console.log(Array.of(str)); //['123']
+          console.log(str.split()); //['123']
 
 
-          let arr2 = [1,2,[3,[4]]];
-          let newArr = [];
-          arr2.forEach(val => {
+          //扩展运算符(将数组转化为参数序列)
+          let arr2 = [1,2,3];
+          console.log(...arr2); //1 2 3
 
-            if (valid(val)) {
-              newArr.push(v);
-              // val.forEach(v => {
-              //
-              // })
-            } else {
-              newArr.push(val);
-            }
-          });
-          function valid (val) {
-            return  Array.isArray(val);
+          //1.主要用于函数调用
+          function add(a, b, c) {
+            console.log(a);
+            console.log(b);
+            console.log(c);
+            console.log(a + b + c);
           }
-          function recursive (val) {
-            if (Array.isArray(val)) {
+          // add(...arr2);  //6
 
-            } else {
-              return val;
-            }
-            val.forEach(v => {
+          //2.替代函数的apply方法
+          add.apply(this,arr2);
+          // add(...arr2);
+          let max = Math.max.apply(this, arr2); console.log(max); //3
+          let max1 = Math.max(...arr2); console.log(max1);  //3
 
-            })
-          }
-          console.log(newArr);
+          //3.在现有数组的基础上创建一个新的数组或复制数组
+          let a = [1,2];
+          let b = [6, ...a, 7];
+          console.log(b); //[6,1,2,7]
+          let c = [1,2];
+          let d = [3,4];
+          let f = c.concat(d);  console.log(f); //[1,2,3,4]
+          let j = [...c, ...d];  console.log(j); //[1,2,3,4]
 
+          //4.将字符串转换成正真的数组
+          let str1 = 'hello';
+          let strArr = [...str1];  console.log(strArr)  //['h','e','l','l','o']
 
+          //5.用于数组的解构赋值
+          let [a1, ...rest] = arr2;
+          console.log(a1);  //1
+          console.log(rest);  //2,3
 
         }
       },

@@ -1,10 +1,8 @@
 <template>
     <div>
       <!--<h4>{{title}}</h4>-->
-      <!--<div>常用方法</div>-->
-      <let-and-const></let-and-const>
       <!--数组扩展-->
-      <!--<array-extend></array-extend>-->
+      <array-extend></array-extend>
       <!--对象扩展-->
       <!--<obj-extend></obj-extend>-->
       <!--字符串扩展-->
@@ -35,7 +33,6 @@
 </template>
 
 <script>
-    import letAndConst from "./letAndConst.vue"
     import arrayExtend from "./arrayExtend.vue"
     import objExtend from "./objExtend.vue"
     import stringExtend from "./stringExtend.vue"
@@ -52,7 +49,6 @@
     import classFunction from "./high/classFunction.vue"
     export default {
       components:{
-        letAndConst,
         arrayExtend,
         objExtend,
         stringExtend,
