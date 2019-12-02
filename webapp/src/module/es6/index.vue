@@ -2,7 +2,7 @@
     <div>
       <!--<h4>{{title}}</h4>-->
       <!--数组扩展-->
-      <array-extend></array-extend>
+      <!--<array-extend></array-extend>-->
       <!--对象扩展-->
       <!--<obj-extend></obj-extend>-->
       <!--字符串扩展-->

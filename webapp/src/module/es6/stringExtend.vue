@@ -58,10 +58,22 @@
                     </div>`;
           console.log(str); //aaa
 
+        },
+        operator1(){
+          let str = `1${1+1}3`; console.log(str); //123
+
+          console.log(str.includes(2)); //true
+
+          let str1 = 'hello';
+          for (let val of str1) {
+            console.log(val); //h e l l o
+          }
+
         }
       },
       mounted(){
-        this.operator();
+        // this.operator();
+        this.operator1();
       },
     }
 </script>

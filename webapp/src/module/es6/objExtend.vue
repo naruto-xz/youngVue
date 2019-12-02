@@ -1,16 +1,9 @@
 <template>
-    <div>
-      <h5>{{title}}</h5>
-    </div>
+
 </template>
 
 <script>
     export default {
-      data(){
-        return{
-          title: '对象扩展'
-        }
-      },
       methods:{
         operator(){
           // var obj = {
@@ -123,12 +116,53 @@
          // };
          // console.log(person && person.info && person.info.name);
          // console.log(person?.info?.name);
+        },
+        operator1 () {
+          //1.函数简写
+          let obj1 = {
+            eat () {
+              console.log(123);
+            }
+          };
+          obj1.eat();
+          //2.key值允许定义表达式
+          let a = 1;
+          let b = 2;
+          let obj2 = {
+            [a+b]: '333'
+          };
+          console.log(obj2[a+b]);
+          //3.常用扩展方法
+          let obj3 = {name: 'zs', age: 23};
+          console.log(Object.keys(obj3)); //['name', 'age']
+          console.log(Object.values(obj3)); //['zs',23]
+          console.log(Object.entries(obj3));  //[['name', 'zs'],['age',23]]
+
+          let obj4 = {name: 'zs'};
+          let obj5 = {age: 23};
+          // let obj6 =  Object.assign(obj4, obj5);  //不加{}时，第一个源对象会被改变
+          // console.log(obj6);  //{name: "zs", age: 23}
+          // console.log(obj4);  //{name: "zs", age: 23}
+          // console.log(obj5);  //{age: 23}
+          let obj7 =  Object.assign({}, obj4, obj5);
+          console.log(obj7);  //{name: "zs", age: 23}
+          console.log(obj4);  //{name: "zs"}
+          console.log(obj5);  //{age: 23}
+
+          //4.扩展运算符
+          let obj8 = {...obj4, ...obj5};
+          console.log(obj8);  //{name: "zs", age: 23}
+          console.log(obj4);  //{name: "zs"}
+
+
+
         }
       },
       mounted() {
         this.operator();
         this.base();
         this.empty();
+        this.operator1();
       }
     }
 </script>
