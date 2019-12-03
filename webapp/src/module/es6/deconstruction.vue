@@ -3,6 +3,8 @@
 </template>
 
 <script>
+    import array from "../es5/array";
+
     export default {
       methods:{
         operator(){
@@ -87,11 +89,53 @@
           // }
           // test([1,2])
 
+        },
+        operator2 () {
+          //对象的解构赋值
+          let {name, age} = {name: 'zs', age: 23};
+          console.log(name);
+          console.log(age);
+
+          //数组的解构赋值
+          let [a,b] = [1,2];
+          console.log(a);
+          console.log(b);
+
+          //字符串解构赋值
+          let str = 'ab';
+          let [a1,b1] = str;
+          console.log(a1);
+          console.log(b1);
+
+
+          //利用扩展运算符进行解构赋值
+          let obj1= {name: 'zs'};
+          let obj2= {age: 23};
+          let obj3 = {...obj1, ...obj2};
+          console.log(obj1);  //{name: 'zs'}
+          console.log(obj3);  //{name: "zs", age: 23}
+
+          let arr1 = [1,2];
+          let arr2 = [3,4];
+          let arr3 = [...arr1, ...arr2];
+          console.log(arr3);  //[1,2,3,4]
+          let arr4 = [5,...arr1, 6];
+          console.log(arr4);  //[5,1,2,6]
+
+          function add2(x,y,z) {
+            console.log(x+y+z);
+          }
+          add2(...[1,2,3]); //6
+
+          let str1 = 'ab';
+          let strArr = [...str1];
+          console.log(strArr);  //['a','b']
         }
       },
       mounted() {
         // this.operator();
-        this.operator1();
+        // this.operator1();
+        this.operator2();
       }
     }
 </script>

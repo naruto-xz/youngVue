@@ -12,7 +12,7 @@
       <!--函数扩展-->
       <!--<function-extend></function-extend>-->
       <!--变量解构赋值-->
-      <!--<deconstruction></deconstruction>-->
+      <deconstruction></deconstruction>
       <!--symbol数据类型-->
       <!--<symbol-type></symbol-type>-->
       <!--模块化-->

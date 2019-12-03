@@ -81,10 +81,35 @@
 
 
 
+        },
+        operator1 () {
+          let arr = [1,2,3];
+          let arr1 = arr.map(item=>item*2); console.log(arr1);  //[2,4,6]
+
+          function test() {
+            this.a = 1;
+            setTimeout(()=>{
+              this.a = 2;
+              console.log(this.a);  //2
+            })
+          }
+          test();
+
+          function add(x,y = 2) {
+            console.log(x + y);
+          }
+          add(1);
+
+          function add1(x,...rest) {
+            console.log(x); //1
+            console.log(rest);  //[2,3]
+          }
+          add1(1,2,3);
         }
       },
       mounted() {
-        this.operator();
+        // this.operator();
+        this.operator1();
       }
     }
 </script>
