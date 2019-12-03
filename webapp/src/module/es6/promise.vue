@@ -1,15 +1,12 @@
 <template>
-    <div>
-      <h5>{{title}}</h5>
-    </div>
+
 </template>
 
 <script>
     export default {
       data(){
         return {
-          title: "promise对象",
-          count: 2
+          count: 1
         }
       },
       methods:{
@@ -90,10 +87,61 @@
           // })
 
 
+        },
+        operate1 () {
+          let promise = new Promise((resolve, reject)=>{
+            console.log(1); //1 立即执行
+            resolve(2);
+            // reject(3);
+          });
+          // promise.then(res => {
+          //   console.log(res); //2
+          // });
+          // promise.catch(error => {
+          //   console.log(error); //3
+          // });
+
+
+          // 链式调用
+          promise.then(res => {
+            console.log(res); //2
+            return 3;
+          }).then(res => {
+            console.log(res); //3
+          }).finally(()=>{
+            console.log('finish');
+          });
+
+          //并发请求
+          Promise.all(
+            [
+              a(),
+              b()
+            ]
+
+          ).then(res => {
+            console.log(res); //[1,2]
+          });
+          function a() {
+            return 1;
+          }
+          function b() {
+            return 2;
+          }
+
+          //谁先执行完，先返回谁
+          Promise.race([
+            b(),
+            a()
+          ]).then(res => {
+            console.log(res); //2
+          })
+
         }
       },
       mounted() {
-        this.operate();
+        // this.operate();
+        this.operate1();
       }
     }
 </script>

@@ -12,15 +12,17 @@
       <!--函数扩展-->
       <!--<function-extend></function-extend>-->
       <!--变量解构赋值-->
-      <deconstruction></deconstruction>
+      <!--<deconstruction></deconstruction>-->
       <!--symbol数据类型-->
       <!--<symbol-type></symbol-type>-->
-      <!--模块化-->
-      <!--<module></module>-->
-      <!--promise对象-->
-      <!--<promise></promise>-->
       <!--set和map结构-->
       <!--<set-and-map></set-and-map>-->
+      <!--promise对象-->
+      <!--<promise></promise>-->
+      <!--模块化-->
+      <!--<module></module>-->
+
+
       <!--iterator和for..of-->
       <!--<iterator></iterator>-->
       <!--generator函数-->

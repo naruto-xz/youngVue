@@ -1,16 +1,9 @@
 <template>
-    <div>
-      <div>{{title}}</div>
-    </div>
+
 </template>
 
 <script>
     export default {
-      data(){
-        return {
-          title: "set和map结构"
-        }
-      },
       methods: {
         operate(){
           //Set
@@ -137,60 +130,35 @@
         },
         operate1 () {
           // set数组去重复
-          // let arr = [1,2,2,3,3,4];
-          // let arr1 = new Set(arr);
-          // let res = Array.from(arr1);
-          // console.log(res);
+          let arr1 = [1,2,2,3,3,4];
+          let arr2 = new Set(arr1);
+          let res = Array.from(arr2);
+          let res1 = [...new Set(arr2)];
+          console.log(res); //[1,2,3,4]
+          console.log(res1);  //[1,2,3,4]
+
+          //set字符串去重复
+          let str = [...new Set('ababbc')].join('');
+          console.log(str); //abc
 
           //map
-
           // let obj = {
           //   [1, 2, 3]: 'zhangsan'  //错误的
           // };
+          let arr3 = [1,2,3];
+          let obj = {};
+          obj[arr3] = 'zhangsan'; //会自动把arr转成字符串
+          for (let key in obj) {
+            console.log(key); //'1,2,3'
+          }
+          console.log(obj); //{1,2,3: "zhangsan"}
 
-          // let arr = [1,2,3];
-          // let obj = {};
-          // obj[arr] = 'zhangsan'; //会自动把arr转成字符串
-          // for (let key in obj) {
-          //   console.log(key);
-          // }
-          // console.log(obj);
-
-          // let map = new Map();
-          // let arr = [1,2,3];
-          // map.set(arr, 'zhangsan');
-          // console.log(map.get(arr));
-
-
-
-
-
-          let arr = [
-            {
-              name: 'a',
-              age: 1
-            },
-            {
-              name: 'b',
-              age: 2
-            },
-            {
-              name: 'c',
-              age: 3
-            },
-            {
-              name: 'd',
-              age: 4
-            }
-          ];
-          // let res = arr.map(item => item.name);
-          // console.log(res);
-
-
-
-
-
-
+          let map = new Map();
+          let arr4 = [1,2,3];
+          map.set(arr4, 'zhangsan');
+          console.log(map); //key: [1, 2, 3]  value: 'zhangsan'
+          console.log(typeof map);  //object
+          console.log(map.get(arr4)); //zhangsan
         }
       },
       mounted() {
