@@ -46,10 +46,61 @@
 
 
 
+        },
+        operate1 () {
+          let arr = [5,4,8,2,10];
+          // for (let i = 0; i<arr.length; i++) {
+          //   console.log(arr[i]);
+          // }
+          for (let val of arr) {
+            console.log(val);
+          }
+
+          let arr1 = new Set();
+          arr1.add(6);
+          arr1.add(7);
+          arr1.add(8);
+          for (let val of arr1.values()) {
+            console.log(val); //6,,7,8
+          }
+
+          let arr2 =  new Map([['name', 'zs'], ['age',23]]);
+          for (let val of arr2.values()) {
+            console.log(val); //zs 23
+          }
+
+          let str = 'hello';
+          for (let val of str) {
+            console.log(val); //h e l l o
+          }
+
+
+          // function sum() {
+          //   for (let i = 0; i<arr.length; i++) {
+          //     if (arr[i] > 6) {
+          //       return;  //终止循环，并跳出函数  //5,4  不打印test
+          //       // break;   //5,4  //跳出循环,  打印test
+          //       // continue; //5,4,2  跳出本次循环，进入下一次循环  打印test
+          //     }
+          //     console.log(arr[i]);
+          //   }
+          //   console.log('test');
+          // }
+          // sum();
+
+          // arr.forEach(val => {
+          //   if (val > 6) {
+          //     return; //不会跳出循环
+          //   }
+          //   console.log(val); //5,4,2
+          // })
+
+
         }
       },
       mounted() {
-        this.operate();
+        // this.operate();
+        this.operate1();
       }
     }
 </script>

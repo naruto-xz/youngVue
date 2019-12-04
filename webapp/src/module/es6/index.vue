@@ -19,12 +19,13 @@
       <!--<set-and-map></set-and-map>-->
       <!--promise对象-->
       <!--<promise></promise>-->
-      <!--模块化-->
-      <!--<module></module>-->
-
-
       <!--iterator和for..of-->
       <!--<iterator></iterator>-->
+      <!--模块化-->
+      <module></module>
+
+
+
       <!--generator函数-->
       <!--<generator></generator>-->
       <!--async函数-->

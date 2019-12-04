@@ -1,6 +1,5 @@
 <template>
     <div>
-      <h5>{{title}}</h5>
       <button @click="operator(1)">动态加载</button>
     </div>
 </template>
@@ -23,7 +22,8 @@
     //   },3000)
     // });
     //ES6 Module
-    // import moduleA from './moduleA.js'
+    // import moduleA from './moduleA.js' //接收整个对象
+    // import {name, age, eat} from './moduleA.js' //接收对应的值
 
     //ES6与CommomJS区别
     import example from './commomB.js';
@@ -31,12 +31,6 @@
 
 
     export default {
-      data(){
-        return {
-          title: '模块化',
-
-        }
-      },
       methods:{
         operator(value){
           // console.log(example.x); //5
@@ -61,10 +55,23 @@
           console.log(count); //3
           add();
           console.log(count); //4
+        },
+        operator1 () {
+          //1.默认导出
+          // let age = moduleA.age;
+          // console.log(moduleA); //{age: 23}
+          // console.log(age); //23
+
+          //2.变量导出
+          // let name1 = name;  console.log(name1);
+          // let age1 = age;  console.log(age1);
+          // let eat1 = eat; eat1();
+
         }
       },
       mounted() {
-        this.operator();
+        // this.operator();
+        this.operator1();
       }
     }
 </script>
