@@ -1,18 +1,12 @@
 <template>
-    <div>
-      <h5>{{title}}</h5>
-    </div>
+
 </template>
 
 <script>
     import promise from "../promise";
 
     export default {
-      data(){
-        return {
-          title: 'async函数',
-        }
-      },
+
       methods:{
         operate(){
 
@@ -53,10 +47,41 @@
           // });
 
 
+        },
+        operate1 () {
+          // function eat() {
+          //   return new Promise((resolve, reject) => {
+          //     setTimeout(()=>{
+          //       resolve('eat');
+          //     },3000);
+          //   })
+          // }
+          // async function drink() {
+          //   let res = await eat();
+          //   // let res = await 1; //会立即执行，返回一个promise对象
+          //   console.log(123); //3秒后等返回res才会执行 //123
+          //   return res;
+          // }
+          // drink().then(res=>{
+          //   console.log(res); //eat
+          // });
+
+          //捕捉错误
+          async function play() {
+            let res = await new Promise((resolve, reject) => {
+              reject(1);
+            });
+            console.log(456); //不会执行
+            return res;
+          }
+          play().catch(error=>{
+            console.log(error); //1
+          });
         }
       },
       mounted() {
-        this.operate();
+        // this.operate();
+        this.operate1();
       }
 
     }

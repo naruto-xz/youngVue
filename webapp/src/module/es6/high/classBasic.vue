@@ -111,51 +111,51 @@
           // console.log(p.a); //1
           // console.log(myClass.b); //2
 
-
-          //继承
-
-        //   1.子类必须在constructor方法中调用super方法， 否则新建实例时会报错。 这是因为子类没有自己的this对象， 而是继承父类的this对象， 然后对其进行加工。 如果不调用super方法， 子类就得不到this对象。
-        //   2.如果子类没有定义constructor方法， 这个方法会被默认添加。也就是说， 不管有没有显式定义， 任何一个子类都有constructor方法。
-        //   3.super这个关键字， 有两种用法， 含义不同。
-        // (1) 作为函数调用时（ 即super(...args)）， super代表父类的构造函数。 (super虽然代表父类的构造函数，但返回的是子类的实例，及super()内部的this指向子类)
-        // (2) 作为对象调用时（ 即super.method()）， 普通方法中super指向父类的原型对象。 (只能调用原型上的属性和方法，无法调用对象实例上的属性和方法)    静态方法中指向父类(Class)
-        //   class Point{
-        //     age = 23;
-        //     static sex = '男';
-        //     constructor(x,y){
-        //       this.x = x;
-        //       this.y = y;
-        //     }
-        //     toString(){
-        //       return 3;
-        //     }
-        //   }
-        //   class ColorPoint extends Point{
-        //     constructor(x,y,color){
-        //       super(x,y); // 代表父类的构造函数
-        //       this.color = color;
-        //     }
-        //     toString(){
-        //       return this.color + '' + super.toString();  //super指向父类的原型对象
-        //       // console.log(super.age); //undefined   访问不到实例上的age,只能访问原型上的属性和方法
-        //     }
-        //     static getValue(){
-        //       console.log(super.sex); //男   静态方法中指向父类(Class)
-        //     }
-        //   }
-        //   var p = new ColorPoint(1,2,'red');
-        //   console.log(p.x); //1
-        //   console.log(p.y); //2
-        //   console.log(p.color); //red
-        //   console.log(p.toString());  //red3
-        //   ColorPoint.getValue();  //男
+        },
+        operate1 () {
+          // function Person1() {
+          //   this.name = 'ls';
+          //   this.getName = function () {
+          //     return this.name;
+          //   }
+          // }
+          // let person1 = new Person1();
+          // console.log(person1); //Person1 {name: "ls", getName: ƒ}
+          // console.log(person1.name);  //ls
+          // console.log(person1.getName()); //ls
 
 
+          class Person {    //可以看做是es5构造函数的另一种写法
+            constructor(name, age){
+              this.name = name;
+              this.age = age;
+            }
+            getName(){    //方法其实就绑在类的原型上
+              return this.name;
+            }
+            static sex = '男';
+            static getNumber(){
+              this.num = 10;
+            }
+          }
+          let person = new Person('zs', 23);
+          console.log(person);  //Person {name: "zs", age: 23}  而getName是在Person对象的prototype原型上
+          console.log(person.age);  //23
+          let name = person.getName();
+          console.log(name);  //'zs'
+
+          console.log(Person.hasOwnProperty('name')); //true
+          console.log(Person.hasOwnProperty('getName')); //false
+
+          console.log(Person.sex);  //'男'
+          Person.getNumber(); //在静态方法中绑定属性
+          console.log(Person.num);  //10
 
         }
       },
       mounted() {
-        this.operate();
+        // this.operate();
+        this.operate1();
       }
     }
 </script>

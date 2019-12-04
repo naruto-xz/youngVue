@@ -67,6 +67,19 @@
           // let age1 = age;  console.log(age1);
           // let eat1 = eat; eat1();
 
+          //3.动态加载
+          if (true) {
+            // import moduleA from './moduleA.js';  //报错
+            let promise = import('./moduleA.js');
+            console.log(promise); //Promise
+
+            promise.then(res => {
+              console.log(res); //default: {age: 23}
+              console.log(res.default); //{age: 23}
+            })
+
+          }
+
         }
       },
       mounted() {

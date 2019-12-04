@@ -1,18 +1,11 @@
 <template>
-    <div>
-      <h5>{{title}}</h5>
-    </div>
+
 </template>
 
 <script>
     import promise from "../promise";
 
     export default {
-      data(){
-        return {
-          title: 'generator函数'
-        }
-      },
       methods: {
         operate() {
           //基础用法
@@ -114,9 +107,21 @@
 
 
         },
+        operate1 () {
+          function* eat() {
+            yield 'a';
+            yield 'b';
+          }
+          let obj = eat();
+          console.log(obj); //Generator {_invoke: ƒ}
+          console.log(obj.next());  //{value: "a", done: false}
+          console.log(obj.next());  //{value: "b", done: false}
+          console.log(obj.next());  //{value: undefined, done: true}
+        }
       },
       mounted() {
-        this.operate();
+        // this.operate();
+        this.operate1();
       }
     }
 </script>

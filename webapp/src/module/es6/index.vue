@@ -1,6 +1,7 @@
 <template>
     <div>
       <!--<h4>{{title}}</h4>-->
+      <!--es6基础语法-->
       <!--数组扩展-->
       <!--<array-extend></array-extend>-->
       <!--对象扩展-->
@@ -22,16 +23,17 @@
       <!--iterator和for..of-->
       <!--<iterator></iterator>-->
       <!--模块化-->
-      <module></module>
+      <!--<module></module>-->
 
-
-
+      <!--es6高级语法-->
       <!--generator函数-->
       <!--<generator></generator>-->
       <!--async函数-->
       <!--<async-function></async-function>-->
-      <!--class-->
-      <!--<class-function></class-function>-->
+      <!--class基本用法-->
+      <!--<class-basic></class-basic>-->
+      <!--class继承-->
+      <class-inherit></class-inherit>
     </div>
 </template>
 
@@ -49,7 +51,8 @@
     import iterator from "./iterator.vue"
     import generator from "./high/generator.vue"
     import asyncFunction from "./high/asyncFunction.vue"
-    import classFunction from "./high/classFunction.vue"
+    import classBasic from "./high/classBasic.vue"
+    import classInherit from "./high/classInherit.vue"
     export default {
       components:{
         arrayExtend,
@@ -65,7 +68,8 @@
         iterator,
         generator,
         asyncFunction,
-        classFunction
+        classBasic,
+        classInherit
       },
       data(){
         return {
