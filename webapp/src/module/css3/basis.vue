@@ -1,77 +1,66 @@
 <template>
     <div>
-      <h5>{{title}}</h5>
-      <div>
-        <div class="red">颜色</div>
+      <div class="select">
+        <div>选择器</div>
+        <p class="a">伪类选择器</p>
+        <p class="b">伪元素选择器</p>
+        <p class="c">相邻选择器</p>
+        <p attr="d">属性选择器</p>
       </div>
-      <div>
-        <div>布局</div>
-        <div class="box">
-          <span class="number">123</span>
-        </div>
-
-        <div class="content">
-          <div>test</div>
-          <!--<div>test1</div>-->
-          <!--<div class="two">test1</div>-->
-        </div>
-        <div class="content-font">测试家圣诞节里卡时间段垃圾胜利大街垃圾撒点了卡接收到</div>
-
+      <div class="box">盒子模型</div>
+      <div class="style">
+        <div>样式</div>
+        <div class="border">边框</div>
       </div>
     </div>
 </template>
 
 <script>
     export default {
-      data(){
-        return {
-          title: 'css基础'
-        }
-      }
+
     }
 </script>
 
 <style lang="less" scoped>
-  @import "./basis.less";
-  .box{
-    /*box-sizing: content-box;*/
-    /*box-sizing: border-box;*/
-    width: 100px;
-    height: 100px;
-    margin-left: 50px;
-    /*padding: 20px;*/
-    /*border: 5px solid blue;*/
-    background: red;
-    border: 1px solid blue;
-    box-shadow: 0 0 10px 1px yellow inset;
-    .number{
-      margin-top: 10px;
+  //1.选择器：常用：类、id、 标签、子级、后代、相邻、伪类、伪元素  //不常用：属性选择器 p[attr] 通用选择器 *
+  .select{
+    .a{
+      &:hover{
+        cursor: pointer;
+        color: green;
+      }
+    }
+    .b{
+      &:before{
+        content: '';
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        background: red;
+      }
+      &+p{
+        color: aquamarine;
+      }
+    }
+    p[attr]{
+      color: red;
     }
   }
-  .one{
-    display: inline-block;
+  .box{
     width: 100px;
     height: 100px;
-    background: blue;
-    /*position: relative;*/
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid green;
+    background: orange;
+    /*box-sizing: content-box;*/
+    /*box-sizing: border-box;*/
   }
-  .two{
-    display: inline-block;
-    width: 100px;
-    height: 100px;
-    background: red;
-    /*position: relative;*/
-  }
-  .content{
-    width: 500px;
-    height: 200px;
-    line-height: 200px;
-    background: red;
-  }
-  .content-font{
-    width: 500px;
-    height: 200px;
-    background: url("./test.jpg") no-repeat;
-    background-size: 500px 200px;
+  .style{
+    .border{
+      width: 100px;
+      height: 100px;
+      border: 1px dotted red;
+    }
   }
 </style>

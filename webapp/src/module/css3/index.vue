@@ -2,17 +2,20 @@
     <div class="css3">
       <!--<h3>{{title}}</h3>-->
       <!--<basis></basis>-->
+      <!--基础布局-->
+      <basis-layout></basis-layout>
 <!--      <flex></flex>-->
 <!--      <grid-layout></grid-layout>-->
       <!--<div class="select-option" v-for="item in list" @click="show(item.value)">{{item.name}}</div>-->
       <!--<transition v-if="'transition'==currentModule"></transition>-->
       <!--<transform v-if="'transform'==currentModule"></transform>-->
 <!--      <vision-diff></vision-diff>-->
-      <other></other>
+<!--      <other></other>-->
     </div>
 </template>
 
 <script>
+    import basisLayout from './basisLayout.vue'
     import basis from './basis.vue'
     import flex from './flex.vue'
     import transition from './transition.vue'
@@ -23,6 +26,7 @@
     export default {
         components:{
           basis,
+          basisLayout,
           flex,
           gridLayout,
           transition,
