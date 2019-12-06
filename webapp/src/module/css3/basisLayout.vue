@@ -6,6 +6,15 @@
       <div class="a">a</div>
       <div class="b">b</div>
     </div>
+    <div>浮动</div>
+    <div class="float">
+      <div class="c">c</div>
+      <div class="d">d</div>
+    </div>
+    <div>对齐方式</div>
+    <div class="align">
+      <div class="e">e</div>
+    </div>
   </div>
 </template>
 
@@ -123,6 +132,59 @@ export default {
     /*    background: aquamarine;*/
     /*  }*/
     /*}*/
+
+    //浮动
+    /*.float{*/
+    /*  background: #00bb00;*/
+    /*  .c{*/
+    /*    float: left;*/
+    /*    height: 100px;*/
+    /*    width: 100px;*/
+    /*  }*/
+    /*  &:after{*/
+    /*    content: '';*/
+    /*    display: table;*/
+    /*    clear: both;*/
+    /*  }*/
+    /*}*/
+
+    //对齐方式
+    //水平或垂直居中
+    /*.align{*/
+    /*  !*text-align: center; //子元素不定宽*!*/
+    /*  height: 100px;*/
+    /*  !*line-height: 100px; //子元素不定高*!*/
+    /*  background: aquamarine;*/
+
+    /*  width: 500px;*/
+    /*  display: table-cell;  //子元素定高*/
+    /*  vertical-align: middle;*/
+    /*  .e{*/
+    /*    !*width: 100px;*!*/
+    /*    background: #00bb00;*/
+    /*    !*margin: 0 auto; //子元素定宽*!*/
+    /*    height: 40px;*/
+    /*  }*/
+    /*}*/
+
+    //absolute水平垂直居中
+    /*.align{*/
+    /*  height: 100px;*/
+    /*  background: aquamarine;*/
+    /*  position: relative;*/
+    /*  .e{*/
+    /*    position: absolute;*/
+    /*    width: 100px;*/
+    /*    height: 40px;*/
+    /*    background: #00bb00;*/
+    /*    left: 0;*/
+    /*    right: 0;*/
+    /*    top: 0;*/
+    /*    bottom: 0;*/
+    /*    margin: auto;*/   //核心平分父元素剩余空间
+    /*  }*/
+    /*}*/
+
 
   }
 </style>

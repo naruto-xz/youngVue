@@ -1,11 +1,12 @@
 <template>
     <div class="css3">
       <!--<h3>{{title}}</h3>-->
+      <!--基础-->
       <!--<basis></basis>-->
-      <!--基础布局-->
-      <basis-layout></basis-layout>
-<!--      <flex></flex>-->
-<!--      <grid-layout></grid-layout>-->
+      <!--布局-->
+      <!--<basis-layout></basis-layout>-->
+      <!--<flex></flex>-->
+      <grid-layout></grid-layout>
       <!--<div class="select-option" v-for="item in list" @click="show(item.value)">{{item.name}}</div>-->
       <!--<transition v-if="'transition'==currentModule"></transition>-->
       <!--<transform v-if="'transform'==currentModule"></transform>-->

@@ -57,7 +57,7 @@
         operator1 () {
           //变量提升 函数提升 this指针 作用域对象
           console.log(typeof a);  //undefined
-          console.log(typeof b);  //boolean
+          console.log(typeof b);  //undefined
           console.log(typeof c);  //function
           var a = function () {
             return true;

@@ -1,97 +1,76 @@
 <template>
     <div>
-      <!--<div class="box">-->
-        <!--&lt;!&ndash;<div class="item">1</div>&ndash;&gt;-->
-        <!--<div class="a">111</div>-->
-        <!--<div class="b">222</div>-->
-      <!--</div>-->
-
-<!--      <div class="InputAddOn">-->
-<!--        <span class="InputAddOn-item">213123123</span>-->
-<!--        <input class="InputAddOn-field">-->
-<!--        <button class="InputAddOn-item">2313</button>-->
-<!--      </div>-->
-
-<!--      项目属性-->
-      <div class="box1">
-        <div class="left">标题</div>
-        <div class="right">x</div>
+      <!--水平垂直居中-->
+      <div class="box">
+        <div class="a">a</div>
       </div>
-
+      <!--父容器属性-->
+      <div class="box1">
+        <div class="b">b</div>
+        <div class="c">c</div>
+      </div>
+      <!--子元素属性-->
+      <div class="box2">
+        <div class="e">e</div>
+        <div class="f">f</div>
+      </div>
     </div>
 </template>
 
 <script>
     export default {
-      data(){
-        return{
-
-        }
-      },
-      methods:{
-
-      },
-      mounted() {
-
-      }
     }
 </script>
 
 <style lang="less" scoped>
-  .box1{
-    width: 600px;
-    height: 100px;
-    background: orange;
+  //水平垂直居中
+  /*.box{*/
+  /*  display: flex;*/
+  /*  justify-content: center;  //子元素定宽不定宽都可以水平居中*/
+  /*  align-items: center;  //子元素定高不定高都可以垂直居中*/
+  /*  background: aquamarine;*/
+  /*  height: 200px;*/
+  /*  .a{*/
+  /*    width: 100px;*/
+  /*    height: 40px;*/
+  /*    background: #00bb00;*/
+  /*  }*/
+  /*}*/
+  /*.box1{*/
+  /*  display: flex;*/
+  /*  !*flex-direction: column;*!*/
+  /*  !*flex-wrap: wrap;*!*/
+  /*  .b{*/
+  /*    width: 100px;*/
+  /*    background: aquamarine;*/
+  /*  }*/
+  /*  .c{*/
+  /*    background: #00bb00;*/
+  /*  }*/
+  /*}*/
+
+  .box2{
     display: flex;
+    width: 500px;
+    height: 200px;
+    background: orange;
     align-items: center;
-    /*flex-direction: row;*/
-    /*flex-wrap: nowrap;*/
-    /*flex-flow: row wrap;*/
-    /*justify-content: center;*/
-    /*align-items: center;*/
-
-    .left{
-      margin-left: 20px;
-    }
-    .right{
-      flex: 1;
-      text-align: right;
-      align-self: flex-start;
-    }
-
-
-    .item{
-      width: 40px;
-      height: 40px;
-      background: green;
-    }
-    .a{
-      width:40px;
-      height: 20px;
-      background: yellow;
-      /*flex-grow: 1;*/
+    .e{
+      /*flex-grow: 2; //放大比例*/
       /*flex-shrink: 0;*/
-      /*flex-basis: 100px;*/
-      /*flex: 1;*/
-      /*align-self: center;*/
-
+      width: 100px;
+      height: 40px;
+      background: aquamarine;
     }
-    .b{
-      width: 40px;
-      height: 20px;
-      background: green;
-      /*flex: 1;*/
+    .f{
       /*flex-grow: 1;*/
       /*flex-shrink: 1;*/
+      /*flex-basis: 80%;  //占据整个剩余空间的比例*/
+      align-self: flex-start; //以自己的方式对齐位置
+      flex: 1;
+      height: 30px;
+      background: #00bb00;
     }
-
-    /*.InputAddOn {*/
-      /*display: flex;*/
-    /*}*/
-
-    /*.InputAddOn-field {*/
-      /*flex: 1;*/
-    /*}*/
-
   }
+
 </style>
