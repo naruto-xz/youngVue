@@ -6,47 +6,42 @@
       <!--布局-->
       <!--<basis-layout></basis-layout>-->
       <!--<flex></flex>-->
-      <grid-layout></grid-layout>
-      <!--<div class="select-option" v-for="item in list" @click="show(item.value)">{{item.name}}</div>-->
-      <!--<transition v-if="'transition'==currentModule"></transition>-->
-      <!--<transform v-if="'transform'==currentModule"></transform>-->
-<!--      <vision-diff></vision-diff>-->
-<!--      <other></other>-->
+      <!--<grid-layout></grid-layout>-->
+      <!--其它渲染样式-->
+      <other></other>
+      <!--位置效果 转换、过渡-->
+      <!--<transform></transform>-->
+      <!--<transition></transition>-->
+      <!--<vision-diff></vision-diff>-->
+
     </div>
 </template>
 
 <script>
-    import basisLayout from './basisLayout.vue'
     import basis from './basis.vue'
+    import basisLayout from './basisLayout.vue'
     import flex from './flex.vue'
+    import gridLayout from "./gridLayout";
+    import other from "./other";
     import transition from './transition.vue'
     import transform from './transform.vue'
-    import gridLayout from "./gridLayout";
     import visionDiff from "./visionDiff";
-    import other from "./other";
     export default {
         components:{
           basis,
           basisLayout,
           flex,
           gridLayout,
+          other,
           transition,
           transform,
           visionDiff,
-          other
         },
         data(){
           return {
             title: 'CSS3系列属性',
-            list: [{name:'过渡',value:'transition'},{name:'转换',value:'transform'},{name:'渐变',value:'gradient'}],
-            currentModule: ''
           }
         },
-      methods:{
-          show(value){
-            this.currentModule = value;
-          }
-      }
     }
 </script>
 
