@@ -7,6 +7,7 @@ import es5 from "../module/es5/index.vue"
 import h5 from "../module/html/index.vue"
 import css3 from "../module/css3/index.vue"
 import less from "../module/less/index.vue"
+import sass from "../module/sass/index.vue"
 import components from "../components/index.vue"
 import index from "../module/index/index.vue"
 import vuex from "../module/vuex/vuex.vue"
@@ -90,6 +91,10 @@ var routes = [
   {
     path: "/less",
     component: less
+  },
+  {
+    path: "/sass",
+    component: sass
   },
   {
     path: "/components",

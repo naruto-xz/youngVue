@@ -8,7 +8,7 @@
       <!--<flex></flex>-->
       <!--<grid-layout></grid-layout>-->
       <!--其它渲染样式-->
-      <other></other>
+      <!--<other></other>-->
       <!--位置效果 转换、过渡-->
       <!--<transform></transform>-->
       <!--<transition></transition>-->
