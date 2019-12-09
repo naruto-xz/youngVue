@@ -33,8 +33,12 @@
           // Vue.http.get('/someUrl',[options]).then(successCallback, errorCallback);
           // Vue.http.post('/someUrl',[body],[options]).then(successCallback, errorCallback);
           // 在一个Vue实例内使用$http
-          // this.$http.get('/someUrl',[options]).then(sucessCallback, errorCallback);
-          // this.$http.post('/someUrl',[body],[options]).then(successCallback, errorCallback);
+          // this.$http.get('get.php',{params : {a:1,b:2}}).then(res=>{
+          //   console.log('success');
+          // });
+          // this.$http.post('/post.php',{a:1,b:2}).then(res=>{
+          //   console.log('success');
+          // });
 
           // this.$http.get(
           //   '/static/data/test.json'
@@ -42,18 +46,16 @@
           //   console.log(res);
           // });
 
-          store.getName().then(res=>{
-            console.log(res.apple); //苹果
-          })
-
-          // Accept: application/json, text/plain,    浏览器能够处理的内容类型
-          // Accept-Encoding: gzip, deflate, br   浏览器能够处理的压缩编码
-          // Accept-Language: zh-CN,zh;q=0.9,en;q=0.8   浏览器当前设置的语言
-          // Connection: keep-alive   浏览器与服务器的连接类型
-          // Cookie: themeValue=skinBlue; loginName=admin; tokenId=f56692d9445589189391db23c4f4b9ca   当前页面设置的任何cookie
-          // Host: localhost:9999   发送请求的所在域
-          // Referer: http://localhost:9999/index.html    发送请求的url
-          // tokenId: f56692d9445589189391db23c4f4b9ca
+          // this.axios.get('/static/data/test.json', {params: {a:1,b:2}}).then(res => {
+          //   console.log(res.data.apple);  //苹果
+          // });
+          // this.axios.post('/static/data/test.json', {a:1,b:2}).then(res => {
+          //   console.log(res.data.apple);  //苹果
+          // });
+          //封装完成后的请求
+          // store.getName().then(res=>{
+          //   console.log(res.apple); //苹果
+          // })
 
         }
       },

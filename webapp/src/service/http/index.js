@@ -6,7 +6,8 @@ window.$http = function (options) {
   var config = {
     url: url,
     method: method,
-    data: data
+    data: data,
+    // timeout: 1000,  //超时配置
   };
   if (method == "get") {
     config.params = data;   //get使用的是params, post使用的是data
@@ -17,7 +18,9 @@ window.$http = function (options) {
   }else {
     headers["Content-Type"] = "application/json;charset=UTF-8";
   }
-  // headers.tokenId = Sunset.getCookie("tokenId"); //获取tokenId 请求的时候要带上
+  // let token = window.sessionStorage.getItem('token')
+  // config.headers.token = `${token}`; //设置token
+  // config.headers['content-type'] = 'application/x-www-form-urlencoded;charset=UTF-8';
   config.headers = headers;
   if(options.responseType){
     config.responseType = options.responseType;

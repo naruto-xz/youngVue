@@ -20,6 +20,8 @@ Vue.use(Vuex);
 import VueResource from "vue-resource";
 Vue.use(VueResource);
 
+import axios from 'axios'
+Vue.prototype.axios = axios;
 
 //加载element-ui组件
 // import ElementUI from "element-ui";   //这是导入element-ui所有组件
