@@ -1,7 +1,6 @@
 import route from "../module/route/index.vue" //带子路由
 import module from "../module/module.js" //子路由下的模块配置
 import vue from "../module/vue/index.vue"
-import webpack from "../module/webpack/index.vue"
 import es6 from "../module/es6/index.vue"
 import es5 from "../module/es5/index.vue"
 import h5 from "../module/html/index.vue"
@@ -67,10 +66,6 @@ var routes = [
   {
     path: "/vue",
     component: vue
-  },
-  {
-    path: "/webpack",
-    component: webpack
   },
   {
     path: "/es6",
