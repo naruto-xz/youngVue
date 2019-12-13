@@ -6,6 +6,28 @@ var toolkit = {
   isObject: function(value) {
       return value !== null && typeof value === "object";
   },
+  debounce (fn, wait = 2000) {
+    let timeout = null;
+    return function (...rest) {
+      clearTimeout(timeout);
+      timeout = setTimeout(()=>{
+        fn.apply(this, rest)
+      }, wait)
+    }
+  },
+  throttle (fn, wait = 2000) {
+    let flag = false;
+    return function (...rest) {
+      if (flag) {
+        return;
+      }
+      flag = true;
+      setTimeout(()=>{
+        fn.apply(this, rest);
+        flag = false;
+      }, wait)
+    }
+  }
 };
 export default toolkit;
 

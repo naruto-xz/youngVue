@@ -21,13 +21,17 @@
 
         },
         operate1 () {
-          let str = ' abc de ';
-          let str1 = str.replace(/(^\s*)|(\s*$)/g, ''); console.log(str1);  //abc de
-          let str2 =  str.replace(/\s/g, ''); console.log(str2);  //abcde
-          let reg = /ab/g;
-          let flag = reg.test(str); console.log(flag);  //true
-          let reg1 = new RegExp('ab', 'g');
-          let flag1 = reg1.test(str); console.log(flag1); //true
+          // let str = ' abc de ';
+          // let str1 = str.replace(/(^\s*)|(\s*$)/g, ''); console.log(str1);  //abc de
+          // let str2 =  str.replace(/\s/g, ''); console.log(str2);  //abcde
+          // let reg = /ab/g;
+          // let flag = reg.test(str); console.log(flag);  //true
+          // let reg1 = new RegExp('ab', 'g');
+          // let flag1 = reg1.test(str); console.log(flag1); //true
+
+          let reg3 = /[0-9A-Z]{3,5}/g;
+          let str3 = 'A999';
+          console.log(reg3.test(str3));
         }
       },
       mounted() {
@@ -50,6 +54,7 @@
 
         // this.operate();
         this.operate1();
+
 
       }
     }

@@ -29,10 +29,11 @@
       <!--创建对象的4种方式-->
       <!--<created-object></created-object>-->
       <!--继承-->
-      <inherit></inherit>
+      <!--<inherit></inherit>-->
 
 
       <!--高级技巧-->
+      <fangdou></fangdou>
       <!--<hight-skill></hight-skill>-->
     </div>
 </template>
@@ -52,7 +53,8 @@
   import prototype from "./high/prototype.vue"
   import createdObject from "./high/createdObject.vue"
   import inherit from "./high/inherit.vue"
-  import highSkill from "./high/highSkill.vue"
+  import fangdou from "./skill/fangdou.vue"
+  // import highSkill from "./skill/highSkill.vue"
 
 
   export default {
@@ -71,7 +73,7 @@
        prototype,
        createdObject,
        inherit,
-       highSkill
+       fangdou
      }
   }
 </script>
