@@ -33,7 +33,10 @@
 
 
       <!--高级技巧-->
-      <fangdou></fangdou>
+      <!--防抖和截流-->
+      <!--<fangdou></fangdou>-->
+      <!--树结构-->
+      <!--<tree-data></tree-data>-->
       <!--<hight-skill></hight-skill>-->
     </div>
 </template>
@@ -54,6 +57,7 @@
   import createdObject from "./high/createdObject.vue"
   import inherit from "./high/inherit.vue"
   import fangdou from "./skill/fangdou.vue"
+  import treeData from "./skill/treeData.vue"
   // import highSkill from "./skill/highSkill.vue"
 
 
@@ -73,7 +77,8 @@
        prototype,
        createdObject,
        inherit,
-       fangdou
+       fangdou,
+       treeData
      }
   }
 </script>
