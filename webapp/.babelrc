@@ -4,17 +4,6 @@
     "stage-0"
   ],
   "plugins": [
-    "transform-runtime",
-    "transform-remove-strict-mode"
-//    ["import", {
-//      "libraryName": "iview",
-//      "libraryDirectory": "src/components"
-//    }]
-//    [
-//      {
-//        "libraryName": "element-ui",
-//        "styleLibraryName": "theme-chalk"
-//      }
-//    ]
+    "transform-runtime"
   ]
 }

@@ -9,13 +9,16 @@ window.$toolkit = toolkit;
 // 导入公共服务
 import "./service/http/index.js"
 
+import ido from 'ido-share';
+console.log(ido.add(1,2));
+// debugger;
 
 import Vue from 'vue'
 import Router from 'vue-router'
 Vue.use(Router);  //表示使用router
 
-import Vuex from 'vuex'
-Vue.use(Vuex);
+// import Vuex from 'vuex'
+// Vue.use(Vuex);
 
 import VueResource from "vue-resource";
 Vue.use(VueResource);
@@ -86,20 +89,20 @@ router.afterEach((to, from) => {
 //   next();
 // });
 
-import moduleBoy from '../src/module/vuex/moduleBoy.js';
-import moduleGirl from "./module/vuex/moduleGirl.js";
-var store = new Vuex.Store({
-  //用来将store分割到不同模块，每个modules拥有自己的state,mutations,actions,不同的module管理一个部分的公共数据交换
-  modules: {
-    boy: moduleBoy,
-    girl: moduleGirl,
-  }
-});
+// import moduleBoy from '../src/module/vuex/moduleBoy.js';
+// import moduleGirl from "./module/vuex/moduleGirl.js";
+// var store = new Vuex.Store({
+//   //用来将store分割到不同模块，每个modules拥有自己的state,mutations,actions,不同的module管理一个部分的公共数据交换
+//   modules: {
+//     boy: moduleBoy,
+//     girl: moduleGirl,
+//   }
+// });
 
 
 new Vue({
   router,
-  store,
+  // store,
   el: '#app',   //挂载点
   render: (h) => h(App)  //起步文件，路由切换入口
 });
