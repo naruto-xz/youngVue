@@ -38,6 +38,7 @@
       <!--树结构-->
       <!--<tree-data></tree-data>-->
       <!--<hight-skill></hight-skill>-->
+
     </div>
 </template>
 
@@ -78,7 +79,7 @@
        createdObject,
        inherit,
        fangdou,
-       treeData
+       treeData,
      }
   }
 </script>
