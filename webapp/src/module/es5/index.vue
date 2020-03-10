@@ -37,6 +37,8 @@
       <!--<fangdou></fangdou>-->
       <!--树结构-->
       <!--<tree-data></tree-data>-->
+      <!--排序-->
+      <sort></sort>
       <!--<hight-skill></hight-skill>-->
     </div>
 </template>
@@ -58,6 +60,7 @@
   import inherit from "./high/inherit.vue"
   import fangdou from "./skill/fangdou.vue"
   import treeData from "./skill/treeData.vue"
+  import sort from "./skill/sort.vue"
   // import highSkill from "./skill/highSkill.vue"
 
 
@@ -78,7 +81,8 @@
        createdObject,
        inherit,
        fangdou,
-       treeData
+       treeData,
+       sort
      }
   }
 </script>
