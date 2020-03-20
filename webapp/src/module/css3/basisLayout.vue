@@ -15,6 +15,11 @@
     <div class="align">
       <div class="e">e</div>
     </div>
+    <div class="vertical">
+<!--      <img src="./test.jpg"></img>-->
+      <Icon type="md-add-circle" />
+      <span class="text">文本</span>
+    </div>
   </div>
 </template>
 
@@ -184,7 +189,26 @@ export default {
     /*    margin: auto;*/   //核心平分父元素剩余空间
     /*  }*/
     /*}*/
-
-
+    .vertical{
+      width: 100px;
+      height: 100px;
+      /*line-height: 100px;*/
+      border: 1px solid #ccc;
+      i{
+        font-size: 30px;
+      }
+      img{
+        width: 60px;
+        height: 60px;
+        vertical-align: middle;
+      }
+      .text {
+        /*display: inline-block;*/
+        /*width: 100px;*/
+        /*height: 100px;*/
+        /*border: 1px solid #ccc;*/
+        vertical-align: middle;
+      }
+    }
   }
 </style>

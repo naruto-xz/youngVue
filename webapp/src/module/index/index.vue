@@ -1,5 +1,5 @@
 <template>
-    <div>准备开始你的vue旅程</div>
+    <div v-stat="{action: 'search', module: '首页模块'}">准备开始你的vue旅程</div>
 </template>
 
 <script>

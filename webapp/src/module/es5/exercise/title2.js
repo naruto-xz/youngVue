@@ -24,6 +24,18 @@ function throttle (fn, wait) {
   }
 }
 
+//函数防抖
+function debounce1(fn, time = 1000) {
+  let timer = null;
+  let self = this;
+  return function(...rest){
+    clearTimeout(timer);
+    timer = setTimeout(()=> {
+      fn.apply(self, rest);
+    }, time)
+  }
+}
+
 //冒泡排序
 let arr = [2,8,6,4,10];
 for (let i = 0; i<arr.length - 1; i++) {

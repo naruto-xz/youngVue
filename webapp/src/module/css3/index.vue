@@ -4,7 +4,7 @@
       <!--基础-->
       <!--<basis></basis>-->
       <!--布局-->
-      <!--<basis-layout></basis-layout>-->
+      <basis-layout></basis-layout>
       <!--<flex></flex>-->
       <!--<grid-layout></grid-layout>-->
       <!--其它渲染样式-->

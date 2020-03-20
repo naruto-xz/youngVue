@@ -54,13 +54,14 @@
       <!--</div>-->
 
         <!--递归组件-->
-        <recursive-component :list="trees"></recursive-component>
+<!--        <recursive-component :list="trees"></recursive-component>-->
 
 <!--      $nextTick-->
 <!--      <div>-->
 <!--        <button @click="show">$nextTick</button>-->
 <!--        <div id="next" v-if="isShow">{{next}}</div>-->
 <!--      </div>-->
+      <inject-component></inject-component>
 
     </div>
 </template>
@@ -78,6 +79,7 @@
     import asynComponent from "./asynComponent.vue"
     import recursiveComponent from "./recursiveComponent.vue"
     import recursiveData from "./recursiveData.vue"
+    import injectComponent from "./injectComponent.vue"
     export default {
       components:{
         partComponent,
@@ -91,8 +93,14 @@
         componentB,
         asynComponent,
         recursiveComponent,
+        injectComponent
       },
       mixins: [recursiveData],
+      provide(){
+        return {
+          age: this.age
+        }
+      },
       data(){
         return{
           title: "vue组件",
