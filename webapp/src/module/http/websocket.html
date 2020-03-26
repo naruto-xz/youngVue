@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+  let socket = new WebSocket('ws://localhost:3000');  //ws是websocket的协议
+  socket.onopen = function () {
+    socket.send("我爱你");
+  };
+  socket.onmessage =  function (e) {
+    console.log(e.data);  //我不爱你
+  }
+</script>
+<script>
+  let WebSocket = require('ws');
+  let wss = new WebSocket.Server({prot: 3000});
+  wss.on('connection', function (ws) {
+    ws.on('message', function (data) {
+      ws.send(data);
+    })
+  })
+</script>

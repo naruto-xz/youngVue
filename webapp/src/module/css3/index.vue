@@ -13,7 +13,8 @@
       <!--<transform></transform>-->
       <!--<transition></transition>-->
       <!--<vision-diff></vision-diff>-->
-
+      <!--css变量-->
+      <variable></variable>
     </div>
 </template>
 
@@ -26,6 +27,7 @@
     import transition from './transition.vue'
     import transform from './transform.vue'
     import visionDiff from "./visionDiff";
+    import variable from "./variable";
     export default {
         components:{
           basis,
@@ -36,6 +38,7 @@
           transition,
           transform,
           visionDiff,
+          variable
         },
         data(){
           return {

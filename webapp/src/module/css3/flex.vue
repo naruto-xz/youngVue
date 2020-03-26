@@ -4,6 +4,11 @@
       <div class="box">
         <div class="a">a</div>
       </div>
+      <!--最后一项右对齐-->
+      <div class="box-right">
+        <div class="a">a</div>
+        <div class="b">b</div>
+      </div>
       <!--父容器属性-->
       <div class="box1">
         <div class="b">b</div>
@@ -24,18 +29,29 @@
 
 <style lang="less" scoped>
   //水平垂直居中
-  /*.box{*/
-  /*  display: flex;*/
-  /*  justify-content: center;  //子元素定宽不定宽都可以水平居中*/
-  /*  align-items: center;  //子元素定高不定高都可以垂直居中*/
-  /*  background: aquamarine;*/
-  /*  height: 200px;*/
-  /*  .a{*/
-  /*    width: 100px;*/
-  /*    height: 40px;*/
-  /*    background: #00bb00;*/
-  /*  }*/
-  /*}*/
+  .box{
+    display: flex;
+    justify-content: center;  //子元素定宽不定宽都可以水平居中
+    align-items: center;  //子元素定高不定高都可以垂直居中
+    background: aquamarine;
+    height: 200px;
+    .a{
+      width: 100px;
+      height: 40px;
+      background: #00bb00;
+    }
+  }
+  .box-right{
+    display: flex;
+    /*justify-content: space-between;*/
+    background: antiquewhite;
+    .a{
+      width: 200px;
+    }
+    .b{
+      margin-left: auto;
+    }
+  }
   /*.box1{*/
   /*  display: flex;*/
   /*  !*flex-direction: column;*!*/
