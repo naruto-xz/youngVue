@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div>准备开始你的vue旅程</div>
+    <div v-stat="{action: 'search', module: '首页模块'}">准备开始你的vue旅程</div>
     <div id="div1" @drop="drop($event)" @dragover="allowDrop($event)"></div>
     <br />
     <p id="drag1" draggable="true" @dragstart="drag($event)">这是一段可移动的段落。请把该段落拖入上面的矩形。</p>
@@ -14,7 +14,6 @@
       <!--</transition-group>-->
     <!--</draggable>-->
   <!--</div>-->
-
 </template>
 
 <script>

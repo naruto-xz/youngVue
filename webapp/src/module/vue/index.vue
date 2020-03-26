@@ -15,7 +15,7 @@
       <!--高级语法 表单应用-->
       <!--<vue-form></vue-form>-->
       <!--组件-->
-      <!--<vue-component></vue-component>-->
+      <vue-component></vue-component>
       <!--过渡-->
       <!--<transition></transition>-->
       <!--混入-->
@@ -23,9 +23,10 @@
       <!--自定义指令-->
       <!--<directive></directive>-->
       <!--render函数-->
-      <render></render>
+      <!--<render></render>-->
       <!--JSX-->
       <!--<jsx></jsx>-->
+
     </div>
 </template>
 

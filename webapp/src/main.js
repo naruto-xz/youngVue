@@ -63,6 +63,14 @@ Vue.filter("formateDate",(value)=>{
   return `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()} ${date.getHours()}:${date.getMinutes()}:${date.getMinutes()}`;
 });
 
+//注册一个全局指令
+Vue.directive('stat', (el, binding)=> {
+  el.addEventListener('click', ()=>{
+    let params = binding;
+    console.log(params);
+  });
+});
+
 // import loading from "../src/test/loading.js"
 // Vue.use(loading);
 // window.aaa =  loading;
