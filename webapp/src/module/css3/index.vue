@@ -4,7 +4,7 @@
       <!--基础-->
       <!--<basis></basis>-->
       <!--布局-->
-      <basis-layout></basis-layout>
+      <!--<basis-layout></basis-layout>-->
       <!--<flex></flex>-->
       <!--<grid-layout></grid-layout>-->
       <!--其它渲染样式-->
@@ -13,6 +13,11 @@
       <!--<transform></transform>-->
       <!--<transition></transition>-->
       <!--<vision-diff></vision-diff>-->
+
+      <!--移动端-->
+      <!--<media></media>-->
+      <rem></rem>
+
 
     </div>
 </template>
@@ -26,6 +31,8 @@
     import transition from './transition.vue'
     import transform from './transform.vue'
     import visionDiff from "./visionDiff";
+    import media from "./media";
+    import rem from "./rem";
     export default {
         components:{
           basis,
@@ -36,6 +43,8 @@
           transition,
           transform,
           visionDiff,
+          media,
+          rem
         },
         data(){
           return {
