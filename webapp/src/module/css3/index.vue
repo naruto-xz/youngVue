@@ -13,12 +13,11 @@
       <!--<transform></transform>-->
       <!--<transition></transition>-->
       <!--<vision-diff></vision-diff>-->
-
+      <!--css变量-->
+      <variable></variable>
       <!--移动端-->
       <!--<media></media>-->
       <rem></rem>
-
-
     </div>
 </template>
 
@@ -31,6 +30,7 @@
     import transition from './transition.vue'
     import transform from './transform.vue'
     import visionDiff from "./visionDiff";
+    import variable from "./variable";
     import media from "./media";
     import rem from "./rem";
     export default {
@@ -43,6 +43,7 @@
           transition,
           transform,
           visionDiff,
+          variable,
           media,
           rem
         },

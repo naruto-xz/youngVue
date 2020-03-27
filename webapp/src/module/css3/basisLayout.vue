@@ -32,21 +32,21 @@ export default {
   .layout{
     //1.利用float + calc
     /*.content{*/
-    /*  width: 500px;*/
-    /*  height: 100px;*/
-    /*  background: orange;*/
-    /*  .a{*/
-    /*    float: left;*/
-    /*    width: 100px;*/
-    /*    height: 100%;*/
-    /*    background: #00bb00;*/
-    /*  }*/
-    /*  .b{*/
-    /*    float: left;*/
-    /*    width: calc(100% - 100px);*/
-    /*    height: 100%;*/
-    /*    background: aquamarine;*/
-    /*  }*/
+      /*width: 500px;*/
+      /*height: 100px;*/
+      /*background: orange;*/
+      /*.a{*/
+        /*float: left;*/
+        /*width: 100px;*/
+        /*height: 100%;*/
+        /*background: #00bb00;*/
+      /*}*/
+      /*.b{*/
+        /*float: left;*/
+        /*width: calc(100% - 100px);*/
+        /*height: 100%;*/
+        /*background: aquamarine;*/
+      /*}*/
     /*}*/
     //2.利用inline-block + calc (要给父级加font-size: 0，子级重加font-size，处理换行符解析成空格的间隙问题)
     /*.content{*/
@@ -108,34 +108,34 @@ export default {
     /*}*/
     //5.flex布局
     /*.content{*/
-    /*  width: 500px;*/
-    /*  height: 200px;*/
-    /*  background: orange;*/
-    /*  display: flex;*/
-    /*  .a{*/
-    /*    width: 100px;*/
-    /*    height: 100%;*/
-    /*    background: #00bb00;*/
-    /*  }*/
-    /*  .b{*/
-    /*    height: 100%;*/
-    /*    background: aquamarine;*/
-    /*    flex: 1;*/
-    /*  }*/
+      /*width: 500px;*/
+      /*height: 200px;*/
+      /*background: orange;*/
+      /*display: flex;*/
+      /*.a{*/
+        /*width: 100px;*/
+        /*height: 100%;*/
+        /*background: #00bb00;*/
+      /*}*/
+      /*.b{*/
+        /*height: 100%;*/
+        /*background: aquamarine;*/
+        /*flex: 1;*/
+      /*}*/
     /*}*/
     //6.grid布局
     /*.content{*/
-    /*  width: 500px;*/
-    /*  height: 200px;*/
-    /*  background: orange;*/
-    /*  display: grid;*/
-    /*  grid-template-columns: 100px auto;*/
-    /*  .a{*/
-    /*    background: #00bb00;*/
-    /*  }*/
-    /*  .b{*/
-    /*    background: aquamarine;*/
-    /*  }*/
+      /*width: 500px;*/
+      /*height: 200px;*/
+      /*background: orange;*/
+      /*display: grid;*/
+      /*grid-template-columns: 100px auto;*/
+      /*.a{*/
+        /*background: #00bb00;*/
+      /*}*/
+      /*.b{*/
+        /*background: aquamarine;*/
+      /*}*/
     /*}*/
 
     //浮动

@@ -13,12 +13,13 @@ module.exports = {
   disableHostCheck: true, //绕过热跟新检查
 
   // 默认情况下，不接受运行在 HTTPS 上，且使用了无效证书的后端服务器。如果你想要接受，修改配置如下：
-  // proxy: {
-  //   "/api": {
-  //     target: "https://other-server.example.com",
-  //     secure: false
-  //   }
-  // }
+  proxy: {
+    "/sugrec": {
+      target: "https://www.baidu.com",
+      changeOrigin: true,
+      secure: false //如果是https接口，需要配置这个参数
+    }
+  }
 
     // proxy: {
     //     '/gateway/*': {

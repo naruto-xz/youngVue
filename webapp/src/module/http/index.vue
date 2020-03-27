@@ -1,6 +1,6 @@
 <template>
   <div>
-    <!--<h5>{{title}}</h5>-->
+    <h5>{{title}}</h5>
   </div>
 </template>
 
@@ -56,6 +56,14 @@
           // store.getName().then(res=>{
           //   console.log(res.apple); //苹果
           // })
+
+          //跨域请求
+          this.axios.get('/sugrec', {params: {prod: 'pc', wd: '文章'}}).then(res => {
+            console.log(res);
+          });
+          this.axios.post('/sugrec', {prod: 'pc', wd: '文章'}).then(res => {
+            console.log(res);
+          });
 
         }
       },
