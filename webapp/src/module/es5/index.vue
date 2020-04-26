@@ -14,7 +14,7 @@
       <!--日期-->
       <!--<date></date>-->
       <!--正则表达式-->
-      <!--<regexp></regexp>-->
+      <regexp></regexp>
       <!--函数基础-->
       <!--<function-base></function-base>-->
       <!--闭包-->

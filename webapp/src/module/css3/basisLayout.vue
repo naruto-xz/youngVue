@@ -70,22 +70,22 @@ export default {
     /*  }*/
     /*}*/
     //3.float + overflow  利用overflow: hidden 形成BFC,防止浮动的影响
-    /*.content{*/
-    /*  width: 500px;*/
-    /*  height: 200px;*/
-    /*  background: orange;*/
-    /*  .a{*/
-    /*    float: left;*/
-    /*    width: 100px;*/
-    /*    height: 100%;*/
-    /*    background: #00bb00;*/
-    /*  }*/
-    /*  .b{*/
-    /*    overflow: hidden;*/
-    /*    height: 100%;*/
-    /*    background: aquamarine;*/
-    /*  }*/
-    /*}*/
+    .content{
+      width: 500px;
+      height: 200px;
+      background: orange;
+      .a{
+        float: left;
+        width: 100px;
+        height: 100%;
+        background: #00bb00;
+      }
+      .b{
+        overflow: hidden;
+        height: 100%;
+        background: aquamarine;
+      }
+    }
     //4.absolute
     /*.content{*/
     /*  width: 500px;*/

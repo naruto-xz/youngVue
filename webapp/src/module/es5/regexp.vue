@@ -6,18 +6,23 @@
     export default {
       methods: {
         operate () {
-          //去除字符串首尾空白符的函数
-          let str = '  1 23  ';
-          str = str.replace(/(^\s*)|(\s*$)/g, '');
-          console.log(str); //1 23
-          console.log(str.length);  //4
-
           //去除全部空格
           let str1 = '  1 23  ';
           str1 = str1.replace(/\s/g, '');
           console.log(str1);  //123
           console.log(str1.length); //3
 
+          //去除字符串首尾空白符的函数
+          let str = '  1 23  ';
+          str = str.replace(/(^\s*)|(\s*$)/g, '');
+          console.log(str); //1 23
+          console.log(str.length);  //4
+
+          //去除连续的空格（长度大于2）
+          let str2 = '12   3 4  56';
+          // str2 = str2.replace(/\s{2,}/g, '');
+          str2 = str2.replace(/\s?/g, '');
+          console.log(str2);  //123 456
 
         },
         operate1 () {
@@ -52,8 +57,8 @@
 
         // test是正则表达式的一个实例方法，用来检测是否与模式匹配
 
-        // this.operate();
-        this.operate1();
+        this.operate();
+        // this.operate1();
 
 
       }

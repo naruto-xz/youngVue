@@ -4,7 +4,7 @@
       <!--基础-->
       <!--<basis></basis>-->
       <!--布局-->
-      <!--<basis-layout></basis-layout>-->
+      <basis-layout></basis-layout>
       <!--<flex></flex>-->
       <!--<grid-layout></grid-layout>-->
       <!--其它渲染样式-->
@@ -14,10 +14,10 @@
       <!--<transition></transition>-->
       <!--<vision-diff></vision-diff>-->
       <!--css变量-->
-      <variable></variable>
+      <!--<variable></variable>-->
       <!--移动端-->
       <!--<media></media>-->
-      <rem></rem>
+      <!--<rem></rem>-->
     </div>
 </template>
 
